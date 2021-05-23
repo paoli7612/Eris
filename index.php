@@ -9,10 +9,7 @@
         }
     }
 
-    $corsi = [
-        new Corso('Analisi matematica 1'),
-        new Corso('Algebra lineare'),
-        new Corso('Programmazione 1')
-    ];
+    $corsi = array();
 
+    $pdo = new PDO("mysql:host=127.0.0.1;dbname=eris", 'paoli7612', '7612');
     include "index.view.php";
