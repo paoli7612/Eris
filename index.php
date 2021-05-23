@@ -22,9 +22,6 @@
 
     $statement->execute();
 
-    print_r($statement->fetchAll(PDO::FETCH_ASSOC));
+    $corsi = $statement->fetchAll(PDO::FETCH_OBJ);
 
-
-
-
-    include "index.view.php";
+    include "views/index.view.php";

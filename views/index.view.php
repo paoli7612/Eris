@@ -5,7 +5,11 @@
     <body>
         <?= "Hello world!" ?>
 
-        <?php var_dump($corsi) ?>
+        <?php foreach ($corsi as $corso): ?>
+
+            <h1><?= $corso->titolo ?></h1>
+
+        <?php endforeach ?>
 
     </body>
 </html>
