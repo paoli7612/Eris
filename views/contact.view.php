@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Home</title>
+        <title>Contact</title>
     </head>
     <body>
         
