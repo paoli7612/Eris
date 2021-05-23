@@ -4,5 +4,8 @@
     </head>
     <body>
         <?= "Hello world!" ?>
+
+        <?php var_dump($corsi) ?>
+
     </body>
 </html>
