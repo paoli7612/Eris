@@ -1,20 +1,15 @@
 <?php
-    require 'corso.php';
-    
-
-    $corsi = array();
-
-
+    require 'core/corso.php';
+    require 'core/Connection.php';
+    require 'core/QueryBuilder.php';
     try {
-        $pdo = new PDO("mysql:host=127.0.0.1;dbname=eris", 'paoli7612', '7612');
-    } catch (PDOException $e) {
-        die('Connesione con il database fallita');
+        $connection = new Connection('127.0.0.1', 'eris', 'paoli7612', '7612');
+        $queryBuilder = new QueryBuilder($connection);
+    } catch (Exception $e) {
+        print_r($e);
     }
+        
 
-    $statement = $pdo->prepare("SELECT * FROM corsi;");
-
-    $statement->execute();
-
-    $corsi = $statement->fetchAll(PDO::FETCH_CLASS, 'Corso');
+    $corsi = $queryBuilder->selectAll('corsi');
 
     include "views/index.view.php";
