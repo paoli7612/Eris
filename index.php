@@ -16,4 +16,3 @@
     ];
 
     include "index.view.php";
-    
