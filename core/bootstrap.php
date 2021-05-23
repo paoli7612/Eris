@@ -6,8 +6,8 @@ require 'core/QueryBuilder.php';
 
 
 try {
-    $connection = new Connection('127.0.0.1', 'eris', 'paoli7612', '7612');
-    $queryBuilder = new QueryBuilder($connection);
+    $connection = new Connection($config['database']);
+    return new QueryBuilder($connection);
 } catch (PDOException $e) {
     print_r($e);
 }

@@ -1,11 +1,10 @@
 <?php
 
 
-require 'core/bootstrap.php';
+$config = require 'config.php';
 
+$query = require 'core/bootstrap.php';
 
-    
+$corsi = $query->selectAll('corsi', 'Corso');
 
-$corsi = $queryBuilder->selectAll('corsi', 'Corso');
-
-include "views/index.view.php";
+include "views/corsi.view.php";
