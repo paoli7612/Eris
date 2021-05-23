@@ -1,7 +1,7 @@
 <html>
-    <?php $title = 'Corsi'; include 'views/partials/head.php' ?>
+    <?php partial('head') ?>
     <body>
-        <?php include 'views/partials/bar.php' ?>
+        <?php partial('bar') ?>
 
         <?php foreach ($corsi as $corso): ?>
             <?= $corso->titolo ?>

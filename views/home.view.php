@@ -1,6 +1,6 @@
 <html>
-    <?php $title = 'Home'; require 'views/partials/head.php' ?>
+    <?php partial('head') ?>
     <body>
-        <?php include 'views/partials/bar.php' ?>
+        <?php partial('bar') ?>
     </body>
 </html>
