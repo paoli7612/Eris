@@ -1,13 +1,6 @@
 <?php
-
-    class Corso
-    {
-        private $titolo;
-        public function __construct($titolo)
-        {
-            $this->titolo = $titolo;
-        }
-    }
+    require 'corso.php';
+    
 
     $corsi = array();
 
@@ -22,6 +15,6 @@
 
     $statement->execute();
 
-    $corsi = $statement->fetchAll(PDO::FETCH_OBJ);
+    $corsi = $statement->fetchAll(PDO::FETCH_CLASS, 'Corso');
 
     include "views/index.view.php";
