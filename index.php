@@ -11,4 +11,8 @@ function partial($thing)
 require 'routes.php';
 $uri = trim($_SERVER['REQUEST_URI']);
 $method = $_SERVER['REQUEST_METHOD'];
-require $router->page($uri, $method);
+try {
+    require $router->page($uri, $method);
+} catch (Exception $e) {
+    require 'errors/404.html';
+}

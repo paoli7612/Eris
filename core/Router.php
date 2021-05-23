@@ -25,12 +25,16 @@ class Router
 
     public function page($uri, $method)
     {
-        $r = $this->routes[$method];
-
         $d = $this->routes['redirect'][$uri];
-        if (isset($d)) {
+        if (!is_null($d)) {
             header("Location: $d");
         }
-        return $r[$uri];
+
+        $r = $this->routes[$method];
+        if (array_key_exists($uri, $r)) {
+            return $r[$uri];
+        } else {
+            throw new Exception("eh no eh");
+        }
     }
 }
