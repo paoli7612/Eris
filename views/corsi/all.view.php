@@ -1,7 +1,6 @@
 <html>
-    <head>
-        <title>Eris - Corsi</title>
-    </head>
+    <?php $title = 'Corsi'; include 'views/partials/head.php' ?>
+
     <body>
         <?php foreach ($corsi as $corso): ?>
             <?= $corso->titolo ?>

@@ -1,7 +1,5 @@
 <html>
-    <head>
-        <title>Eris - Home</title>
-    </head>
+    <?php $title = 'Home'; require 'views/partials/head.php' ?>
     <body>
         Asdasdsadas
     </body>
