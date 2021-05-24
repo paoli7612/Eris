@@ -1,15 +1,13 @@
 <?php
-
-    require 'routes.php';
-
     $config = require 'config.php';
 
     $database = require 'core/bootstrap.php';
 
+    $uri = trim($_SERVER['REQUEST_URI'], '/');
+    $method = $_SERVER['REQUEST_METHOD'];
 
-    $controller = $router->direct(
-        trim($_SERVER['REQUEST_URI'], '/'),
-        $_SERVER['REQUEST_METHOD']
-    );
 
-    require $controller;
+
+
+    require Router::load('routes.php')
+        ->direct($uri, $method);

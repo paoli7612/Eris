@@ -1,8 +1,5 @@
 <?php
-    require 'core/Router.php';
-    $router = new Router;
-
-    $router->define([
+    return [
         '' => 'controllers/HomeController.php',
         'home' => 'controllers/HomeController.php'
-    ]);
+    ];

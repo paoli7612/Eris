@@ -1,2 +1,4 @@
+<?php
 
-asd
+
+    include 'views/home.view.php';
