@@ -1,5 +1,9 @@
 <?php
 
+    class Argomento
+    {
+    }
+
     class Corso
     {
         const NEW = 1;
@@ -8,4 +12,6 @@
         public $titolo;
         public $anno;
         public $idProfessore;
+
+        public $argomenti; // []
     }
