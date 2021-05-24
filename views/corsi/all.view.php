@@ -3,6 +3,12 @@
     <body>
         <?php partial('bar') ?>
         <div class="container">
+        
+            <div>
+                <a href="corsi/new" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
             <div class="row">
                 <?php foreach ($corsi as $corso): ?>
                     <div class="col p-3">
