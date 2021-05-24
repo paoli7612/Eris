@@ -1,20 +1,14 @@
 <?php
 
-require 'core/funcs.php';
+    $config = require 'config.php';
 
-$config = require 'config.php';
+    $query = require 'bootstrap.php';
 
-
-$query = require 'core/bootstrap.php';
-
+    require 'Corso.php';
 
 
-require 'routes.php';
-$uri = trim($_SERVER['REQUEST_URI']);
-$method = $_SERVER['REQUEST_METHOD'];
+    
+    $corsi = $query->selectAll('corsi', 'Corso');
 
-try {
-    require $router->page($uri, $method);
-} catch (Exception $e) {
-    require 'errors/404.html';
-}
+
+    require 'views/index.view.php';

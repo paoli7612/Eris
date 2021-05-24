@@ -1,8 +1,8 @@
 <html>
     <head>
-        <title>Contact</title>
+        <title>index</title>
     </head>
     <body>
-        
+        <h1>index</h1>
     </body>
 </html>
