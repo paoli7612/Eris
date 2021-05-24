@@ -14,7 +14,8 @@ CREATE TABLE `corsi` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `titolo` varchar(32) NOT NULL,
   `anno` int(4) NOT NULL,
-  `idProfessore` int(15) NOT NULL,
+  `semestre` int(2) NOT NULL,
+  `idProfessore` int(15),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idProfessore`)
     REFERENCES `professori` (`id`)
@@ -26,7 +27,12 @@ INSERT INTO `professori` (`id`,`nome`,`cognome`) VALUES
     (2,'Arrigo', 'Bonisoli'),
     (3,'Paolo', 'Valente');
 
-INSERT INTO `corsi` (`titolo`,`anno`,`idProfessore`) VALUES
-    ('Analisi matematica 1', 1, 1),
-    ('Algebra lineare', 1, 2),
-    ('Programmazione 1', 1, 3);
+
+INSERT INTO `corsi` (`titolo`,`anno`,`semestre`,`idProfessore`) VALUES
+    ('Analisi matematica 1', 1, 1, 1),
+    ('Algebra lineare', 1, 1, 2),
+    ('Programmazione 1', 1, 1, 3),
+
+    ('Algoritmi e strutture dati', 1, 2, NULL),
+    ('Architettura degli elaboratori', 1, 2, NULL),
+    ('Programmazione 2', 1, 2, NULL);
