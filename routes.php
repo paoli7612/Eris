@@ -3,10 +3,12 @@
     include 'core/Router.php';
     $router = new Router();
 
-    $router->get('/corsi', 'controllers/CorsiController.php');
-    $router->get('/corsi/new', 'controllers/CorsiController.php');
+    $router->get('/corsi', 'CorsiController@index');
+    $router->get('/corsi/new', 'CorsiController@new');
 
-    $router->get('/professori', 'controllers/ProfessoriController.php');
+    $router->get('/professori', 'ProfessoriController@index');
+    
+    $router->get('/argomenti', 'CorsiController@argomenti');
 
     $router->redirect('/', 'home');
-    $router->get('/home', 'controllers/HomeController.php');
+    $router->get('/home', 'HomeController@index');

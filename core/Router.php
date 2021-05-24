@@ -32,9 +32,17 @@ class Router
 
         $r = $this->routes[$method];
         if (array_key_exists($uri, $r)) {
-            return $r[$uri];
+            $this->call(
+                ...explode('@', $r[$uri])
+            );
         } else {
             throw new Exception("eh no eh");
         }
+    }
+    
+    protected function call($controller, $action)
+    {
+        $controller = require "controllers/$controller.php";
+        $controller->$action();
     }
 }
