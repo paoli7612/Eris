@@ -1,6 +1,8 @@
 <?php
 
-require 'core/Corso.php';
+require 'core/classes/Corso.php';
+require 'core/classes/Professore.php';
+
 require 'core/Connection.php';
 require 'core/QueryBuilder.php';
 

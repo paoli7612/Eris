@@ -1,6 +1,7 @@
 <?php
 
 $config = require 'config.php';
+
 $query = require 'core/bootstrap.php';
 
 function partial($thing)
