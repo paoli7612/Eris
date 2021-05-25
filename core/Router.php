@@ -24,7 +24,6 @@
                 throw new Exception('404');
             }
             
-            
             $dest = $this->routes[$uri];
             $this->call(
                 ... explode('@', $dest)
@@ -33,7 +32,7 @@
 
         protected function call($controllerName, $action)
         {
-            $controller = new HomeController;
+            $controller = new $controllerName;
             $controller->$action();
         }
     }

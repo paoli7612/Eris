@@ -1,8 +1,7 @@
 <html>
-    <?php $title = 'Index' ?>
-    <?php partial('head') ?>
+    <?php partial('head', ['title' => 'Home']) ?>
     <body>
-        <?php partial('bar') ?>
+        <?php partial('bar', []) ?>
         <div class="container">
             <h1>index</h1>
         </div>

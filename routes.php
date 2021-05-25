@@ -1,5 +1,6 @@
 <?php
     return [
-        '' => 'HomeController@index',
-        'home' => 'HomeController@index'
+        'home' => 'HomeController@index',
+        'corsi' => 'CorsiController@index',
+        'professori' => 'ProfessoriController@index'
     ];
