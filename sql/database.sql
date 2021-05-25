@@ -47,22 +47,34 @@ CREATE TABLE `insegna` (
 INSERT INTO professori (`id`, `nome`, `cognome`) VALUES
   (1, 'Mufasa', 'Terri'),
   (2, 'Antonio', 'Boncelli'),
-  (3, 'Vallico', 'Potente');
-  (4, 'Romano', 'Cavilli');
+  (3, 'Vallico', 'Potente'),
+  (4, 'Romano', 'Cavilli'),
 
-INSERT INTO insegna(`idProfessore`, `idCorso`) VALUES
-  (1, 1),
-  (2, 2),
-  (3, 3),
-  (4, 3);
+  (5, 'Mica', 'Monti'),
+  (6, 'Arte', 'Plagio'),
+  (7, 'Buca', 'Passaggi'),
+  (8, 'Rucola', 'Tolli');
 
 INSERT INTO corsi (`id`, `titolo`) VALUES
   (1, 'Analisi matematica 1'),
   (2, 'Algebra lineare'),
   (3, 'Programmazione 1'),
+
   (4, 'Algoritmi e strutture dati'),
   (5, 'Architettura degli elaboratori'),
   (6, 'Programmazione 2');
+
+INSERT INTO insegna(`idProfessore`, `idCorso`) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 3),
+  (5, 4),
+  (6, 5),
+  (7, 6),
+  (8, 6);
+
+
 
 INSERT INTO semestri (`id`, `parte`, `anno`) VALUES
   (1, 1, 1),
