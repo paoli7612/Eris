@@ -1,8 +1,11 @@
 <html>
-    <head>
-        <title>Home</title>
-    </head>
+    <?php $title = 'Index' ?>
+    <?php partial('head') ?>
     <body>
-        asd
+        <?php partial('bar') ?>
+        <div class="container">
+            <h1>index</h1>
+        </div>
+
     </body>
 </html>
