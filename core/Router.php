@@ -23,6 +23,17 @@
             if (!array_key_exists($uri, $this->routes)) {
                 throw new Exception('404');
             }
-            return $this->routes[$uri];
+            
+            
+            $dest = $this->routes[$uri];
+            $this->call(
+                ... explode('@', $dest)
+            );
+        }
+
+        protected function call($controllerName, $action)
+        {
+            $controller = new HomeController;
+            $controller->$action();
         }
     }

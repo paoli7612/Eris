@@ -1,5 +1,5 @@
 <?php
     return [
-        '' => 'controllers/HomeController.php',
-        'home' => 'controllers/HomeController.php'
+        '' => 'HomeController@index',
+        'home' => 'HomeController@index'
     ];
