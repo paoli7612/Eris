@@ -44,6 +44,17 @@ CREATE TABLE `insegna` (
     REFERENCES `professori` (`id`)
 ) ENGINE=InnoDB;
 
+CREATE TABLE `frequentato` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `idCorso` int(15) NOT NULL,
+  `idSemestre` int(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`idCorso`)
+    REFERENCES `corsi` (`id`),
+  FOREIGN KEY (`idSemestre`)
+    REFERENCES `semestri` (`id`)
+) ENGINE=InnoDB;
+
 INSERT INTO professori (`id`, `nome`, `cognome`) VALUES
   (1, 'Mufasa', 'Terri'),
   (2, 'Antonio', 'Boncelli'),
@@ -74,8 +85,6 @@ INSERT INTO insegna(`idProfessore`, `idCorso`) VALUES
   (7, 6),
   (8, 6);
 
-
-
 INSERT INTO semestri (`id`, `parte`, `anno`) VALUES
   (1, 1, 1),
   (2, 2, 1),
@@ -83,3 +92,11 @@ INSERT INTO semestri (`id`, `parte`, `anno`) VALUES
   (4, 2, 2),
   (5, 1, 3),
   (6, 2, 3);
+
+INSERT INTO frequentato(`idCorso`, `idSemestre`) VALUES
+  (1, 1),
+  (2, 1),
+  (3, 1),
+  (4, 2),
+  (5, 2),
+  (6, 2);
