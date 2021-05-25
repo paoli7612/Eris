@@ -45,9 +45,16 @@ CREATE TABLE `insegna` (
 ) ENGINE=InnoDB;
 
 INSERT INTO professori (`id`, `nome`, `cognome`) VALUES
-  (1, 'analisi', 'matematica'),
-  (2, 'algebra', 'lineare'),
-  (3, 'programmazione', '1');
+  (1, 'Mufasa', 'Terri'),
+  (2, 'Antonio', 'Boncelli'),
+  (3, 'Vallico', 'Potente');
+  (4, 'Romano', 'Cavilli');
+
+INSERT INTO insegna(`idProfessore`, `idCorso`) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 3);
 
 INSERT INTO corsi (`id`, `titolo`) VALUES
   (1, 'Analisi matematica 1'),
