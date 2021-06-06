@@ -1,3 +1,2 @@
 ## ERIS
-<img src="doc/img/Schermata%20del%202021-05-25%2017-59-59.png">
-<img src="doc/img/Schermata%20del%202021-05-25%2018-10-36.png">
+<img src="doc/img/Schermata del 2021-06-07 00-22-00.png">
