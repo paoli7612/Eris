@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\TeachersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
+
+Route::get('home', function () {
+    return view('home');
+});
+
+Route::get('courses', [CoursesController::class, 'index']);
+Route::get('courses/{slug}', [CoursesController::class, 'show']);
+
+Route::get('teachers', [TeachersController::class, 'index']);
+Route::get('teachers/{slug}', [TeachersController::class, 'show']);
