@@ -5,8 +5,16 @@
 @section('content')
     <h1>Corsi</h1>
 
-    @foreach ($courses as $course)
-        {{ $course->title }} <br>
-    @endforeach
+    <ul>
+    
+        @foreach ($courses as $course)
+            <li>
+                <a href="{{ $course->route() }}">
+                    {{ $course->title }}
+                </a>
+            </li>
+        @endforeach
+        
+    </ul>
     
 @endsection
