@@ -23,6 +23,14 @@ class CoursesController extends Controller
 
     public function store(Request $request)
     {
-        (Course::make($request->title, $request->year, $request->semester))->save();
+        $course = Course::make($request->title, $request->year, $request->semester);
+        $course->save();
+        return redirect($course->route());
+    }
+
+    public function delete($slug)
+    {
+        Course::where('slug', $slug)->delete();
+        return redirect('/courses');
     }
 }

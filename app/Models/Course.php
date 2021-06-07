@@ -21,6 +21,6 @@ class Course extends Model
 
     public function route()
     {
-        return 'courses/' . $this->slug;
+        return '/courses/' . $this->slug;
     }
 }

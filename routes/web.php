@@ -24,6 +24,7 @@ Route::get('home', function () {
 });
 
 Route::get('courses', [CoursesController::class, 'index']);
+Route::delete('courses/{slug}', [CoursesController::class, 'delete']);
 Route::get('courses/{slug}', [CoursesController::class, 'show']);
 Route::post('courses', [CoursesController::class, 'store']);
 
