@@ -23,6 +23,6 @@ class CoursesController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        (Course::make($request->title, $request->year, $request->semester))->save();
     }
 }

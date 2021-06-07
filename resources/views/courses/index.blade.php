@@ -33,9 +33,8 @@
       </table>
 
       <div>
-        <form action="#" method="HEAD">
+        <form method="POST" action="/courses" >
             @csrf
-            @method('POST')
             <div class="row">
                 <div class="form-group col-6">
                     <label for="title">Titolo</label>
