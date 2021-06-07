@@ -20,4 +20,9 @@ class CoursesController extends Controller
             'course' => Course::where('slug', $slug)->first()
         ]);
     }
+
+    public function store(Request $request)
+    {
+        dd($request);
+    }
 }
