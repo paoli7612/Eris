@@ -4,10 +4,7 @@
 
 @section('content')
     <h1>Corsi</h1>
-
-
-    
-    <table class="table">
+    <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -17,7 +14,7 @@
         </thead>
         <tbody>
             @foreach ($courses as $course)
-                <tr href="{{ $course->route() }}">
+                <tr onclick="window.location='{{ $course->route() }}'">
                     <th scope="row">
                         {{ $course->id }}
                     </th>
