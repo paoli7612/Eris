@@ -17,6 +17,8 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('slug');
             $table->string('title');
+            $table->integer('year');
+            $table->timestamps();
         });
     }
 
