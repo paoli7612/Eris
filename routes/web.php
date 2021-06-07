@@ -25,6 +25,7 @@ Route::get('home', function () {
 
 Route::get('courses', [CoursesController::class, 'index']);
 Route::get('courses/{slug}', [CoursesController::class, 'show']);
+Route::post('courses/{slug}', [CoursesController::class, 'store']);
 
 Route::get('teachers', [TeachersController::class, 'index']);
 Route::get('teachers/{slug}', [TeachersController::class, 'show']);
