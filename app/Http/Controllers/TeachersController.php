@@ -20,4 +20,11 @@ class TeachersController extends Controller
             'teacher' => Teacher::where('slug', $slug)->first()
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $course = Teacher::make($request->name, $request->surname);
+        $course->save();
+        return redirect($course->route());
+    }
 }
