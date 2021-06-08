@@ -25,6 +25,12 @@ class TeachersController extends Controller
     {
         $course = Teacher::make($request->name, $request->surname);
         $course->save();
-        return redirect($course->route());
+        return redirect('teachers');
+    }
+
+    public function delete($slug)
+    {
+        Teacher::where('slug', $slug)->delete();
+        return redirect('/teachers');
     }
 }

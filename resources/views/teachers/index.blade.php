@@ -38,11 +38,11 @@
                     <div class="row">
                         <div class="form-group col">
                             <label for="name">Nome</label>
-                            <input class="form-control" id="title" type="text" name="name" placeholder="Mario">
+                            <input class="form-control" id="title" type="text" name="name" placeholder="Mario" autofocus required>
                         </div>
                         <div class="form-group col">
                             <label for="surname">Cognome</label>
-                            <input class="form-control" id="title" type="text" name="surname" placeholder="Rossi">
+                            <input class="form-control" id="title" type="text" name="surname" placeholder="Rossi" autofocus required>
                         </div>
                         <div class="form-group col">
                             <label for="semester">s</label>
