@@ -19,10 +19,10 @@
                         {{ $teacher->id }}
                     </th>
                     <td>
-                        {{ $teacher->nome }}
+                        {{ $teacher->name }}
                     </td>
                     <td>
-                        {{ $teacher->cognome }}
+                        {{ $teacher->surname }}
                     </td>
                 </tr>
             @endforeach

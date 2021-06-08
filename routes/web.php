@@ -29,4 +29,6 @@ Route::get('courses/{slug}', [CoursesController::class, 'show']);
 Route::post('courses', [CoursesController::class, 'store']);
 
 Route::get('teachers', [TeachersController::class, 'index']);
+Route::delete('teachers/{slug}', [TeachersController::class, 'delete']);
 Route::get('teachers/{slug}', [TeachersController::class, 'show']);
+Route::post('teachers', [TeachersController::class, 'store']);
