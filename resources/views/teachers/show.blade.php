@@ -11,5 +11,7 @@
         </form>
     </div>
 
+    <h1>{{ $teacher->teaches }}</h1>
+
     <h1>{{ $teacher->complete_name() }}</h1>
 @endsection
