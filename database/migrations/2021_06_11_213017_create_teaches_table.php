@@ -1,11 +1,13 @@
 <?php
 
-use App\Models\Teaches;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeachersTable extends Migration
+use App\Models\Teacher;
+use App\Models\Course;
+
+class CreateTeachesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +16,10 @@ class CreateTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('teachers', function (Blueprint $table) {
+        Schema::create('teaches', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname');
-            $table->string('slug');
+            $table->foreignIdFor(Teacher::class, 'teacher_id');
+            $table->foreignIdFor(Course::class, 'course_id');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateTeachersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teachers');
+        Schema::dropIfExists('teaches');
     }
 }
