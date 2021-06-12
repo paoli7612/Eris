@@ -26,3 +26,4 @@ Route::get('teachers', [TeachersController::class, 'index']);
 Route::put('teachers', [TeachersController::class, 'store']);
 
 Route::get('courses', [CoursesController::class, 'index']);
+Route::put('courses', [CoursesController::class, 'store']);
