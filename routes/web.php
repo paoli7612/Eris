@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('home');
 });
+Route::get('teachers/{slug}', [TeachersController::class, 'details']);
 Route::get('teachers', [TeachersController::class, 'index']);
 Route::put('teachers', [TeachersController::class, 'store']);
 

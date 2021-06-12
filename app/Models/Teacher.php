@@ -11,7 +11,7 @@ class Teacher extends Model
 
     public function route()
     {
-        return 'teachers/' . $this->id;
+        return '/teachers/' . $this->slug;
     }
 
     public function complete_name()

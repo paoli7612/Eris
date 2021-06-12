@@ -24,4 +24,11 @@ class TeachersController extends Controller
         $t->save();
         return redirect()->back();
     }
+
+    public function details($slug)
+    {
+        return view('teacher.details', [
+            'teacher' => Teacher::where('slug', $slug)->first()
+        ]);
+    }
 }
