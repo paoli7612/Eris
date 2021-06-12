@@ -1,6 +1,6 @@
 @extends ('layout.app')
 
-@section('title', 'Corsi')
+@section('title', 'Professori')
 
 @section('content')
     <h1>Teachers</h1>
