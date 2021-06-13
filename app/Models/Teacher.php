@@ -16,6 +16,6 @@ class Teacher extends Model
 
     public function complete_name()
     {
-        return $this->surname . ' ' . $this->name;
+        return $this->name . ' ' . $this->surname;
     }
 }
