@@ -3,12 +3,11 @@
 @section('title', 'Professori')
 
 @section('content')
-    <h1>{{ $course->title }}</h1>
+    <h1 class="float-right">{{ $course->title }}</h1>
 
-    @include('course.delete')
+    @include('course.options')
     
     {{ $course->description ?? 'Nessuna descrizione' }}
 
-    @include('course.edit')
 
 @endsection
