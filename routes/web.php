@@ -31,3 +31,4 @@ Route::get('courses/{slug}', [CoursesController::class, 'details']);
 Route::get('courses', [CoursesController::class, 'index']);
 Route::put('courses', [CoursesController::class, 'store']);
 Route::delete('courses/{id}', [CoursesController::class, 'delete']);
+Route::put('courses/{id}', [CoursesController::class, 'edit']);

@@ -7,4 +7,6 @@
 
     @include('course.delete')
     
+    @include('course.edit')
+
 @endsection

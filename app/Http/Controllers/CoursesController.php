@@ -37,4 +37,13 @@ class CoursesController extends Controller
         Course::find($request->id)->delete();
         return redirect('courses');
     }
+
+    public function edit(Request $request)
+    {
+        $c = Course::find($request->id);
+        $c->title = $request->title;
+        $c->slug = Str::slug($c->title);
+        $c->save();
+        return redirect($c->route());
+    }
 }
