@@ -31,4 +31,10 @@ class TeachersController extends Controller
             'teacher' => Teacher::where('slug', $slug)->first()
         ]);
     }
+
+    public function delete(Request $request)
+    {
+        Teacher::find($request->id)->delete();
+        return redirect('teachers');
+    }
 }
