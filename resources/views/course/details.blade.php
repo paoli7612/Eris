@@ -7,6 +7,8 @@
 
     @include('course.delete')
     
+    {{ $course->description ?? 'Nessuna descrizione' }}
+
     @include('course.edit')
 
 @endsection
