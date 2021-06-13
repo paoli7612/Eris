@@ -42,6 +42,7 @@ class CoursesController extends Controller
     {
         $c = Course::find($request->id);
         $c->title = $request->title;
+        $c->description = $request->description;
         $c->slug = Str::slug($c->title);
         $c->save();
         return redirect($c->route());
