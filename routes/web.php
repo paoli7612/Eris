@@ -27,5 +27,7 @@ Route::get('teachers', [TeachersController::class, 'index']);
 Route::put('teachers', [TeachersController::class, 'store']);
 Route::delete('teachers/{id}', [TeachersController::class, 'delete']);
 
+Route::get('courses/{slug}', [CoursesController::class, 'details']);
 Route::get('courses', [CoursesController::class, 'index']);
 Route::put('courses', [CoursesController::class, 'store']);
+Route::delete('courses/{id}', [CoursesController::class, 'delete']);

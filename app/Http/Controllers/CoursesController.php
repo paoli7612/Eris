@@ -25,8 +25,16 @@ class CoursesController extends Controller
         return redirect()->back();
     }
 
-    public function details(Request $request)
+    public function details($slug)
     {
-        dd($request->slug);
+        return view('course.details', [
+            'course' => Course::where('slug', $slug)->first()
+        ]);
+    }
+
+    public function delete(Request $request)
+    {
+        Course::find($request->id)->delete();
+        return redirect('courses');
     }
 }
