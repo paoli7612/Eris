@@ -21,6 +21,7 @@ class CoursesController extends Controller
         $c = new Course;
         $c->title = $request->title;
         $c->slug = Str::slug($c->title);
+        $c->year_id = $request->year;
         $c->save();
         return redirect()->back();
     }
@@ -43,6 +44,7 @@ class CoursesController extends Controller
         $c = Course::find($request->id);
         $c->title = $request->title;
         $c->description = $request->description;
+        $c->year_id = $request->year;
         $c->slug = Str::slug($c->title);
         $c->save();
         return redirect($c->route());
