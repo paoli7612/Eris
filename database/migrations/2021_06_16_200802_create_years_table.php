@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\Year;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoursesTable extends Migration
+class CreateYearsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +13,8 @@ class CreateCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('years', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('description')->nullable();
-            $table->foreignIdFor(Year::class, 'year_id');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('years');
     }
 }
