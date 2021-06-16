@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\YearsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,6 @@ Route::get('courses', [CoursesController::class, 'index']);
 Route::put('courses', [CoursesController::class, 'store']);
 Route::delete('courses/{id}', [CoursesController::class, 'delete']);
 Route::put('courses/{id}', [CoursesController::class, 'edit']);
+
+Route::get('year/{slug}', [YearsController::class, 'details']);
+Route::get('year', [YearsController::class, 'index']);
