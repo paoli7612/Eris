@@ -34,5 +34,5 @@ Route::put('courses', [CoursesController::class, 'store']);
 Route::delete('courses/{id}', [CoursesController::class, 'delete']);
 Route::put('courses/{id}', [CoursesController::class, 'edit']);
 
-Route::get('year/{slug}', [YearsController::class, 'details']);
+Route::get('year/{id}', [YearsController::class, 'details']);
 Route::get('year', [YearsController::class, 'index']);
