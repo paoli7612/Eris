@@ -14,10 +14,16 @@ class YearsController extends Controller
         ]);
     }
 
-    public function details($slug)
+    public function details($id)
     {
+        $year = Year::find($id);
+
+        if ($year == null) {
+            return redirect('home');
+        }
+
         return view('year.details', [
-            'year' => Year::where('slug', $slug)->first()
+            'year' => $year
         ]);
     }
 }
