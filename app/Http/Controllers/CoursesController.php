@@ -28,8 +28,14 @@ class CoursesController extends Controller
 
     public function details($slug)
     {
+        $course = Course::where('slug', $slug)->first();
+
+        if ($course == null) {
+            abort(403, 'Course not exist.');
+        }
+
         return view('course.details', [
-            'course' => Course::where('slug', $slug)->first()
+            'course' => $course
         ]);
     }
 
