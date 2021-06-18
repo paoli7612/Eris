@@ -27,8 +27,14 @@ class TeachersController extends Controller
 
     public function details($slug)
     {
+        $teacher = Teacher::where('slug', $slug)->first();
+
+        if ($teacher == null) {
+            abort(403, 'Teacher not exist.');
+        }
+
         return view('teacher.details', [
-            'teacher' => Teacher::where('slug', $slug)->first()
+            'teacher' => $teacher
         ]);
     }
 
