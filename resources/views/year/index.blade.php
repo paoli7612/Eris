@@ -11,12 +11,16 @@
 
             <li>
                 <a href="{{ $year->route() }}">
-                    {{ $year->id }}
+                    {{ $year->slug }}
                 </a>
             </li>
 
         @endforeach
 
     </ul>
-    
+    @if (!App\Models\Year::first())
+        <a href="years/init">
+            <button class="btn btn-primary">init</button>        
+        </a>
+    @endif
 @endsection

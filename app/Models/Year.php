@@ -13,4 +13,12 @@ class Year extends Model
     {
         return 'years/' . $this->id;
     }
+
+    public static function create($id, $slug)
+    {
+        $y = new static;
+        $y->id = $id;
+        $y->slug = $slug;
+        $y->save();
+    }
 }

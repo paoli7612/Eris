@@ -4,6 +4,7 @@ use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\YearsController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Year;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,11 @@ Route::put('courses', [CoursesController::class, 'store']);
 Route::delete('courses/{id}', [CoursesController::class, 'delete']);
 Route::put('courses/{id}', [CoursesController::class, 'edit']);
 
-Route::get('year/{id}', [YearsController::class, 'details']);
-Route::get('year', [YearsController::class, 'index']);
+Route::get('years', [YearsController::class, 'index']);
+Route::get('years/init', function () {
+    Year::create(1, 'primo_anno');
+    Year::create(2, 'secondo_anno');
+    Year::create(3, 'terzo_anno');
+    return redirect('years');
+});
+Route::get('years/{id}', [YearsController::class, 'details']);
