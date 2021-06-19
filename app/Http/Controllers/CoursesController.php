@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class CoursesController extends Controller
 {
@@ -18,11 +17,7 @@ class CoursesController extends Controller
 
     public function store(Request $request)
     {
-        $c = new Course;
-        $c->title = $request->title;
-        $c->slug = Str::slug($c->title);
-        $c->year_id = $request->year;
-        $c->save();
+        Course::create($request);
         return redirect()->back();
     }
 
@@ -47,12 +42,6 @@ class CoursesController extends Controller
 
     public function edit(Request $request)
     {
-        $c = Course::find($request->id);
-        $c->title = $request->title;
-        $c->description = $request->description;
-        $c->year_id = $request->year;
-        $c->slug = Str::slug($c->title);
-        $c->save();
-        return redirect($c->route());
+        return redirect(Course::edit($request)->route);
     }
 }
