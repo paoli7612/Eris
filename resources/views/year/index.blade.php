@@ -9,7 +9,7 @@
         @foreach ($years as $year)
             <li>
                 <a href="{{ $year->route() }}">
-                    {{ $year->slug }}
+                    {{ $year->title }}
                 </a>
             </li>
         @endforeach
