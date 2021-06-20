@@ -16,7 +16,7 @@ class YearsController extends Controller
 
     public function details($slug)
     {
-        $year = Year::where('slug', $slug)->get();
+        $year = Year::where('slug', $slug)->first();
 
         if ($year == null) {
             return redirect('home');

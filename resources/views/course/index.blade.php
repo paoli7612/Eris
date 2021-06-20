@@ -3,7 +3,7 @@
 @section('title', 'Corsi')
 
 @section('content')
-    <h1>Courses</h1>
+    <h1>Corsi</h1>
 
 
     @include('course.new')
