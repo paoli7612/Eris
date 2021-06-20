@@ -14,9 +14,9 @@ class YearsController extends Controller
         ]);
     }
 
-    public function details($id)
+    public function details($slug)
     {
-        $year = Year::find($id);
+        $year = Year::where('slug', $slug)->get();
 
         if ($year == null) {
             return redirect('home');
@@ -25,5 +25,13 @@ class YearsController extends Controller
         return view('year.details', [
             'year' => $year
         ]);
+    }
+
+    public function init()
+    {
+        Year::create(1, 'Primo anno');
+        Year::create(2, 'Secondo anno');
+        Year::create(3, 'Terzo anno');
+        return redirect('years');
     }
 }
