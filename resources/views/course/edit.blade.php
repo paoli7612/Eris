@@ -1,4 +1,4 @@
-
+<h1>Modifica corso</h1>
 <form action="/courses/{{ $course->id }}" method="post">
     @csrf
     @method('PUT')

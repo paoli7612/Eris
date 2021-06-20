@@ -7,7 +7,13 @@
     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#edit" aria-expanded="false" aria-controls="edit">
         <i class="fa fa-edit"></i>
     </button>
+    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#question" aria-expanded="false" aria-controls="edit">
+        <i class="fa fa-plus"></i>
+    </button>
 </form>
+<div class="collapse my-3" id="question">
+    @include('course.question')
+</div>
 <div class="collapse my-3" id="edit">
     @include('course.edit')
 </div>
