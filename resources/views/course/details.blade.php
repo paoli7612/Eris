@@ -6,7 +6,7 @@
     <h1 class="float-right">{{ $course->title }}</h1>
 
     @include('course.options')
-    
+
     {{ $course->description ?? 'Nessuna descrizione' }}
 
 
