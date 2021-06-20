@@ -36,10 +36,5 @@ Route::delete('courses/{id}', [CoursesController::class, 'delete']);
 Route::put('courses/{id}', [CoursesController::class, 'edit']);
 
 Route::get('years', [YearsController::class, 'index']);
-Route::get('years/init', function () {
-    Year::create(1, 'primo_anno');
-    Year::create(2, 'secondo_anno');
-    Year::create(3, 'terzo_anno');
-    return redirect('years');
-});
-Route::get('years/{id}', [YearsController::class, 'details']);
+Route::get('years/init', [YearsController::class, 'init']);
+Route::get('years/{slug}', [YearsController::class, 'details']);
