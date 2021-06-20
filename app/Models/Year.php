@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Year extends Model
 {
@@ -11,14 +12,15 @@ class Year extends Model
 
     public function route()
     {
-        return 'years/' . $this->id;
+        return 'years/' . $this->slug;
     }
 
-    public static function create($id, $slug)
+    public static function create($id, $title)
     {
         $y = new static;
         $y->id = $id;
-        $y->slug = $slug;
+        $y->title = $title;
+        $y->slug = Str::slug($title);
         $y->save();
     }
 }
