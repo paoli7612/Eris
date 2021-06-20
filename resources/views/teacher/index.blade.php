@@ -3,7 +3,7 @@
 @section('title', 'Professori')
 
 @section('content')
-    <h1>Teachers</h1>
+    <h1>Insegnanti</h1>
 
 
     @include('teacher.new')
