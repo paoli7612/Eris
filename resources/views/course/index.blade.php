@@ -10,11 +10,26 @@
         </div>
     </form>
 
-    @foreach ($courses as $course)
-        <a href="{{ $course->route() }}">
-            <h3>{{ $course->title }}</h3>
-        </a>
-    @endforeach
+    <table class="table bg-white">
+        <thead>
+          <tr>
+            <th scope="col">Titolo</th>
+            <th scope="col">Insegnante</th>
+            <th scope="col">Anno</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            @foreach ($courses as $course)
+              <tr>
+                  <td> <a href="{{ $course->route() }}"> {{ $course->title }} </a> </td>
+              </tr>
+            @endforeach
+
+        </tbody>
+      </table>
+
+    
 
 @endsection
 
