@@ -30,4 +30,12 @@ class CoursesController extends Controller
         $t->save();
         return redirect()->back();
     }
+
+    public function edit(Request $request)
+    {
+        $c = Course::find($request->id);
+        $c->teacher_id = $request->teacher_id;
+        $c->save();
+        return redirect()->back();
+    }
 }

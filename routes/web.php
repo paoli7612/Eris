@@ -31,5 +31,7 @@ Route::get('courses', [CoursesController::class, 'index']);
 Route::get('teachers/{slug}', [TeachersController::class, 'details']);
 Route::get('courses/{slug}', [CoursesController::class, 'details']);
 
+Route::put('courses/{slug}', [CoursesController::class, 'edit']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('teachers', [TeachersController::class, 'store']);
