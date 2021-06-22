@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\TeachersController;
+use App\Http\Controllers\CoursesController;
+use App\Models\Course;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home', [
+        'courses' => Course::all()
+    ]);
 });
+
+Auth::routes();
+
+Route::get('teachers', [TeachersController::class, 'index']);
+Route::get('courses', [CoursesController::class, 'index']);
+
+Route::get('teachers/{slug}', [TeachersController::class, 'details']);
+Route::get('courses/{slug}', [CoursesController::class, 'details']);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('teachers', [TeachersController::class, 'store']);
