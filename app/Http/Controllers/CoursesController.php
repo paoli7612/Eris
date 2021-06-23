@@ -35,8 +35,15 @@ class CoursesController extends Controller
     public function edit(Request $request)
     {
         $c = Course::find($request->id);
-        $c->teacher_id = $request->teacher_id;
+        $c->teacher_id = $request->teacher_id ?? $c->teacher_id;
+        $c->year_id = $request->year_id ?? $c->year_id;
         $c->save();
-        return redirect()->back();
+        return redirect('courses');
+    }
+
+    public function delete($id)
+    {
+        Course::destroy($id);
+        return redirect('courses');
     }
 }

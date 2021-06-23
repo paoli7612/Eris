@@ -38,4 +38,6 @@ Route::post('years', [YearsController::class, 'init']);
 
 Route::put('courses/{slug}', [CoursesController::class, 'edit']);
 
+Route::delete('courses/{id}', [CoursesController::class, 'delete']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

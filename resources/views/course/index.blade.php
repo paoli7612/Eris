@@ -24,6 +24,12 @@
 			<tr>
 				<td> <a href="{{ $course->route() }}"> {{ $course->title }} </a> </td>
 				<td>
+					@if (isset($course->teacher))
+						<a href="{{ $course->teacher->route() }}"> {{ $course->teacher->name }} </a> 
+					@endif
+				</td>                    
+
+                <td>
 					@if (isset($course->year))
 						<a href="{{ $course->year->route() }}"> {{ $course->year->id }} </a> 
 					@endif

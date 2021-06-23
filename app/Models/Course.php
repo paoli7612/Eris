@@ -10,9 +10,9 @@ class Course extends Model
     use HasFactory;
     protected $fillable = ['title', 'slug'];
 
-    public function route()
+    public function route($arg = 'slug')
     {
-        return "/courses/{$this->slug}";
+        return "/courses/{$this->$arg}";
     }
 
     public function teacher()
