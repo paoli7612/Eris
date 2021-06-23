@@ -3,7 +3,9 @@
 @section('content')
 
     <h1>{{ $course->title }}</h1>
-    <h3>{{ $course->teacher->name }}</h3>
+    @if (isset($course->teacher))
+        <h3>{{ $course->teacher->name }}</h3>        
+    @endif
 
     <form action="{{ $course->route() }}" method="post">
         @csrf

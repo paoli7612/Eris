@@ -18,7 +18,6 @@ class CoursesController extends Controller
 
     public function details($slug)
     {
-        dd('asd');
         return view('course.details', [
             'course' => Course::where('slug', $slug)->first()
         ]);
