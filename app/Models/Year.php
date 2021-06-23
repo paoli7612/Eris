@@ -12,6 +12,11 @@ class Year extends Model
 
     public function route()
     {
-        return 'years/' . $this->slug;
+        return '/years/' . $this->id;
+    }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
     }
 }

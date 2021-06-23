@@ -18,7 +18,11 @@
 				
 				@foreach ($years as $year)
 				<tr>
-					<td>  {{ $year->id }} </td>
+					<td>
+						<a href="{{ $year->route() }}">
+							{{ $year->id }}
+						</a>
+					</td>
 				</tr>
 				@endforeach
 

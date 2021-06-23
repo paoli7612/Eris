@@ -21,4 +21,11 @@ class YearsController extends Controller
         Year::create(['id' => 3]);
         return redirect()->back();
     }
+
+    public function details($id)
+    {
+        return view('year.details', [
+            'year' => Year::find($id)
+        ]);
+    }
 }
