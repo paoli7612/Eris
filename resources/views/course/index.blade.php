@@ -23,6 +23,7 @@
             @foreach ($courses as $course)
               <tr>
                   <td> <a href="{{ $course->route() }}"> {{ $course->title }} </a> </td>
+                  <td> <a href="{{ $course->year->route() }}"> {{ $course->year->id }} </a> </td>
               </tr>
             @endforeach
 
