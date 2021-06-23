@@ -15,6 +15,12 @@
             @endforeach
             <input class="btn btn-primary" type="submit" value="Salva">
         </select>
+
+        <select name="year_id">
+            @foreach (\App\Models\Year::all() as $year)
+                <option value="{{ $year->id }}"> {{ $year->slug }}</option>
+            @endforeach
+        <select>
     </form>
 
 @endsection

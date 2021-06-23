@@ -21,10 +21,14 @@
         <tbody>
             
             @foreach ($courses as $course)
-              <tr>
-                  <td> <a href="{{ $course->route() }}"> {{ $course->title }} </a> </td>
-                  <td> <a href="{{ $course->year->route() }}"> {{ $course->year->id }} </a> </td>
-              </tr>
+			<tr>
+				<td> <a href="{{ $course->route() }}"> {{ $course->title }} </a> </td>
+				<td>
+					@if (isset($course->year))
+						<a href="{{ $course->year->route() }}"> {{ $course->year->id }} </a> 
+					@endif
+				</td>                    
+			</tr>
             @endforeach
 
         </tbody>

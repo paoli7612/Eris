@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'slug'];
 
     public function route()
     {
-        return '/courses/' . $this->slug;
+        return "/courses/{$this->slug}";
     }
 
     public function teacher()
