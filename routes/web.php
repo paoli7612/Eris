@@ -30,10 +30,11 @@ Route::get('years', [YearsController::class, 'index']);
 
 Route::get('teachers/{slug}', [TeachersController::class, 'details']);
 Route::get('courses/{slug}', [CoursesController::class, 'details']);
+Route::get('years/{slug}', [YearsController::class, 'details']);
 
 Route::post('teachers', [TeachersController::class, 'store']);
 Route::post('courses', [CoursesController::class, 'store']);
-
+Route::post('years', [YearsController::class, 'init']);
 
 Route::put('courses/{slug}', [CoursesController::class, 'edit']);
 
