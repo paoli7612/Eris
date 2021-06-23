@@ -12,6 +12,7 @@
 			<thead>
 			<tr>
 				<th scope="col">Anno</th>
+				<th>#corsi</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -20,8 +21,11 @@
 				<tr>
 					<td>
 						<a href="{{ $year->route() }}">
-							{{ $year->id }}
+							{{ $year->title }}
 						</a>
+					</td>
+					<td>
+						{{ count($year->courses) }}
 					</td>
 				</tr>
 				@endforeach
