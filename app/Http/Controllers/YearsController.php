@@ -13,4 +13,12 @@ class YearsController extends Controller
             'years' => Year::all()
         ]);
     }
+
+    public function init()
+    {
+        Year::create(['id' => 1]);
+        Year::create(['id' => 2]);
+        Year::create(['id' => 3]);
+        return redirect()->back();
+    }
 }

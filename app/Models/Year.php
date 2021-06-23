@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Year extends Model
 {
     use HasFactory;
+    protected $fillable = ['id'];
 
     public function route()
     {
