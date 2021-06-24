@@ -26,21 +26,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function contact()
-    {
-        return view('contact');
-    }
-
-    public function store(Request $request)
-    {
-        request()->validate(['email' => 'required|email']);
-
-        Mail::raw('it worca', function ($message) {
-            $message->to(request('email'))
-                ->subject('Hello there');
-        });
-
-        return redirect('/');
-    }
 }

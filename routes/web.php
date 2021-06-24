@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('contact', [HomeController::class, 'contact']);
-Route::post('/', [HomeController::class, 'store']);
 
 // index
 Route::get('teachers', [TeacherController::class, 'index']);
