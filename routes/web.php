@@ -43,3 +43,4 @@ Route::put('teachers/{teacher}', [TeacherController::class, 'edit']);
 
 // delete
 Route::delete('courses/{id}', [CourseController::class, 'delete']);
+Route::delete('teachers/{id}', [TeacherController::class, 'delete']);

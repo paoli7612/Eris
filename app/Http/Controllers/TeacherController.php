@@ -35,4 +35,11 @@ class TeacherController extends Controller
     {
         #
     }
+
+    public function delete($id)
+    {
+        Teacher::destroy($id);
+        
+        return redirect('teachers');
+    }
 }

@@ -15,8 +15,8 @@ class Teacher extends Model
         return 'slug';
     }
 
-    public function route()
+    public function route($arg = 'slug')
     {
-        return '/teachers/' . $this->slug;
+        return '/teachers/' . $this->$arg;
     }
 }
