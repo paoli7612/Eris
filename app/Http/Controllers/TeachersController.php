@@ -15,19 +15,19 @@ class TeachersController extends Controller
         ]);
     }
 
-    public function details($slug)
+    public function details(Teacher $teacher)
     {
         return view('teacher.details', [
-            'teacher' => Teacher::where('slug', $slug)->first()
+            'teacher' => $teacher
         ]);
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $t = new Teacher;
-        $t->name = $request->name;
-        $t->slug = Str::slug($request->name);
-        $t->save();
+        Teacher::create([
+            'name' => request('name'),
+            'slug' => Str::slug(request('name'), '_'),
+        ]);
         return redirect()->back();
     }
 }

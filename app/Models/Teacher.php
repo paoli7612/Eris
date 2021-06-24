@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Teacher extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'slug'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function route()
     {

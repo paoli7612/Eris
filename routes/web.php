@@ -28,7 +28,7 @@ Route::get('teachers', [TeachersController::class, 'index']);
 Route::get('courses', [CoursesController::class, 'index']);
 Route::get('years', [YearsController::class, 'index']);
 
-Route::get('teachers/{slug}', [TeachersController::class, 'details']);
+Route::get('teachers/{teacher}', [TeachersController::class, 'details']);
 Route::get('courses/{course}', [CoursesController::class, 'details']);
 Route::get('years/{year}', [YearsController::class, 'details']);
 
