@@ -23,11 +23,13 @@ class CourseController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         Course::create([
-            'title' => $request->title,
-            'slug' => Str::slug($request->title, '_')
+            'title' => request('title'),
+            'slug' => Str::slug(request('title'), '_'),
+            'teacher_id' => request('teacher_id'),
+            'year_id' => request('year_id')
         ]);
         return redirect()->back();
     }
