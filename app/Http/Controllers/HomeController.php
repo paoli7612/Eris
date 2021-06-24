@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -34,8 +35,12 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         request()->validate(['email' => 'required|email']);
-        // send email
 
-        dd($request->email);
+        Mail::raw('it worca', function ($message) {
+            $message->to(request('email'))
+                ->subject('Hello there');
+        });
+
+        return redirect('/');
     }
 }
