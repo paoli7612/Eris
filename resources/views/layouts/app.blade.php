@@ -24,6 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}"> Eris </a>
+                <a class="navbar-brand" href="{{ url('contact') }}"> Contatti </a>
                 <a class="navbar-brand" href="{{ url('teachers') }}"> Insegnanti </a>
                 <a class="navbar-brand" href="{{ url('courses') }}"> Corsi </a>
                 <a class="navbar-brand" href="{{ url('years') }}"> Anni </a>

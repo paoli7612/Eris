@@ -4,7 +4,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\YearController;
-use App\Models\Course;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('contact', [HomeController::class, 'contact']);
+Route::post('/', [HomeController::class, 'store']);
 
 // index
 Route::get('teachers', [TeacherController::class, 'index']);
