@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'slug', 'teacher_id', 'year_id'];
+    protected $fillable = ['title', 'slug', 'year_id'];
 
     public function getRouteKeyName()
     {
@@ -20,9 +20,9 @@ class Course extends Model
         return "/courses/{$this->$arg}";
     }
 
-    public function teacher()
+    public function teachers()
     {
-        return $this->belongsTo(Teacher::class);
+        return $this->hasMany(Teacher::class);
     }
 
     public function year()

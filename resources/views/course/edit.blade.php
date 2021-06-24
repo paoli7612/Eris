@@ -1,4 +1,4 @@
-<form action="{{ $course->route() }}" method="post">
+<form action="{{ $course->route('id') }}" method="post">
     @csrf
     @method('put')
     <input type="hidden" name="id" value="{{ $course->id }}" />

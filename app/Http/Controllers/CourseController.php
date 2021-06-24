@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Teaches;
 use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -28,7 +29,6 @@ class CourseController extends Controller
         Course::create([
             'title' => request('title'),
             'slug' => Str::slug(request('title'), '_'),
-            'teacher_id' => request('teacher_id'),
             'year_id' => request('year_id')
         ]);
         return redirect()->back();
@@ -37,7 +37,6 @@ class CourseController extends Controller
     public function edit($id)
     {
         Course::find($id)->update([
-            'teacher_id' => request('teacher_id'),
             'year_id' => request('year_id'),
         ]);
 
@@ -48,5 +47,14 @@ class CourseController extends Controller
     {
         Course::destroy($id);
         return redirect('courses');
+    }
+
+    public function teaches($id)
+    {
+        Teaches::create([
+            'course_id' => $this->id,
+            'teacher_id' => request('teacher_id')
+        ]);
+        return redirect()->back();
     }
 }

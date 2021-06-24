@@ -8,6 +8,5 @@
         </a>
     </div>
     <div class="card-body">
-        <a href="{{ $course->teacher->route() }}">{{ $course->teacher->name }}</a>                    
     </div>
 </div>

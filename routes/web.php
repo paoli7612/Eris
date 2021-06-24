@@ -36,6 +36,7 @@ Route::get('years/{year}', [YearController::class, 'details']);
 Route::post('teachers', [TeacherController::class, 'store']);
 Route::post('courses', [CourseController::class, 'store']);
 Route::post('years', [YearController::class, 'init']);
+Route::post('courses/{$id}', [CourseController::class, 'teaches']);
 
 // edit
 Route::put('courses/{id}', [CourseController::class, 'edit']);
