@@ -6,7 +6,7 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class TeachersController extends Controller
+class TeacherController extends Controller
 {
     public function index()
     {
@@ -29,5 +29,10 @@ class TeachersController extends Controller
             'slug' => Str::slug(request('name'), '_'),
         ]);
         return redirect()->back();
+    }
+
+    public function edit(Teacher $teacher)
+    {
+        #
     }
 }

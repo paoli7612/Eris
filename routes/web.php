@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\TeachersController;
-use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\YearsController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\YearController;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,27 +18,28 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 
-Route::get('teachers', [TeachersController::class, 'index']);
-Route::get('courses', [CoursesController::class, 'index']);
-Route::get('years', [YearsController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('teachers/{teacher}', [TeachersController::class, 'details']);
-Route::get('courses/{course}', [CoursesController::class, 'details']);
-Route::get('years/{year}', [YearsController::class, 'details']);
+// index
+Route::get('teachers', [TeacherController::class, 'index']);
+Route::get('courses', [CourseController::class, 'index']);
+Route::get('years', [YearController::class, 'index']);
 
-Route::post('teachers', [TeachersController::class, 'store']);
-Route::post('courses', [CoursesController::class, 'store']);
-Route::post('years', [YearsController::class, 'init']);
+// details
+Route::get('teachers/{teacher}', [TeacherController::class, 'details']);
+Route::get('courses/{course}', [CourseController::class, 'details']);
+Route::get('years/{year}', [YearController::class, 'details']);
 
-Route::put('courses/{course}', [CoursesController::class, 'edit']);
+// store
+Route::post('teachers', [TeacherController::class, 'store']);
+Route::post('courses', [CourseController::class, 'store']);
+Route::post('years', [YearController::class, 'init']);
 
-Route::delete('courses/{id}', [CoursesController::class, 'delete']);
+// edit
+Route::put('courses/{id}', [CourseController::class, 'edit']);
+Route::put('teachers/{teacher}', [TeacherController::class, 'edit']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// delete
+Route::delete('courses/{id}', [CourseController::class, 'delete']);

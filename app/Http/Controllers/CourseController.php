@@ -7,7 +7,7 @@ use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class CoursesController extends Controller
+class CourseController extends Controller
 {
     public function index()
     {
@@ -32,11 +32,13 @@ class CoursesController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Course $course)
+    public function edit($id)
     {
-        $course->year_id = request('year_id');
-        $course->teacher_id = request('teacher_id');
-        $course->save();
+        Course::find($id)->update([
+            'teacher_id' => request('teacher_id'),
+            'year_id' => request('year_id'),
+        ]);
+
         return redirect('courses');
     }
 
