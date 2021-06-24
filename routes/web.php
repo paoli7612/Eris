@@ -29,14 +29,14 @@ Route::get('courses', [CoursesController::class, 'index']);
 Route::get('years', [YearsController::class, 'index']);
 
 Route::get('teachers/{slug}', [TeachersController::class, 'details']);
-Route::get('courses/{slug}', [CoursesController::class, 'details']);
-Route::get('years/{slug}', [YearsController::class, 'details']);
+Route::get('courses/{course}', [CoursesController::class, 'details']);
+Route::get('years/{year}', [YearsController::class, 'details']);
 
 Route::post('teachers', [TeachersController::class, 'store']);
 Route::post('courses', [CoursesController::class, 'store']);
 Route::post('years', [YearsController::class, 'init']);
 
-Route::put('courses/{slug}', [CoursesController::class, 'edit']);
+Route::put('courses/{course}', [CoursesController::class, 'edit']);
 
 Route::delete('courses/{id}', [CoursesController::class, 'delete']);
 

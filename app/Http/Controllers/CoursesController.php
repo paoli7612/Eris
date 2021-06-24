@@ -16,10 +16,10 @@ class CoursesController extends Controller
         ]);
     }
 
-    public function details($slug)
+    public function details(Course $course)
     {
         return view('course.details', [
-            'course' => Course::where('slug', $slug)->first()
+            'course' => $course
         ]);
     }
 
@@ -32,12 +32,11 @@ class CoursesController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Request $request)
+    public function edit(Course $course)
     {
-        $c = Course::find($request->id);
-        $c->teacher_id = $request->teacher_id ?? $c->teacher_id;
-        $c->year_id = $request->year_id ?? $c->year_id;
-        $c->save();
+        $course->year_id = request('year_id');
+        $course->teacher_id = request('teacher_id');
+        $course->save();
         return redirect('courses');
     }
 

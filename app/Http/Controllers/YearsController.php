@@ -22,10 +22,10 @@ class YearsController extends Controller
         return redirect()->back();
     }
 
-    public function details($id)
+    public function details(Year $year)
     {
         return view('year.details', [
-            'year' => Year::find($id)
+            'year' => $year
         ]);
     }
 }

@@ -10,6 +10,11 @@ class Course extends Model
     use HasFactory;
     protected $fillable = ['title', 'slug'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function route($arg = 'slug')
     {
         return "/courses/{$this->$arg}";
