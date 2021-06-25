@@ -18,7 +18,10 @@
                             <img src="/images/logo.png" alt="logo" width="70px">
                             Eris
                         </h1>
-                    </a>                    
+                    </a>
+                    @if (! Auth::check())
+                        <a href="/register">Registrati</a>
+                    @endif
                 </header>
             </section>
             

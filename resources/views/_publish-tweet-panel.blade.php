@@ -6,7 +6,7 @@
 
         <hr>
         <footer>
-            <img src="https://i.pravatar.cc/40" alt="" class="rounded-circle">
+            <img src="https://i.pravatar.cc/40?u={{ auth()->user()->email }}" alt="" class="rounded-circle">
             <button class="btn btn-primary float-right" type="submit">Tweet</button>
         </footer>
         
