@@ -6,11 +6,8 @@
             @include('_sidebar-links')
         </div>
         <div class="col">
-            <div class="border border-primary rounded p-3">
-               @include('_publish-tweet-panel')
-            </div>
-
-            <div class="mt-3 border border-secondary rounded p-3">
+            @include('_publish-tweet-panel')
+            <div class="mt-3 border border-secondary border-3 rounded p-3">
                 @include ('_tweet')
                 @include ('_tweet')
                 @include ('_tweet')

@@ -1,3 +1,6 @@
+
+<div class="border border-primary rounded border-2 p-3 ">
+
     <form action="">
         <textarea class="m-1 form-control" name="body" placeholder="what do you think? ...">  </textarea>
 
@@ -8,3 +11,5 @@
         </footer>
         
     </form>
+
+</div>
