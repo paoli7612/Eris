@@ -19,9 +19,16 @@
                             Eris
                         </h1>
                     </a>
-                    @if (! Auth::check())
-                        <a href="/register">Registrati</a>
-                    @endif
+                    <div class="col-4 float-right">
+                        @if (Auth::check())
+                            <form action="{{ url('/logout') }}" method="post">
+                                @csrf
+                                <button type="submit">logout</button>
+                            </form>    
+                        @else
+                            <a href="/register">Registrati</a>
+                        @endif
+                    </div>
                 </header>
             </section>
             
