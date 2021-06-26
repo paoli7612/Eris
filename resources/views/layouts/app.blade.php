@@ -10,36 +10,37 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     </head>
     <body class="bg-white">
-        <div id="app">
-            <section class="px-8 py-4">
-                <header class="container mx-auto">
-                    <a href="/">
-                        <h1>
-                            <img src="/images/logo.png" alt="logo" width="70px">
-                            Eris
-                        </h1>
-                    </a>
-                    <div class="col-4 float-right">
-                        @if (Auth::check())
-                            <form action="{{ url('/logout') }}" method="post">
-                                @csrf
-                                <button type="submit">logout</button>
-                            </form>    
-                        @else
-                            <a href="/register">Registrati</a>
-                        @endif
-                    </div>
-                </header>
-            </section>
-            
-            <section class="px-8">
-            
-                <main class="container mx-auto">
-                    @yield('content')
-                </main>
+        <section class="px-8 py-4">
+            <header class="container mx-auto row">
+                <div class="col">
+                    @include('_nav.button', ['arg'=>'Home'])
+                    @include('_nav.button', ['arg'=>'Friends'])
+                    @include('_nav.button', ['arg'=>'Account'])
+                    @include('_nav.button', ['arg'=>'My posts'])
+                </div>
                 
-            </section>
 
-        </div>
+                <div class="col-md-auto float-right pull-right">
+                    @if (Auth::check())
+                        <form action="{{ url('/logout') }}" method="post" class="form-inline">
+                            @csrf
+                            <button class="btn btn-primary mx-2" type="submit">Disconnetti</button>
+                        </form>    
+                    @else
+                        <a class="btn btn-primary mx-2" href="register">Registrati</a>
+                    @endif
+                </div>
+                
+            </header>
+        </section>
+        
+        <section class="px-8">
+        
+            <main class="container mx-auto">
+                @yield('content')
+            </main>
+            
+        </section>
+
     </body>
 </html>
