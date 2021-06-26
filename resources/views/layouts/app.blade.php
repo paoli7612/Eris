@@ -13,10 +13,10 @@
         <section class="px-8 py-4">
             <header class="container mx-auto row">
                 <div class="col">
-                    @include('_nav.button', ['arg'=>'Home'])
-                    @include('_nav.button', ['arg'=>'Friends'])
-                    @include('_nav.button', ['arg'=>'Account'])
-                    @include('_nav.button', ['arg'=>'My posts'])
+                    @include('layouts.nav.button', ['arg'=>'Home'])
+                    @include('layouts.nav.button', ['arg'=>'Friends'])
+                    @include('layouts.nav.button', ['arg'=>'Account'])
+                    @include('layouts.nav.button', ['arg'=>'My posts'])
                 </div>
                 
 

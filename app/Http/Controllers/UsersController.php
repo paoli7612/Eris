@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function info(User $user)
+    public function show(User $user)
     {
-        return view('user.info', [
+        return view('user.show', [
             'user' => $user
         ]);
     }

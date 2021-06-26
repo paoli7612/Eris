@@ -28,4 +28,19 @@ class HomeController extends Controller
             'posts' => Post::all()
         ]);
     }
+
+    public function friends()
+    {
+        return view('friends');
+    }
+
+    public function account()
+    {
+        return redirect(auth()->user()->route());
+    }
+
+    public function my_posts()
+    {
+        return redirect(route('posts'));
+    }
 }

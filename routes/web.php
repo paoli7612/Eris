@@ -21,6 +21,17 @@ Route::get('/', [HomeController::class, 'index']);
 
 Auth::routes();
 
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('users/{user}', [UsersController::class, 'info']);
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('friends', [HomeController::class, 'friends'])->name('friends');
+Route::get('account', [HomeController::class, 'account'])->name('account');
+Route::get('my_posts', [HomeController::class, 'my_posts'])->name('my_posts');
+
+// details of user
+Route::get('users/{user}', [UsersController::class, 'show']);
+
+
+// store new post
 Route::post('posts', [PostController::class, 'store']);
+
+// posts of a user
+Route::get('posts', [PostController::class, 'user'])->name('posts');

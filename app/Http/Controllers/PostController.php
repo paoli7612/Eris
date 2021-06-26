@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,5 +16,13 @@ class PostController extends Controller
         ]);
     
         return redirect()->back();
+    }
+
+    public function user()
+    {
+        $user = auth()->user();
+        return view('posts', [
+            'posts' => Post::where('user_id', $user->id)->get()
+        ]);
     }
 }
