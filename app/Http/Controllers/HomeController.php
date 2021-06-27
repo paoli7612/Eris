@@ -36,7 +36,7 @@ class HomeController extends Controller
 
     public function account()
     {
-        return redirect(auth()->user()->route());
+        return redirect(auth()->user()->route);
     }
 
     public function my_posts()

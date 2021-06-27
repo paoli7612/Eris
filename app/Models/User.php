@@ -46,8 +46,13 @@ class User extends Authenticatable
         return 'slug';
     }
 
-    public function route()
+    public function getRouteAttribute()
     {
         return "/users/{$this->slug}";
+    }
+
+    public function getAvatarAttribute()
+    {
+        return "https://i.pravatar.cc/40?u=" . $this->email;
     }
 }
