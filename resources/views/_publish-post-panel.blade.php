@@ -19,4 +19,8 @@
         
     </form>
 
+    @error('body')
+        <p class="text-danger"> {{ $message }}</p>
+    @enderror
+
 </div>

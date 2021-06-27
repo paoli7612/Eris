@@ -10,6 +10,10 @@ class PostController extends Controller
 {
     public function store()
     {
+        request()->validate([
+            'body' => 'required|max:255'
+        ]);
+        
         Post::create([
             'body' => request('body'),
             'user_id' => auth()->user()->id
