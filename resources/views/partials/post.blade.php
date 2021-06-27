@@ -1,9 +1,11 @@
-<div class="row">
+<div class="row" onclick="window.location='{{ $post->route }}'">
     <div class="col-1 mr-2">
         <img src="{{ $post->user->avatar }}" alt="avatar" width="70px" class="rounded-circle">
     </div>
     <div class="col">
-        <h5>{{ $post->user->name }}</h5>
+        <a href="{{ $post->user->route }}">
+            <h5 class="font-normal">{{ $post->user->name }}</h5>
+        </a>
         <p>
             {{ $post->body }}
         </p>

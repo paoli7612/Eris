@@ -27,6 +27,7 @@
                             <button class="btn btn-primary mx-2" type="submit">Disconnetti</button>
                         </form>    
                     @else
+                        <a class="btn btn-primary mx-2" href="login">Login</a>
                         <a class="btn btn-primary mx-2" href="register">Registrati</a>
                     @endif
                 </div>

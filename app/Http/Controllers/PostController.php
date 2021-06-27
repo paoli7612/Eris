@@ -29,4 +29,11 @@ class PostController extends Controller
             'posts' => Post::where('user_id', $user->id)->get()
         ]);
     }
+
+    public function show(Post $post)
+    {
+        return view('posts', [
+            'posts' => [$post]
+        ]);
+    }
 }

@@ -26,8 +26,9 @@ Route::get('friends', [HomeController::class, 'friends'])->name('friends');
 Route::get('account', [HomeController::class, 'account'])->name('account');
 Route::get('my_posts', [HomeController::class, 'my_posts'])->name('my_posts');
 
-// details of user
+// details
 Route::get('users/{user}', [UsersController::class, 'show']);
+Route::get('posts/{post}', [PostController::class, 'show']);
 
 
 // store new post
