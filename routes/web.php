@@ -30,7 +30,6 @@ Route::get('my_posts', [HomeController::class, 'my_posts'])->name('my_posts');
 Route::get('users/{user}', [UsersController::class, 'show']);
 Route::get('posts/{post}', [PostController::class, 'show']);
 
-
 // store new post
 Route::post('posts', [PostController::class, 'store']);
 
