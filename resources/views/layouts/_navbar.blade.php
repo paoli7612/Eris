@@ -7,7 +7,7 @@
                         <a class="nav-link @if (Request::is('/')) active @endif" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/search">Search</a>
+                        <a class="nav-link" href="{{ route('search') }}">Search</a>
                     </li>
                 </ul>
                 <form class="d-flex navbar-nav">

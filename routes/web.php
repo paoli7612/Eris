@@ -23,5 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+
 Route::get('/account/{user}', [HomeController::class, 'account'])->name('account');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

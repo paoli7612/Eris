@@ -33,4 +33,9 @@ class HomeController extends Controller
             'user' => $user
         ]);
     }
+
+    public function search()
+    {
+        return view('search');
+    }
 }
