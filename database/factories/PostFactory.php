@@ -24,7 +24,7 @@ class PostFactory extends Factory
     {
         return [
             'body' => $this->faker->sentence(),
-            'user_id' => User::first()->id,
+            'user_id' => User::all()->random()->id,
             'created_at' => now(),
         ];
     }

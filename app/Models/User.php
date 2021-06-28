@@ -56,4 +56,23 @@ class User extends Authenticatable
     {
         return "<img src=\"https://i.pravatar.cc/{$size}?u={$this->email}\" width=\"$size\" class=\"rounded-circle\"/>";
     }
+
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
+    public function unfollow(User $user)
+    {
+        dd("unfollow");
+    }
+    
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
+
+    public function isFollowing(User $user)
+    {
+        return $this->follows()->where('following_user_id', $user->id)->count();
+    }
 }

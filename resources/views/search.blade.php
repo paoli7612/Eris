@@ -19,10 +19,7 @@
     @foreach ($users as $user)
         
         <div class="col-lg-3 col-md-4 col-sm-6 my-2 px-3">
-            <a href="{{ $user->route }}" class="text-black">
-                {!! $user->avatar_image() !!}
-                {{ $user->name }}                
-            </a>
+            @include('partials.user')
         </div>
 
     @endforeach

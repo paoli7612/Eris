@@ -9,6 +9,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('search') }}">Search</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('posts') }}">Posts</a>
+                    </li>
                 </ul>
                 <form class="d-flex navbar-nav">
                     @auth 

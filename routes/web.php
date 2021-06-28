@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -24,6 +25,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 Route::get('/account/{user}', [HomeController::class, 'account'])->name('account');
+Route::post('/account/{user}', [AccountController::class, 'follow']);
+
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
