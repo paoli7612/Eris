@@ -13,6 +13,5 @@
                 {!! $user->avatar_image(255) !!}
             </div>
         </footer>
-
     </div>
 @endsection
