@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container border border-3 rounded p-5 bg-white">
+    <div class="container border border-3 rounded p-5 bg-white mt-3">
         <footer class="row p-3">
             <div class="col">
                 <h1> {{ $user->name }} </h1>

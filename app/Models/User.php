@@ -52,7 +52,7 @@ class User extends Authenticatable
         return route('account', $this);
     }
 
-    public function avatar_image($size)
+    public function avatar_image($size = 50)
     {
         return "<img src=\"https://i.pravatar.cc/{$size}?u={$this->email}\" width=\"$size\" class=\"rounded-circle\"/>";
     }
