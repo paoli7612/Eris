@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return 'slug';
     }
+
+    public function getRouteAttribute()
+    {
+        return route('account', $this);
+    }
+
+    public function avatar_image($size)
+    {
+        return "<img src=\"https://i.pravatar.cc/{$size}?u={$this->email}\" width=\"$size\" class=\"rounded-circle\"/>";
+    }
 }
