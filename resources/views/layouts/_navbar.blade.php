@@ -7,10 +7,13 @@
                         <a class="nav-link @if (Request::is('/')) active @endif" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('search') }}">Search</a>
+                        <a class="nav-link @if (Request::is('info')) active @endif" href="{{ route('info') }}">Info</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('posts') }}">Posts</a>
+                        <a class="nav-link @if (Request::is('search')) active @endif" href="{{ route('search') }}">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if (Request::is('posts')) active @endif" href="{{ route('posts') }}">Posts</a>
                     </li>
                 </ul>
                 <form class="d-flex navbar-nav">
