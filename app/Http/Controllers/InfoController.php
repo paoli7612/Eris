@@ -20,5 +20,8 @@ class InfoController extends Controller
             $message->to(request('email'))
                 ->subject('CIao');
         });
+
+        return redirect('/info')
+            ->with('message', 'Email sent!');
     }
 }
