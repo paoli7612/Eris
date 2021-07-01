@@ -29,6 +29,8 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/info', [InfoController::class, 'index'])->name('info');
 
+Route::post('/info', [InfoController::class, 'store']);
+
 Route::get('/account/{user}', [HomeController::class, 'account'])->name('account');
 Route::post('/account/{user}', [AccountController::class, 'follow']);
 
