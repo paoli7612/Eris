@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/info', [InfoController::class, 'index'])->name('info');
 
 Route::get('/account/{user}', [HomeController::class, 'account'])->name('account');
 Route::post('/account/{user}', [AccountController::class, 'follow']);
