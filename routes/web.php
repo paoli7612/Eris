@@ -28,7 +28,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/info', [InfoController::class, 'index'])->name('info');
-
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/account', function () {
     if (Auth::check()) {
         return redirect(auth()->user()->route);
@@ -36,12 +36,8 @@ Route::get('/account', function () {
         return redirect(route('login'));
     }
 });
-
 Route::get('/account/{user}', [HomeController::class, 'account'])->name('account');
 
-
 Route::post('/info', [InfoController::class, 'store']);
-
 Route::post('/account/{user}', [AccountController::class, 'follow']);
-
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/posts', [PostController::class, 'store']);
