@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,10 +17,8 @@ class InfoController extends Controller
     {
         Request()->validate(['email' => 'required|email']);
 
-        Mail::raw('funzica', function ($message) {
-            $message->to(request('email'))
-                ->subject('CIao');
-        });
+        Mail::to(request('email'))
+            ->send(new ContactMe());
 
         return redirect('/info')
             ->with('message', 'Email sent!');

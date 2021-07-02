@@ -2,17 +2,14 @@
 
 @section('content')
 
-<form action="/info" method="POST">
-    @csrf
+    <div class="row mt-4">
+        <div class="col-8">
+            <h1>Info Eris</h1>
+        </div>
+        <div class="col-4">
+            @include('partials.contact-me')
+        </div>
+    </div>
 
-    <input type="email" name="email">
-
-    <input type="submit" value="Test">
-
-</form>
-
-@if (session('message'))
-    <p>{{session('message')}}</p>
-@endif  
 
 @endsection
