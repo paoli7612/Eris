@@ -18,4 +18,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getRouteAttribute()
+    {
+        return "/post/{$this->id}";
+    }
 }

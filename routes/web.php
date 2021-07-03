@@ -41,3 +41,4 @@ Route::get('/account/{user}', [HomeController::class, 'account'])->name('account
 Route::post('/info', [InfoController::class, 'store']);
 Route::post('/account/{user}', [AccountController::class, 'follow']);
 Route::post('/posts', [PostController::class, 'store']);
+Route::post('/post/{post}', [PostController::class, 'send']);
