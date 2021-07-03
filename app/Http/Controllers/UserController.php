@@ -22,6 +22,7 @@ class UserController extends Controller
 
     public function follow(User $user)
     {
-        return 'asd';
+        auth()->user()->follow($user);
+        return redirect()->back();
     }
 }

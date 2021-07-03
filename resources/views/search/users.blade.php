@@ -11,19 +11,26 @@
     <div class="card-body">
         @foreach (\App\Models\User::all() as $user)
             <div class="p-3">
-                <div class="float-right">
-                    <form class="form-inline" action="">
-                        @csrf
-                        <a class="btn btn-primary" href="{{ $user->route }}">
-                            <i class="fa fa-user"></i>
-                        </a>
-                    </form>
-                    <form class="form-inline" action="{{ $user->route }}" method="post">
-                        @csrf
-                        <button class="btn btn-success" href="">
-                            <i class="fa fa-user-plus"></i>
-                        </button>
-                    </form>
+                <div class="float-right card-body">
+                    <div class="row">
+                        <div class="col">
+                            <form class="form-inline" action="">
+                                @csrf
+                                <a class="btn btn-primary" href="{{ $user->route }}">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <form class="form-inline" action="{{ $user->route }}" method="post">
+                                @csrf
+                                <button class="btn btn-success" href="">
+                                    <i class="fa fa-user-plus"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
                     
                 </div>
                 <h1>{{ $user->name }}</h1>

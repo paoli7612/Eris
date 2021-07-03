@@ -45,4 +45,19 @@ class User extends Authenticatable
     {
         return "/account/{$this->id}";
     }
+
+    public function avatar($size = 50)
+    {
+        return "<img src=\"https://i.pravatar.cc/{$size}?u={$this->email}\" width=\"$size\" class=\"rounded-circle\"/>";
+    }
+
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'following_user_id');
+    }
+
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
 }
