@@ -2,42 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         return view('home');
     }
 
-    public function account(User $user)
-    {
-        return view('account', [
-            'user' => $user
-        ]);
-    }
-
     public function search()
     {
-        return view('search', [
-            'users' => User::all()
-        ]);
+        return view('search');
+    }
+
+    public function account()
+    {
+        return view('account.index');
+    }
+
+    public function settings()
+    {
+        return view('account.settings');
     }
 }
