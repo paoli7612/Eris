@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->follows()->save($user);
     }
+
+    public function following(User $user)
+    {
+        return $this->follows()->where('user_id', $user->id)->count();
+    }
 }

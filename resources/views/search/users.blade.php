@@ -24,8 +24,13 @@
                         <div class="col">
                             <form class="form-inline" action="{{ $user->route }}" method="post">
                                 @csrf
-                                <button class="btn btn-success" href="">
-                                    <i class="fa fa-user-plus"></i>
+                                @if (auth()->user()->following($user))
+                                    <button class="btn btn-danger" href="">
+                                        <i class="fa fa-user-times"></i>
+                                    @else
+                                    <button class="btn btn-success" href="">
+                                        <i class="fa fa-user-plus"></i>
+                                    @endif
                                 </button>
                             </form>
                         </div>
