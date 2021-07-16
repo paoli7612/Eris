@@ -6,7 +6,14 @@
     </head>
 
     <body>
-        @yield('content')
-    </body>
 
+        <div class="w3-panel">
+            <h1>{{ App\Models\Option::get('sitename') }}</h1>
+        </div>
+
+        <div class="w3-panel">
+            @yield('content')
+        </div>
+
+    </body>
 </html>
