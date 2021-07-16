@@ -16,6 +16,15 @@ use App\Models\Option;
 |
 */
 
+function theme()
+{
+    if (Auth::check()) {
+        return Auth::user()->theme;
+    } else {
+        return 'grey';
+    }
+}
+
 Route::get('/', function () {
     return view('welcome');
 });

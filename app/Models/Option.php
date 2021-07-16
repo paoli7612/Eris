@@ -11,6 +11,10 @@ class Option extends Model
 
     public static function get($name)
     {
-        return Option::all()->where('name', $name)->first()->value;
+        try {
+            return Option::all()->where('name', $name)->first()->value;
+        } catch (\Throwable $th) {
+            return null;
+        }
     }
 }
