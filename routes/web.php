@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LessonController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/professori', [HomeController::class, 'professori'])->name('professori');
 Route::get('/materie', [HomeController::class, 'materie'])->name('materie');
 Route::get('/lezioni', [HomeController::class, 'lezioni'])->name('lezioni');
+
+Route::get('lezioni/{lesson}', [LessonController::class, 'show'])->name('lezione');

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark mb-3 fixed-top">
+<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
     <a class="btn text-white {{ Request::is('home') ? 'btn-primary' : '' }} " href="{{ route('home') }}">
         <i class="fas fa-home fa-lg"></i>
     </a>
@@ -15,3 +15,8 @@
         <i class="fas fa-bookmark fa-lg"></i>
     </a>
 </nav>
+<div class="container my-3">
+    <div class="input-group rounded">
+        <input type="text" class="form-control rounded"/>
+    </div>
+</div>
