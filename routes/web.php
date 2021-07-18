@@ -1,9 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Models\Option;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +13,10 @@ use App\Models\Option;
 |
 */
 
-function theme()
-{
-    if (Auth::check()) {
-        return Auth::user()->theme;
-    } else {
-        return 'grey';
-    }
-}
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', [AdminController::class, 'index']);
-
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
