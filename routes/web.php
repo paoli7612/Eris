@@ -22,3 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/professori', [HomeController::class, 'professori'])->name('professori');
+Route::get('/materie', [HomeController::class, 'materie'])->name('materie');
+Route::get('/lezioni', [HomeController::class, 'lezioni'])->name('lezioni');

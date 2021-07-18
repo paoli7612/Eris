@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    
+    @include('layouts.nav')
+    <div class="mt-5">
+        @yield('content')
+    </div>
 </body>
 
 </html>
