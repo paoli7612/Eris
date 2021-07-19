@@ -14,7 +14,7 @@
 
                 <form action="/lezioni" method="post">
                     @csrf
-                    @method('new')
+                    @method('put')
 
                     <div class="form-group">
                         <div class="row">

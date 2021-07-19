@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function getRouteAttribute()
     {
-        return 'utenti/' . $this->slug;
+        return '/utenti/' . $this->slug;
     }
 }

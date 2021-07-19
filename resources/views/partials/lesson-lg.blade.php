@@ -24,9 +24,9 @@
                         <i class="far fa-bookmark"></i>
                         <?php endif; ?>
                         Salva</button>
-                    <button class="btn bg-white mb-3" onclick="window.location='../professori/1'">
+                    <a href="{{ App\Models\User::first()->route }}" class="btn bg-white mb-3">
                         <i class="fas fa-user-tie"></i>
-                        Tommaso Paoli</button>
+                        Tommaso Paoli</a>
                     <button class="btn bg-white mb-3" disabled>
                         <i class="fas fa-info-circle"></i>
                         Dettagli</button>
