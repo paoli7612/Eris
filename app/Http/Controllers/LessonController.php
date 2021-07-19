@@ -12,6 +12,18 @@ class LessonController extends Controller
         return view('lesson', ['lesson' => $lesson]);
     }
 
+    public function store()
+    {
+        $lesson = Lesson::create([
+            'user_id' => auth()->user()->id,
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
+
+        $lesson->save();
+        return redirect(route('lezione', $lesson));
+    }
+
     public function elimina(Lesson $lesson)
     {
         return view('lesson-delete', ['lesson' => $lesson]);

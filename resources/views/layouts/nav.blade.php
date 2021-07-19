@@ -14,6 +14,12 @@
     <a class="btn text-white ml-3 {{ Request::is('lezioni') ? 'btn-primary' : '' }}" href="{{ route('lezioni') }}">
         <i class="fas fa-bookmark fa-lg"></i>
     </a>
+
+    @if (auth()->user()->type == 'admin')
+        <a class="btn text-white ml-3 {{ Request::is('nuova-lezione') ? 'btn-primary' : '' }}" href="{{ route('nuova-lezione') }}">
+            <i class="fas fa-plus fa-lg"></i>
+        </a>
+    @endif
 </nav>
 <div class="container my-3">
     <div class="input-group rounded">

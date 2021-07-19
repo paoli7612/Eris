@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description'
+    ];
+
     use HasFactory;
 
     public function getRouteKeyName()

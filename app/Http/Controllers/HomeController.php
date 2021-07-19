@@ -30,20 +30,31 @@ class HomeController extends Controller
 
     public function professori()
     {
-        return view('professori', [
-            'professori' => User::all()->where('type', 'admin')
+        return view('teachers', [
+            'teachers' => User::all()->where('type', 'admin')
         ]);
     }
 
     public function materie()
     {
-        return view('materie');
+        return view('courses');
     }
 
     public function lezioni()
     {
+        if (request('docente')) {
+            $lessons = Lesson::all()->where('teacher_id', request('docente'));
+        } else {
+            $lessons = Lesson::all();
+        }
+
         return view('lessons', [
-            'lessons' => Lesson::all()
+            'lessons' => $lessons
         ]);
+    }
+
+    public function nuova_lezione()
+    {
+        return view('new-lesson');
     }
 }

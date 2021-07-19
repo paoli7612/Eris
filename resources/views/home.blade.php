@@ -4,7 +4,7 @@
     <div class="jumbotron mt-5">
         <div class="container">
             <h1 class="display-3">Bentornato, {{ Auth::user()->name }}</h1>
-            <p>Grazie per aver scelto Apprendiamoci.</p>
+            <p>Grazie per aver scelto Apprendiamoci. Sei un {{ auth()->user()->type }}</p>
         </div>
     </div>
 
