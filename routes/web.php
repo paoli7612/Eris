@@ -28,3 +28,6 @@ Route::get('/materie', [HomeController::class, 'materie'])->name('materie');
 Route::get('/lezioni', [HomeController::class, 'lezioni'])->name('lezioni');
 
 Route::get('lezioni/{lesson}', [LessonController::class, 'show'])->name('lezione');
+
+Route::get('lezioni/{lesson}/elimina', [LessonController::class, 'elimina'])->name('elimina-lezione');
+Route::delete('lezioni/{id}', [LessonController::class, 'delete']);
