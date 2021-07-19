@@ -11,4 +11,15 @@ class LessonController extends Controller
     {
         return view('lesson', ['lesson' => $lesson]);
     }
+
+    public function elimina(Lesson $lesson)
+    {
+        return view('lesson-delete', ['lesson' => $lesson]);
+    }
+
+    public function delete($id)
+    {
+        Lesson::find($id)->delete();
+        return redirect(route('lezioni'));
+    }
 }
