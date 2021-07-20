@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
         <h1>Nuova lezione</h1>
         <div class="card">
@@ -12,16 +11,17 @@
                 <i class="fas fa-plus"></i>
             </div>
             <div class="card-body">
-
                 <form action="/lezioni" method="post">
                     @csrf
-                    @method('put')
-
+                    @method('post')
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
                                 <label for="title">Titolo</label>
-                                <input type="text" name="title" id="title" class="form-control" placeholder="Titolo">
+                                <input type="text" name="title" id="title" class="form-control" required placeholder="Titolo">
+                                @error('title')
+                                    <span class="text-danger">{{ $message }}</span>                                    
+                                @enderror
                             </div>
                             <div class="col">
                                 <label for="title">Utente</label>
@@ -38,13 +38,9 @@
                             <a href="{{ route('home') }}" class="btn btn-secondary"> Annulla </a>
                             <input type="submit" class="btn btn-primary" value="Crea nuova lezione">
                         </div>
-                        
                     </div>
                 </form>
             </div>
         </div>
-
-
     </div>
-
 @endsection

@@ -31,9 +31,11 @@
                         <i class="fas fa-info-circle"></i>
                         Dettagli</button>
                     <?php if (1): ?>
-                    <button class="btn bg-white mb-3" disabled>
-                        <i class="fas fa-edit"></i>
-                        Modifica</button>
+                    @if ($lesson->user_id == auth()->user()->id)
+                        <a class="btn bg-white mb-3" href="{{ route('modifica-lezione', $lesson) }}">
+                            <i class="fas fa-edit"></i>
+                            Modifica</a>        
+                    @endif
                     <button class="btn bg-white mb-3" disabled>
                         <i class="fas fa-book"></i>
                         Seleziona materie</button>
