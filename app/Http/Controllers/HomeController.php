@@ -57,4 +57,9 @@ class HomeController extends Controller
     {
         return view('new-lesson');
     }
+
+    public function account()
+    {
+        return view('account', ['user' => auth()->user() ]);
+    }
 }

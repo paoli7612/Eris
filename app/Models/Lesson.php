@@ -19,4 +19,9 @@ class Lesson extends Model
     {
         return 'id';
     }
+
+    public function getRouteAttribute()
+    {
+        return '/lezioni/' . $this->id;
+    }
 }

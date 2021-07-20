@@ -1,7 +1,7 @@
 <div class="col-4">
     <div class="card text-white bg-secondary mb-3">
         <div class="card-header">
-            {{ $teacher->complete_name() }}
+            {{ $teacher->complete_name }}
             <span class="float-right">
                 <i class="fas fa-user-graduate fa-lg"></i>
             </span>

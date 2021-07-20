@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="container">
+        <h1>Nuova lezione</h1>
         <div class="card">
             <div class="card-header">
                 <span class="float-right">
