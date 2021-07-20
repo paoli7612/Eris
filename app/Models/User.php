@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     public function getRouteAttribute()
     {
-        return '/utenti/' . $this->slug;
+        return ($this->type == 'admin' ? 'professori/': 'studenti/').$this->slug;
     }
 
     public function getRouteKeyName()

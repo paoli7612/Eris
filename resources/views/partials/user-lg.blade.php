@@ -8,6 +8,15 @@
     </div>
 </div>
 
+@if (auth()->user()->id == $user->id)
+    <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button type="submit" class="btn btn-danger">
+            Disconnetti <i class="fas fa-sign-out-alt"></i>
+        </button>
+    </form>
+@endif
+
 <div class="row mt-3">
     @foreach ($user->lessons as $lesson)
         @include('partials.lesson-sm')

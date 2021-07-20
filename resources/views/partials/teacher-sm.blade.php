@@ -13,26 +13,22 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <a class="btn bg-white btn-block" href="{{ route('lezioni-cerca', $teacher) }}"
-                     <?php if (4==0): ?>disabled="disabled" <?php endif; ?>>
-                        Lezioni</a>
+                    <a class="btn bg-white btn-block" href="{{ $teacher->route }}">
+                        <i class="fas fa-user-graduate"></i>
+                        Scherda professore
+                    </a>
                 </div>
                 <div class="col">
-                    <button class="btn bg-white btn-block" onclick="salvaDocente(this,2)" disabled>
+                    <button class="btn bg-white btn-block" onclick="salvaDocente(this,2)">
                         <?php if (1): ?>
-                        <i class="fas fa-bookmark"></i>
+                            <i class="fas fa-bookmark"></i>
                         <?php else: ?>
-                        <i class="far fa-bookmark"></i>
+                            <i class="far fa-bookmark"></i>
                         <?php endif; ?>
-                        Salva</button>
-                </div>
-                <div class="col">
-                    <button class="btn bg-white btn-block" disabled>
-                        <i class="fas fa-comment-dots"></i>
-
-                        Scrivi messaggio
+                            Salva
                     </button>
                 </div>
+
             </div>
         </div>
     </div>

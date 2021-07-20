@@ -27,10 +27,6 @@
         </a>
     @endif
 
-
-
-    
-
 </nav>
 <div class="container my-3">
     <div class="input-group rounded">

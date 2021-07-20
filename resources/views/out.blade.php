@@ -203,7 +203,7 @@
                                 <input type="email" name="email" class="form-control" placeholder="Email" required>
                             </div>
                             <div class="col">
-                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                <input type="password" name="password" class="form-control" placeholder="Password">
                             </div>
                         </div>
                     </div>
@@ -245,10 +245,10 @@
                         </div>
                         <div class="form-row mt-4">
                             <div class="col">
-                                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
                             <div class="col">
-                                <input type="password" class="form-control" name="password_confirmation" placeholder="Password" required>
+                                <input type="password" class="form-control" name="password_confirmation" placeholder="Password">
                             </div>
                         </div>
                     </div>

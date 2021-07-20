@@ -6,5 +6,4 @@
         <h1>Account</h1>
         @include('partials.user-lg')
     </div>
-
 @endsection
