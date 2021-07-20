@@ -55,7 +55,7 @@ class HomeController extends Controller
 
     public function nuova_lezione()
     {
-        return view('new-lesson');
+        return view('lesson-new');
     }
 
     public function account()
