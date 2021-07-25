@@ -42,7 +42,7 @@
                             <a href="{{ route('account', auth()->user()) }}" class="dropdown-item">{{ __('Account') }}</a>
                             <a href="{{ route('settings', auth()->user()) }}" class="dropdown-item">{{ __('Settings') }}</a>
                             <div class="dropdown-divider"></div>
-                            <form action="{{ route('logout') }}">
+                            <form action="{{ route('logout') }}" method="POST"> @csrf
                                 <input class="dropdown-item" type="submit" value="{{ __('Logout') }}">
                             </form>
                         </div>
