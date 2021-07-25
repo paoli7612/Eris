@@ -6,7 +6,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('home*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-home fa-lg"></i> Home
                     </a>
@@ -34,13 +34,13 @@
                         </li>
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle {{ Request::is('users*') ? 'active' : '' }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="{{ route('account', auth()->user()) }}" class="dropdown-item" type="submit">{{ __('Account') }}</a>
-                            <a class="dropdown-item" type="submit">{{ __('Settings') }}</a>
+                            <a href="{{ route('account', auth()->user()) }}" class="dropdown-item">{{ __('Account') }}</a>
+                            <a href="{{ route('settings', auth()->user()) }}" class="dropdown-item">{{ __('Settings') }}</a>
                             <div class="dropdown-divider"></div>
                             <form action="{{ route('logout') }}">
                                 <input class="dropdown-item" type="submit" value="{{ __('Logout') }}">
