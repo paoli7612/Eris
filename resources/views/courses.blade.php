@@ -2,6 +2,6 @@
 
 @section('content')
     @foreach ($courses as $course)
-        {{ $course->title }}
+        <a href="{{ $course->route }}" class="btn btn-success">{{ $course->title }}</a>
     @endforeach
 @endsection
