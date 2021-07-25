@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('asdasdasd')
         ]);
 
-        Course::create(['title' => 'Matematica']);
-        Course::create(['title' => 'Italiano']);
+        Course::create(['title' => 'Matematica', 'slug' => 'mate']);
+        Course::create(['title' => 'Italiano', 'slug' => 'ita']);
     }
 }

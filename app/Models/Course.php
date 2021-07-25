@@ -9,8 +9,13 @@ class Course extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'slug'
+    ];
+
     public function getRouteAttribute()
     {
-        return 'courses/'.$this->id;
+        return '/courses/'.$this->slug;
     }
 }
