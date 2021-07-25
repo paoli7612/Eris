@@ -23,4 +23,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/teachers', [HomeController::class, 'index'])->name('teachers');
-Route::get('/corsi', [HomeController::class, 'index'])->name('courses');
+Route::get('/courses', [HomeController::class, 'index'])->name('courses');
+
+Route::get('users/{user}', [HomeController::class, 'index'])->name('account');
