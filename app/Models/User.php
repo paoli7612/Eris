@@ -11,40 +11,33 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name',
-        'surname',
         'email',
-        'slug',
         'password',
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function getCompleteNameAttribute()
-    {
-        return $this->name . " " . $this->surname;
-    }
-
-    public function getRouteAttribute()
-    {
-        return ($this->type == 'admin' ? 'professori/': 'studenti/').$this->slug;
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    public function lessons()
-    {
-        return $this->hasMany(Lesson::class);
-    }
 }

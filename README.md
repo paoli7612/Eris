@@ -5,8 +5,4 @@
 
     npm update && npm run dev
 
-    php artistan ui vue
-
-    npm install && npm run dev
-    
 ```

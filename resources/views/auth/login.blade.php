@@ -1,20 +1,5 @@
-<header>
-    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
-      <div style="width: 200px">
-        <img src="img/mcspada.png" alt="logo" width="100%">
-      </div>
-      <div class="navbar-collapse navbar-nav">
-        <button class="btn btn-primary text-white ml-auto nav-link active" onclick="$('#dropdownEntra').toggle()">
-          <span class="d-sm">Accedi</span>
-        </button>
-      </div>
-      <div class="dropdown-menu dropdown-menu-right" id="dropdownEntra">
-        <a class="dropdown-item" href="login">Accedi</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="register">Registrati</a>
-      </div>
-    </nav>
-  </header>
+@extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -44,7 +29,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
