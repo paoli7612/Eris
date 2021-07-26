@@ -16,7 +16,8 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique;
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
             $table->foreignIdFor(Course::class, 'course_id');
             $table->timestamps();
         });

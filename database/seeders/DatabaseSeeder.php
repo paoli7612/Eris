@@ -27,9 +27,8 @@ class DatabaseSeeder extends Seeder
 
         Course::create(['title' => 'Matematica', 'slug' => 'mate']);
         Course::create(['title' => 'Italiano', 'slug' => 'ita']);
+        Course::create(['title' => 'Storia', 'slug' => 'storia']);
 
-        Lesson::create(['title' => 'Equazioni', 'course_id' => 1]);
-        Lesson::create(['title' => 'Proporzioni', 'course_id' => 1]);
-        Lesson::create(['title' => 'Verismo', 'course_id' => 2]);
+        Lesson::create(['title' => 'Prima guerra mondiale', 'course_id' => 3, 'slug' => 'prima_guerra_mondiale']);
     }
 }
