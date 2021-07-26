@@ -21,4 +21,8 @@ class Lesson extends Model
     {
         return '/lessons/' . $this->slug;
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

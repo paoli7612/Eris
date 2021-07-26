@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="row">
                     @foreach ($course->lessons as $lesson)
-                        <a href="{{ $lesson->route }}" class="btn btn-outline-danger mx-2"> {{ $lesson->title }}</a>
+                        <a href="{{ route('lesson', $lesson) }}" class="btn btn-outline-danger mx-2"> {{ $lesson->title }}</a>
                     @endforeach
                 </div>
             </div>
