@@ -3,10 +3,13 @@
 @section('content')
     <div class="row">
         @foreach ($teachers as $teacher)
-            <div class="col-4 my-3">
-                <div class="card">
+            <div class="col-12 col-sm-6 my-3">
+                <div class="card shadow">
                     <div class="card-header">
                         {{ $teacher->complete_name }}
+                        <div class="float-right">
+                            {!! $teacher->avatar(50) !!}
+                        </div>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-primary" href="{{ $teacher->route }}">

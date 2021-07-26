@@ -57,4 +57,13 @@ class User extends Authenticatable
     {
         return '/' . $this->type . '/' . $this->nickname;
     }
+
+    public function avatar($size)
+    {
+        return "<img "
+                . "src=\"https://i.pravatar.cc/$size?u={$this->email}\" "
+                . "alt=\"{$this->nickname}\" "
+                . "class=\"rounded-circle\" "
+            . ">";
+    }
 }
