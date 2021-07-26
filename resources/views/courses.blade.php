@@ -2,6 +2,17 @@
 
 @section('content')
     @foreach ($courses as $course)
-        <a href="{{ $course->route }}" class="btn btn-success">{{ $course->title }}</a>
+    <div class="my-3">
+
+        <div class="card">
+            <div class="card-header">
+                <a href="{{ $course->route }}">{{ $course->title }} </a>
+            </div>
+            <div class="card-body">
+                
+            </div>
+        </div>
+    </div>
+
     @endforeach
 @endsection
