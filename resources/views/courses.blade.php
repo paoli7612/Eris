@@ -9,7 +9,9 @@
                 <a href="{{ $course->route }}">{{ $course->title }} </a>
             </div>
             <div class="card-body">
-                
+                @foreach ($course->lessons as $lesson)
+                    {{ $lesson->title }}
+                @endforeach
             </div>
         </div>
     </div>

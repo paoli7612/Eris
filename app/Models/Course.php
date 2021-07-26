@@ -18,4 +18,9 @@ class Course extends Model
     {
         return '/courses/'.$this->slug;
     }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'course_id');
+    }
 }
