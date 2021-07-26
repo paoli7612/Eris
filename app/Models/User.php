@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->name . ' ' . $this->surname;
     }
+
+    public function getRouteAttribute()
+    {
+        return '/' . $this->type . '/' . $this->nickname;
+    }
 }

@@ -39,8 +39,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="{{ route('account', auth()->user()) }}" class="dropdown-item">{{ __('Account') }}</a>
-                            <a href="{{ route('settings', auth()->user()) }}" class="dropdown-item">{{ __('Settings') }}</a>
+                            <a href="{{ route('account') }}" class="dropdown-item">{{ __('Account') }}</a>
+                            <a href="{{ route('settings') }}" class="dropdown-item">{{ __('Settings') }}</a>
                             <div class="dropdown-divider"></div>
                             <form action="{{ route('logout') }}" method="POST"> @csrf
                                 <input class="dropdown-item" type="submit" value="{{ __('Logout') }}">
