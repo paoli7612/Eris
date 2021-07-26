@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/teachers', [HomeController::class, 'index'])->name('teachers');
+Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
 Route::get('users/{user}', [HomeController::class, 'index'])->name('account');

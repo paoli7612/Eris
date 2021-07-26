@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return 'nickname';
     }
+
+    public function getCompleteNameAttribute()
+    {
+        return $this->name . ' ' . $this->surname;
+    }
 }
