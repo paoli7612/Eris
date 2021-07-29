@@ -1,3 +1,7 @@
+@php
+    function icon($name, $other = '')
+    { echo '<i class="fas fa-' . $name . ' ' . $other . '"></i>'; }
+@endphp
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -13,12 +17,12 @@
                 </li>
                 <li class="nav-item {{ Request::is('teachers') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('teachers') }}">
-                        <i class="fas fa-users fa-lg"></i> Teachers
+                        {{ icon('users', 'lg') }} Teachers
                     </a>
                 </li>
                 <li class="nav-item {{ Request::is('courses') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('courses') }}">
-                        <i class="fas fa-swatchbook fa-lg"></i> Courses
+                        {{ icon('swatchbook', 'lg') }} Courses
                     </a>
                 </li>
             </ul>
@@ -39,11 +43,32 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="{{ route('account') }}" class="dropdown-item">{{ __('Account') }}</a>
-                            <a href="{{ route('settings') }}" class="dropdown-item">{{ __('Settings') }}</a>
+                            @if (Auth::user()->type == 'teacher')
+                                <a href="{{ route('new-lesson') }}" class="dropdown-item">
+                                    {{ icon('plus', 'mr-2') }}
+                                    {{ __('New lesson') }}    
+                                </a>
+                                
+                            @endif
+                            
+                            <a href="{{ route('account') }}" class="dropdown-item">
+                                @if (Auth::user()->type == 'teacher')
+                                    {{ icon('user-graduate', 'mr-2') }}
+                                @else
+                                    {{ icon('user', 'mr-2') }}
+                                @endif
+                                {{ __('Account') }}
+                            </a>
+                            <a href="{{ route('settings') }}" class="dropdown-item">
+                                {{ icon('cog', 'mr-2') }}
+                                {{ __('Settings') }}
+                            </a>
                             <div class="dropdown-divider"></div>
                             <form action="{{ route('logout') }}" method="POST"> @csrf
-                                <input class="dropdown-item" type="submit" value="{{ __('Logout') }}">
+                                <button class="dropdown-item" type="submit">
+                                    {{ icon('sign-out-alt', 'mr-2') }}
+                                    {{ __('Logout') }}
+                                </form>
                             </form>
                         </div>
                     </li>
