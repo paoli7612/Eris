@@ -6,3 +6,5 @@
     npm update && npm run dev
 
 ```
+
+![alt](doc/img/001.png)
