@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,5 +32,17 @@ class HomeController extends Controller
         return view('account', [
             'user' => auth()->user()
         ]);
+    }
+
+    public function teachers()
+    {
+        return view('teachers', [
+            'teachers' => User::all()->where('type', 'teacher')
+        ]);
+    }
+
+    public function new_lesson()
+    {
+        return view('lesson.new');
     }
 }

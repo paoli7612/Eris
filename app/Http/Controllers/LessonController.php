@@ -9,7 +9,7 @@ class LessonController extends Controller
 {
     public function show(Lesson $lesson)
     {
-        return view('lesson', [
+        return view('lesson.show', [
             'lesson' => $lesson
         ]);
     }

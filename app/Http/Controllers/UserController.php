@@ -7,16 +7,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function student(User $user)
+    public function user(User $user)
     {
-        return view('account', [
-            'user' => $user
-        ]);
-    }
-
-    public function teacher(User $user)
-    {
-        return view('teacher', [
+        return view($user->type, [
             'user' => $user
         ]);
     }
