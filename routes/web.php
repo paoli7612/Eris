@@ -32,6 +32,7 @@ Route::get('/account', [HomeController::class, 'account'])->name('account');
 Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
 
 Route::get('lessons/new', [HomeController::class, 'new_lesson'])->name('new-lesson');
+Route::post('lessons/new', [LessonController::class, 'store'])->name('new-lesson');
 
 Route::get('/student/{user}', [UserController::class, 'user'])->name('student');
 Route::get('/teacher/{user}', [UserController::class, 'user'])->name('teacher');
