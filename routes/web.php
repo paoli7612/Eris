@@ -26,13 +26,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
+Route::get('/teachers', [HomeController::class, 'teachers'])->name('teachers');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/account', [HomeController::class, 'account'])->name('account');
 Route::get('/settings', [HomeController::class, 'index'])->name('settings');
 
 Route::get('lessons/new', [HomeController::class, 'new_lesson'])->name('new-lesson');
 
-Route::get('/student/{user}', [UserController::class, 'student'])->name('student');
-Route::get('/teacher/{user}', [UserController::class, 'teacher'])->name('teacher');
+Route::get('/student/{user}', [UserController::class, 'user'])->name('student');
+Route::get('/teacher/{user}', [UserController::class, 'user'])->name('teacher');
+
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
