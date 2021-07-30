@@ -45,4 +45,9 @@ class HomeController extends Controller
     {
         return view('lesson.new');
     }
+
+    public function settings()
+    {
+        return view('settings');
+    }
 }
