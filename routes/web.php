@@ -40,4 +40,6 @@ Route::get('/teacher/{user}', [UserController::class, 'user'])->name('teacher');
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
 Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lesson.edit');
 Route::get('/lessons/{lesson}/remove', [LessonController::class, 'remove'])->name('lesson.remove');
+
 Route::put('/lessons/{lesson}', [LessonController::class, 'save']);
+Route::delete('/lessons/{lesson}', [LessonController::class, 'delete']);
