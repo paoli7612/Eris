@@ -28,4 +28,27 @@ class LessonController extends Controller
 
         return redirect(route('lesson', $slug));
     }
+
+    public function edit(Lesson $lesson)
+    {
+        return view('lesson.edit', [
+            'lesson' => $lesson
+        ]);
+    }
+
+    public function remove(Lesson $lesson)
+    {
+        return view('lesson.remove', [
+            'lesson' => $lesson
+        ]);
+    }
+
+    public function save(Lesson $lesson)
+    {
+        $lesson->course_id = request('course_id');
+        $lesson->description = request('description');
+        $lesson->save();
+
+        return redirect(route('lesson', $lesson));
+    }
 }
