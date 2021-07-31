@@ -17,10 +17,15 @@ class Lesson extends Model
         'course_id'
     ];
 
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id');
+    }
     public function getRouteAttribute()
     {
         return '/lessons/' . $this->slug;
     }
+    
     public function getRouteKeyName()
     {
         return 'slug';
