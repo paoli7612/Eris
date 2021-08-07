@@ -10,14 +10,14 @@
         <div class="col text-right">
             <div class="card">
                 <div class="card-header">
-                    <form action="{{ route('account') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('account') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input onchange="change_image(this)" type="file" name="image" class="d-none" id="input_file">
+                        <input onchange="change_image(this)" type="file" name="image" class="d-none" id="image">
                         <button id="submit" type="submit" class="d-none btn btn-primary">
                             <i class="fa fa-save"></i>
                         </button>
                     </form>
-                    <button id="input_button" onclick="$('#input_file').click()" class="text-center btn btn-secondary shadow">
+                    <button id="input_button" onclick="$('#image').click()" class="text-center btn btn-secondary shadow">
                         <i class="fas fa-image"></i>
                         Change image </button>        
                 </div>
@@ -31,7 +31,7 @@
 
     <script>
         var change_image = function () {
-            $('#input_button').text($('#input_file').first()[0].files[0].name);
+            $('#input_button').text($('#image').first()[0].files[0].name);
             $('#input_button').addClass('btn-success');
             $('#submit').removeClass('d-none');
         }

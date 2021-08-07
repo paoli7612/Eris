@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -16,13 +17,11 @@ class UserController extends Controller
 
     public function store_image(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $randomize = rand(111111, 999999);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $filename = $randomize . '.' . $extension;
-            echo $filename;
-            echo $extension;
-            dd($request->image->store('storage/uploads/' . $filename));
-        }
+        $filename = $request->image->getClientOriginalName();
+        dd($filename);
+        $file = $request['image'];
+        $file->store('public');
+        Storage::disk('public')->put($filename, $file);
+        //return redirect()->back();
     }
 }
