@@ -47,13 +47,14 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <div class="p-3">
-                    <form action="{{ route('login') }}" method="post"> @csrf
+                    <form action="{{ route('register') }}" method="post"> @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name">
-                            <input type="text" class="form-control" placeholder="Surname">
-                            <input type="text" class="form-control" placeholder="Nickname">
-                            <input type="email" class="form-control" placeholder="Email">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input name="name" type="text" class="form-control" placeholder="Name">
+                            <input name="surname" type="text" class="form-control" placeholder="Surname">
+                            <input name="nickname" type="text" class="form-control" placeholder="Nickname">
+                            <input name="email" type="email" class="form-control" placeholder="Email">
+                            <input name="password" type="password" class="form-control" placeholder="Password">
+                            <input name="password_confirmation" type="password" class="form-control" placeholder="Password">
                         </div>
                         <input type="submit" class="btn btn-primary" value="Register">
                     </form>
