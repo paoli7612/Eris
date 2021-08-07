@@ -60,10 +60,22 @@ class User extends Authenticatable
 
     public function avatar($size)
     {
-        return "<img "
+        if ($this->image) {
+            return "<img "
+            . "src=\"img/{$this->image}\" "
+            . "width=\"$size\" "
+            . "height=\"$size\" "
+            . "alt=\"{$this->nickname}\" "
+            . "class=\"rounded-circle\" "
+        . ">";
+        } else {
+            return "<img "
                 . "src=\"https://i.pravatar.cc/$size?u={$this->email}\" "
+                . "width=\"$size\" "
+                . "height=\"$size\" "
                 . "alt=\"{$this->nickname}\" "
                 . "class=\"rounded-circle\" "
             . ">";
+        }
     }
 }

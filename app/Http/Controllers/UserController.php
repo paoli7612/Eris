@@ -13,4 +13,16 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    public function store_image(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            $randomize = rand(111111, 999999);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $filename = $randomize . '.' . $extension;
+            echo $filename;
+            echo $extension;
+            dd($request->image->store('storage/uploads/' . $filename));
+        }
+    }
 }
