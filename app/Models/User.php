@@ -58,6 +58,21 @@ class User extends Authenticatable
         return '/' . $this->type . '/' . $this->nickname;
     }
 
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follow', 'follow_user_id', 'user_id');
+    }
+    
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'follow', 'user_id', 'follow_user_id');
+    }
+
+    public function follow(User $user)
+    {
+        $this->following()->save($user);
+    }
+
     public function avatar($size)
     {
         if ($this->image) {

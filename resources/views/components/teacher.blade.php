@@ -10,9 +10,8 @@
             <a class="btn btn-primary" href="{{ $teacher->route }}">
                 <i class="fas fa-user-tie"></i>
             </a>
-            <a class="btn btn-primary" href="{{ $teacher->route }}">
+            <a class="btn btn-primary"  onclick="follow(this, {{ $teacher->id }})">
                 <i class="far fa-bookmark"></i>
-                <i class="fas fa-bookmark"></i>
             </a>
         </div>
     </div>

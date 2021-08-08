@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
@@ -30,7 +31,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/teachers', [HomeController::class, 'teachers'])->name('teachers');
+Route::get('/teachers', [UserController::class, 'teachers'])->name('teachers');
+Route::get('/my-teachers', [UserController::class, 'my_teachers'])->name('my-teachers');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/account', [HomeController::class, 'account'])->name('account');
 Route::post('/account', [UserController::class, 'store_image']);
@@ -48,3 +50,6 @@ Route::get('/lessons/{lesson}/remove', [LessonController::class, 'remove'])->nam
 
 Route::put('/lessons/{lesson}', [LessonController::class, 'save']);
 Route::delete('/lessons/{lesson}', [LessonController::class, 'delete']);
+
+
+Route::get('api/follow/{id}', [ApiController::class, 'follow'])->name('api.follow');

@@ -24,4 +24,21 @@ class UserController extends Controller
         Storage::disk('public')->put($filename, $file);
         //return redirect()->back();
     }
+
+    public function teachers()
+    {
+        return view('teachers', [
+            'teachers' => User::all()
+                ->except(auth()->user()->id)
+                ->where('type', 'teacher')
+        ])->with('saved', false);
+        ;
+    }
+
+    public function my_teachers()
+    {
+        return view('teachers', [
+            'teachers' => auth()->user()->following
+        ])->with('saved', true);
+    }
 }
