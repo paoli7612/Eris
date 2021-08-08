@@ -34,6 +34,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/teachers', [UserController::class, 'teachers'])->name('teachers');
 Route::get('/my-teachers', [UserController::class, 'my_teachers'])->name('my-teachers');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
+Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
 Route::get('/account', [HomeController::class, 'account'])->name('account');
 Route::post('/account', [UserController::class, 'store_image']);
 Route::get('/settings', [HomeController::class, 'settings'])->name('settings');

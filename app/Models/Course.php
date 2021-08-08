@@ -14,6 +14,11 @@ class Course extends Model
         'title'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function getRouteAttribute()
     {
         return '/courses/'.$this->slug;

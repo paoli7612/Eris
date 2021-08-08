@@ -9,8 +9,13 @@ class CourseController extends Controller
 {
     public function index()
     {
-        return view('courses', [
+        return view('course.all', [
             'courses' => Course::all()
         ]);
+    }
+
+    public function show(Course $course)
+    {
+        # code...
     }
 }
