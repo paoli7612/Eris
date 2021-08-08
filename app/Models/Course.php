@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Course extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'slug'
+        'title'
     ];
 
     public function getRouteAttribute()
@@ -22,5 +22,11 @@ class Course extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class, 'course_id');
+    }
+
+    public function setTitleAttribute($title)
+    {
+        $this->attributes['title'] = $title;
+        $this->attributes['slug'] = Str::slug($title);
     }
 }

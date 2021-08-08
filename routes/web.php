@@ -52,4 +52,4 @@ Route::put('/lessons/{lesson}', [LessonController::class, 'save']);
 Route::delete('/lessons/{lesson}', [LessonController::class, 'delete']);
 
 
-Route::get('api/follow/{id}', [ApiController::class, 'follow'])->name('api.follow');
+Route::get('api/follow/{user}', [ApiController::class, 'follow']);
