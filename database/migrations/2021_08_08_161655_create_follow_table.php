@@ -17,6 +17,7 @@ class CreateFollowTable extends Migration
         Schema::create('follow', function (Blueprint $table) {
             $table->foreignIdFor(User::class, 'user_id');
             $table->foreignIdFor(User::class, 'follow_user_id');
+            $table->unique(['user_id', 'follow_user_id']);
         });
     }
 

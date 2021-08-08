@@ -14,7 +14,8 @@ class Lesson extends Model
     protected $fillable = [
         'title',
         'slug',
-        'course_id'
+        'course_id',
+        'user_id'
     ];
 
     public function course()
