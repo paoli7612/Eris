@@ -25,6 +25,13 @@
                         {{ icon('swatchbook', 'lg') }} Courses
                     </a>
                 </li>
+                @if (auth()->user()->type == 'teacher')
+                    <li class="nav-item {{ Request::is('new-lesson') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('new-lesson') }}">
+                            {{ icon('plus', 'lg') }} New lesson
+                        </a>
+                    </li>
+                @endif
             </ul>
 
             <ul class="navbar-nav ml-auto">
