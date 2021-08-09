@@ -25,18 +25,31 @@
                         {{ icon('swatchbook', 'lg') }} Courses
                     </a>
                 </li>
-                @if (auth()->user()->type == 'teacher')
-                    <li class="nav-item {{ Request::is('new-lesson') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('new-lesson') }}">
-                            {{ icon('plus', 'lg') }} New lesson
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle {{ Request::is('users*') ? 'active' : '' }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ _('Lessons') }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        
+                        <a href="{{ route('all-lessons') }}" class="dropdown-item">
+                            {{ icon('book', 'mr-2') }}
+                            {{ __('All lessons') }}    
                         </a>
-                    </li>
-                    <li class="nav-item {{ Request::is('my-lessons') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('my-lessons') }}">
-                            {{ icon('book', 'lg') }} My lessons
+                        <a href="{{ route('new-lesson') }}" class="dropdown-item">
+                            {{ icon('bookmark', 'mr-2') }}
+                            {{ __('Saved lessons') }}    
                         </a>
-                    </li>
-                @endif
+
+                        @if (auth()->user()->type == 'teacher')
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('new-lesson') }}" class="dropdown-item">
+                                {{ icon('plus', 'mr-2') }}
+                                {{ __('New lesson') }}    
+                            </a>
+                        @endif
+                    </div>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
@@ -55,14 +68,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @if (Auth::user()->type == 'teacher')
-                                <a href="{{ route('new-lesson') }}" class="dropdown-item">
-                                    {{ icon('plus', 'mr-2') }}
-                                    {{ __('New lesson') }}    
-                                </a>
-                                
-                            @endif
-                            
                             <a href="{{ route('account') }}" class="dropdown-item">
                                 @if (Auth::user()->type == 'teacher')
                                     {{ icon('user-graduate', 'mr-2') }}
