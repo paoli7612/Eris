@@ -34,11 +34,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('asdasdasd')
         ]);
 
-        Course::create(['title' => 'Matematica']);
-        Course::create(['title' => 'Italiano']);
-        Course::create(['title' => 'Storia']);
-        Course::create(['title' => 'Chimica']);
-        Course::create(['title' => 'Fisica']);
+        Course::factory()->create(3)->save();
 
         Lesson::create(['title' => 'Prima guerra mondiale', 'course_id' => 3, 'slug' => 'prima_guerra_mondiale', 'user_id' => 1]);
         Lesson::create(['title' => 'Guerra fredda', 'course_id' => 3, 'slug' => 'guerra_fredda']);
