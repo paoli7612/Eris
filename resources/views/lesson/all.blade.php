@@ -2,6 +2,8 @@
 
 @section('content')
     @foreach ($lessons as $lesson)
-        {{ $lesson->title }}
+        <div class="col-12 col-sm-6 my-3">
+            <x-lesson :lesson=$lesson></x-lesson>
+        </div>
     @endforeach
 @endsection

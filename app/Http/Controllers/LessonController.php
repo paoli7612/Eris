@@ -20,13 +20,19 @@ class LessonController extends Controller
         return view('lesson.new');
     }
 
-    public function my_lessons()
+    public function all()
     {
         return view('lesson.all', [
             'lessons' => Lesson::all()
         ]);
     }
 
+    public function my_lessons()
+    {
+        return view('lesson.all', [
+            'lessons' => Lesson::all()->where('user_id', auth()->user()->id)
+        ]);
+    }
 
     public function store()
     {
