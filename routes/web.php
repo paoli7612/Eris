@@ -30,6 +30,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/teachers', [UserController::class, 'teachers'])->name('teachers');
 Route::get('/my-teachers', [UserController::class, 'my_teachers'])->name('my-teachers');
@@ -45,7 +50,7 @@ Route::get('/lessons/my', [LessonController::class, 'my_lessons'])->name('my-les
 Route::post('/lessons/new', [LessonController::class, 'store'])->name('new-lesson');
 
 Route::get('/student/{user}', [UserController::class, 'user'])->name('student');
-Route::get('/teacher/{user}', [UserController::class, 'user'])->name('teacher');
+Route::get('/teachers/{user}', [UserController::class, 'user'])->name('teacher');
 
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
 Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lesson.edit');
