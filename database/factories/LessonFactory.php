@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class LessonFactory extends Factory
 {
@@ -21,8 +23,13 @@ class LessonFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->words(3, true);
         return [
-            //
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'description' => $this->faker->text(1024),
+            'course_id' => Course::all()->random(1)->first()->id,
+            'user_id' => 1,
         ];
     }
 }

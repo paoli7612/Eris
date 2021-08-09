@@ -11,4 +11,5 @@
 
 ## At clone
 
+`composer dump-autoload`
 `composer update`

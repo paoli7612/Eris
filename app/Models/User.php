@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function getRouteAttribute()
     {
-        return '/' . $this->type . '/' . $this->nickname;
+        return '/' . $this->type . 's/' . $this->nickname;
     }
 
     public function followers()
