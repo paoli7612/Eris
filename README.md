@@ -8,3 +8,7 @@
 ```
 
 ![alt](doc/img/001.png)
+
+## At clone
+
+`composer update`
