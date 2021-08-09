@@ -10,47 +10,18 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item {{ Request::is('home*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="fas fa-home fa-lg"></i> Home
-                    </a>
-                </li>
-                <li class="nav-item {{ Request::is('teachers') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('teachers') }}">
-                        {{ icon('users', 'lg') }} Teachers
-                    </a>
-                </li>
-                <li class="nav-item {{ Request::is('courses') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('courses') }}">
-                        {{ icon('swatchbook', 'lg') }} Courses
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle {{ Request::is('users*') ? 'active' : '' }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ icon('book', 'mr-2') }}
-                        {{ _('Lessons') }}
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        
-                        <a href="{{ route('all-lessons') }}" class="dropdown-item">
-                            {{ icon('book', 'mr-2') }}
-                            {{ __('All lessons') }}    
-                        </a>
-                        <a href="{{ route('my-lessons') }}" class="dropdown-item">
-                            {{ icon('crown', 'mr-2') }}
-                            {{ __('My lessons') }}    
-                        </a>
-
-                        @if (auth()->user()->type == 'teacher')
-                            <div class="dropdown-divider"></div>
-                            <a href="{{ route('new-lesson') }}" class="dropdown-item">
-                                {{ icon('plus', 'mr-2') }}
-                                {{ __('New lesson') }}    
-                            </a>
-                        @endif
-                    </div>
-                </li>
+                
+                <x-nav-item active="home" title="Home" icon="fas fa-home" route="home"/>
+                <x-nav-item active="teachers*" title="Teachers" icon="fas fa-users" route="teachers"/>
+                <x-nav-item active="courses*" title="Courses" icon="fas fa-swatchbook" route="courses"/>
+                <x-nav-drop active="lessons*" title="Lessons" icon="fas fa-book">
+                    <x-nav-drop-item title="All lessons" icon="fas fa-book" route="all-lessons" />
+                    <x-nav-drop-item title="My lessons" icon="fas fa-book" route="my-lessons" />
+                    @if (auth()->user()->type='teacher')
+                        <div class="dropdown-divider"></div>
+                        <x-nav-drop-item title="New lesson" icon="fas fa-plus" route="new-lesson" />
+                    @endif
+                </x-nav-drop>
             </ul>
 
             <ul class="navbar-nav ml-auto">
