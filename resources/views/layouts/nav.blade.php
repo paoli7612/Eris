@@ -27,6 +27,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle {{ Request::is('users*') ? 'active' : '' }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ icon('book', 'mr-2') }}
                         {{ _('Lessons') }}
                     </a>
 
@@ -36,9 +37,9 @@
                             {{ icon('book', 'mr-2') }}
                             {{ __('All lessons') }}    
                         </a>
-                        <a href="{{ route('new-lesson') }}" class="dropdown-item">
-                            {{ icon('bookmark', 'mr-2') }}
-                            {{ __('Saved lessons') }}    
+                        <a href="{{ route('my-lessons') }}" class="dropdown-item">
+                            {{ icon('crown', 'mr-2') }}
+                            {{ __('My lessons') }}    
                         </a>
 
                         @if (auth()->user()->type == 'teacher')
@@ -64,6 +65,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle {{ Request::is('users*') ? 'active' : '' }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ icon('user', 'mr-2') }}
                             {{ Auth::user()->name }}
                         </a>
 
