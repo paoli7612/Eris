@@ -37,6 +37,8 @@ Route::get('/logout', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/teachers', [UserController::class, 'teachers'])->name('teachers');
+Route::get('/teachers/{user}', [UserController::class, 'teacher'])->name('teacher');
+
 Route::get('/my-teachers', [UserController::class, 'my_teachers'])->name('my-teachers');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
@@ -49,8 +51,7 @@ Route::get('/lessons/new', [LessonController::class, 'new_lesson'])->name('new-l
 Route::get('/lessons/my', [LessonController::class, 'my_lessons'])->name('my-lessons');
 Route::post('/lessons/new', [LessonController::class, 'store'])->name('new-lesson');
 
-Route::get('/student/{user}', [UserController::class, 'user'])->name('student');
-Route::get('/teachers/{user}', [UserController::class, 'user'])->name('teacher');
+
 
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
 Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lesson.edit');
