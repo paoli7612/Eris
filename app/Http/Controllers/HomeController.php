@@ -41,10 +41,6 @@ class HomeController extends Controller
         ]);
     }
 
-    public function new_lesson()
-    {
-        return view('lesson.new');
-    }
 
     public function settings()
     {

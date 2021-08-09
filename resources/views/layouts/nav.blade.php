@@ -31,6 +31,11 @@
                             {{ icon('plus', 'lg') }} New lesson
                         </a>
                     </li>
+                    <li class="nav-item {{ Request::is('my-lessons') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('my-lessons') }}">
+                            {{ icon('book', 'lg') }} My lessons
+                        </a>
+                    </li>
                 @endif
             </ul>
 

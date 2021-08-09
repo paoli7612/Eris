@@ -15,6 +15,19 @@ class LessonController extends Controller
         ]);
     }
 
+    public function new_lesson()
+    {
+        return view('lesson.new');
+    }
+
+    public function my_lessons()
+    {
+        return view('lesson.all', [
+            'lessons' => Lesson::all()
+        ]);
+    }
+
+
     public function store()
     {
         $slug = Str::slug(request('title'), '_');
