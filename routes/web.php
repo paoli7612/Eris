@@ -1,12 +1,5 @@
 <?php
 
-use App\Http\Controllers\ApiController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LessonController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,41 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('home');
-    } else {
-        return view('welcome');
-    }
-})->name('welcome');
-
-Auth::routes();
-
-Route::get('/logout', function () {
-    Auth::logout();
-    return redirect('/');
-})->name('logout');
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/teachers', [UserController::class, 'teachers'])->name('teachers');
-Route::get('/teachers/{user}', [UserController::class, 'teacher'])->name('teacher');
-
-Route::get('/my-teachers', [UserController::class, 'my_teachers'])->name('my-teachers');
-Route::get('/courses', [CourseController::class, 'index'])->name('courses');
-Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
-Route::get('/account', [HomeController::class, 'account'])->name('account');
-Route::post('/account', [UserController::class, 'store_image']);
-Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
-
-Route::get('/lessons', [LessonController::class, 'all'])->name('all-lessons');
-Route::get('/lessons/new', [LessonController::class, 'new_lesson'])->name('new-lesson');
-Route::get('/lessons/my', [LessonController::class, 'my_lessons'])->name('my-lessons');
-Route::post('/lessons/new', [LessonController::class, 'store'])->name('new-lesson');
-
-Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
-Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lesson.edit');
-Route::get('/lessons/{lesson}/remove', [LessonController::class, 'remove'])->name('lesson.remove');
-
-Route::put('/lessons/{lesson}', [LessonController::class, 'save']);
-Route::delete('/lessons/{lesson}', [LessonController::class, 'delete']);
-
-Route::get('api/follow/{user}', [ApiController::class, 'follow']);
+    return view('welcome');
+});
