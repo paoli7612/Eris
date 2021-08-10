@@ -51,8 +51,6 @@ Route::get('/lessons/new', [LessonController::class, 'new_lesson'])->name('new-l
 Route::get('/lessons/my', [LessonController::class, 'my_lessons'])->name('my-lessons');
 Route::post('/lessons/new', [LessonController::class, 'store'])->name('new-lesson');
 
-
-
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
 Route::get('/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lesson.edit');
 Route::get('/lessons/{lesson}/remove', [LessonController::class, 'remove'])->name('lesson.remove');
