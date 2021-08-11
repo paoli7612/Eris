@@ -3,6 +3,7 @@
         <x-nav.item route="home" active="home*">Home</x-nav.item>
         <x-nav.item route="course.all" active="course*">Course</x-nav.item>
         <x-nav.item route="lesson.all" active="lesson*">Lessons</x-nav.item>
+        <x-nav.item route="teacher.all" active="teacher*">Teacher</x-nav.item>
     </x-nav.left>
     <x-nav.right>
         @auth
