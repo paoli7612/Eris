@@ -33,4 +33,4 @@ Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course
 Route::get('/lessons', [LessonController::class, 'index'])->name('lesson.all');
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson.show');
 
-Route::get('/teacher', [TeacherController::class, 'show'])->name('teacher.show');
+Route::get('/teacher/{teacher}', [TeacherController::class, 'show'])->name('teacher.show');

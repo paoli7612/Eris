@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@root',
             'password' => Hash::make('asdasdasd')
         ]);
+        (new UserSeeder)->run();
         Course::factory(4)->create();
         Lesson::factory(10)->create();
     }
