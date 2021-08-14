@@ -23,8 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/courses', [CourseController::class, 'index'])->name('course.all');
@@ -35,3 +33,5 @@ Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson
 
 Route::get('/teachers', [TeacherController::class, 'all'])->name('teacher.all');
 Route::get('/teachers/{teacher}', [TeacherController::class, 'show'])->name('teacher.show');
+
+Auth::routes();
