@@ -24,3 +24,4 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
+Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
