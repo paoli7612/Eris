@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-die(view('index'));
-
 Route::get('/', function () {
     return view('welcome');
 });
