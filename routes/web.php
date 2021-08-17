@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +27,9 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
+
+Route::get('/lessons', [LessonController::class, 'index'])->name('lessons');
+Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
+Route::get('/lessons/{lesson}/settings', [LessonController::class, 'settings'])->name('lesson.settings');
+
+Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
