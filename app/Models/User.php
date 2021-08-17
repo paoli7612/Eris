@@ -40,4 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function img($size=64, $class = '')
+    {
+        return "<img class=\"$class\" width=\"$size\" height=\"$size\" src=\"https://i.pravatar.cc/$size?u=" . $this->email . "\"/>";
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }
