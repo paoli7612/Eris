@@ -1,18 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid">
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="/courses">Courses</a>
+      </li>
+      <li class="breadcrumb-item">
+        {{ $course->name }}
+      </li>
+    </ol>
     <div class="row">
-        <div class="card bg-secondary text-white">
-            <div class="card-header">
+      <div class="col">
+        <div class="card bg-secondary">
+            <h2 class="card-header text-white">
                 {{ $course->name }}
-            </div>
+            </h2>
             <div class="card-body">
-                {{ $course->description }}
+                <button class="btn bg-white mb-3">
+                    <i class="fa fa-bookmark"></i>
+                  Salva</button>
+              <button class="btn bg-white mb-3">
+                <i class="fa fa-user"></i>
+                Tommaso Paoli</button>
+              <button class="btn bg-white mb-3">
+                <i class="fa fa-info-circle"></i>
+                Dettagli</button>
+                <button class="btn bg-white mb-3">
+                  <i class="fa fa-edit"></i>
+                  Modifica</button>
+                <button class="btn bg-white mb-3">
+                  <i class="fa fa-book"></i>
+                  Seleziona materie</button>
+                <button class="btn bg-white mb-3">
+                  <i class="fa fa-upload"></i>
+                  Carica materiali</button>
+                <button class="btn bg-white mb-3">
+                  <i class="fa fa-trash"></i>
+                  Elimina</button>
             </div>
-            <a class="card-footer text-right text-white" href="{{ route('course', $course) }}">
-                Details
-                <i class="ml-3 fa fa-arrow-right"></i>
-            </a>
-        </div>
+          </div>
+                </div>
     </div>
+  
+  </div>
 @endsection
