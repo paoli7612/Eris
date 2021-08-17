@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 @auth
-                    <li class="nav-item">
+                    <li class="nav-item {{ Request::is('courses*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('courses') }}">{{ __('Courses') }}</a>
                     </li> 
                 @endauth
