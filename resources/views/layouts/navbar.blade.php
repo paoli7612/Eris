@@ -13,6 +13,9 @@
                 @auth
                     <li class="nav-item {{ Request::is('courses*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('courses') }}">{{ __('Courses') }}</a>
+                    </li>
+                    <li class="nav-item {{ Request::is('lessons*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('lessons') }}">{{ __('Lessons') }}</a>
                     </li> 
                 @endauth
                 
@@ -37,6 +40,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a href="{{ route('user', auth()->user()) }}" class="dropdown-item">{{ __('Account') }}</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
