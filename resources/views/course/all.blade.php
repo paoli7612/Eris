@@ -23,7 +23,7 @@
                         </span>
                     </div>
                     <div class="card-body">
-                        
+                        {{ $course->users }}
                     </div>
                 </div>
             </a>
