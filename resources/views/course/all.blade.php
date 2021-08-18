@@ -17,9 +17,13 @@
                 <div class="card bg-secondary text-white">
                     <div class="card-header">
                         {{ $course->name }}
+                        <span class="pull-right">
+                            <i class="fa fa-book"></i>
+                            {{ count($course->lessons) }}
+                        </span>
                     </div>
                     <div class="card-body">
-                        {{ $course->description }}
+                        
                     </div>
                 </div>
             </a>
