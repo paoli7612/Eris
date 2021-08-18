@@ -20,4 +20,15 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    public function edit(User $user, Request $request)
+    {
+        $imageName = time().'.'.$request->avatar->extension();
+        $request->avatar->move(public_path('images'), $imageName);
+
+        $user->avatar = $imageName;
+        $user->save();
+
+        return redirect()->back()->with('sucess', 'updated account');
+    }
 }

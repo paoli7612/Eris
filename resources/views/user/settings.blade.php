@@ -17,9 +17,10 @@
         </li>
     </ol>
 
-    <form action="">
+    <form action="{{ route('user.settings', $user) }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="row">
-            <div class="col-8">
+            <div class="col-10">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" id="name" value="{{ $user->name }}">
@@ -30,9 +31,9 @@
                 </div>
             </div>
             <div class="col-2 text-center">
-                <img src="{{ auth()->user()->img(200) }}" class="rounded-circle w-100 shadow" alt="avatar">
+                <img src="{{ auth()->user()->img }}" class="rounded-circle w-100 shadow" alt="avatar">
+                <input id="avatar" name="avatar" type="file" class="form-control" >
             </div>
-
         </div>
         <div class="text-center">
             <p>
@@ -43,10 +44,10 @@
                 Delete account
             </a>
 
-            <a href="" class="btn btn-primary">
+            <button type="submit" href="" class="btn btn-primary">
                 <i class="fa fa-save"></i>
                 Save
-            </a>
+            </button>
 
         </div>
     </form>

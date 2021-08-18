@@ -16,7 +16,7 @@
 
     <h1 class="pull-left"> {{ $user->name }} </h1>
     <div class="pull-right">
-        {!! auth()->user()->img(300, 'rounded-circle') !!}
+        <img src="{{ auth()->user()->img }}" class="rounded-circle" alt="">
         <a href="{{ route('user.settings', $user) }}" class="btn btn-primary">
             <i class="fa fa-cog"></i>
         </a>
