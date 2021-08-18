@@ -41,9 +41,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function img($size=64, $class = '')
+    public function img($size=64)
     {
-        return "<img class=\"$class\" width=\"$size\" height=\"$size\" src=\"https://i.pravatar.cc/$size?u=" . $this->email . "\"/>";
+        return "https://i.pravatar.cc/$size?u=" . $this->email ;
     }
 
     public function lessons()

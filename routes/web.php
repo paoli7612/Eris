@@ -33,3 +33,4 @@ Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson
 Route::get('/lessons/{lesson}/settings', [LessonController::class, 'settings'])->name('lesson.settings');
 
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
+Route::get('/user/{user}/settings', [UserController::class, 'settings'])->name('user.settings');
