@@ -13,21 +13,22 @@
             {{ $course->name }}
         </li>
     </ol>
-    <div class="row">
-        <div class="col">
-            <div class="card bg-secondary">
-                <h2 class="card-header text-white">
-                    {{ $course->name }}
-                </h2>
-                <div class="card-body">
-                    
-                    @foreach ($course->lessons as $lesson)
-                        {{ $lesson->title }}
-                    @endforeach
+    <h1>
+        {{ $course->name }}
+    </h1>
 
+    @foreach ($course->lessons as $lesson)
+        <a href="{{ route('lesson', $lesson) }}" class="col-xl-4 col-md-6 col-sm-12 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-header">
+                    {{ $lesson->title }}
+                </div>
+                <div class="card-body">
+                    {{ $lesson->description }}
                 </div>
             </div>
-        </div>
-    </div>
+        </a>
+    @endforeach
+
 
 @endsection
