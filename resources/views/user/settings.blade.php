@@ -36,12 +36,14 @@
             </div>
         </div>
         <div class="row">
+            <!--
             @foreach (App\Models\Course::all() as $course)
                 <div class="form-check col">
                     <input class="form-check-input" type="checkbox" id="{{ $course->id }}" name="courses[{{ $course->id }}]">
                     <label class="form-check-label" for="{{ $course->id }}">{{ $course->name }}</label>
                 </div>
             @endforeach
+            -->
         </div>
         <div class="text-center">
             <p>

@@ -25,6 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
 
@@ -35,3 +36,5 @@ Route::get('/lessons/{lesson}/settings', [LessonController::class, 'settings'])-
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
 Route::get('/user/{user}/settings', [UserController::class, 'settings'])->name('user.settings');
 Route::post('/user/{user}/settings', [UserController::class, 'edit'])->name('user.settings');
+
+Route::get('/search', [HomeController::class, 'search'])->name('search');

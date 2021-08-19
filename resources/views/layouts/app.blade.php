@@ -38,6 +38,9 @@
                         <x-layout.sidebar-item title="Home" icon="nc-icon nc-bank" active="/" link="/" />
                         <x-layout.sidebar-item title="Lessons" icon="nc-icon nc-diamond" active="lessons" link="/lessons" />
                         <x-layout.sidebar-item title="Courses" icon="nc-icon nc-user-run" active="courses" link="/courses" />
+                        @if (Request::is('search*'))
+                            <x-layout.sidebar-item title="Search" icon="nc-icon nc-zoom-split" active="search" link="/search" />                                                    
+                        @endif
                     @else
                         <x-layout.sidebar-item title="Login" icon="nc-icon nc-user-run" active="login" link="/login" />
                         <x-layout.sidebar-item title="Register" icon="nc-icon nc-user-run" active="register"
@@ -65,9 +68,9 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form action="{{ route('search') }}" method="GET">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" value="" name="u" class="form-control" placeholder="Search...">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="nc-icon nc-zoom-split"></i>
