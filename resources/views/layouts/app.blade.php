@@ -6,11 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
-
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
@@ -41,8 +37,7 @@
                     @auth
                         <x-layout.sidebar-item title="Home" icon="nc-icon nc-bank" active="/" link="/" />
                         <x-layout.sidebar-item title="Lessons" icon="nc-icon nc-diamond" active="lessons" link="/lessons" />
-                        <x-layout.sidebar-item title="Teachers" icon="nc-icon nc-user-run" active="teachers"
-                            link="/teachers" />
+                        <x-layout.sidebar-item title="Courses" icon="nc-icon nc-user-run" active="courses" link="/courses" />
                     @else
                         <x-layout.sidebar-item title="Login" icon="nc-icon nc-user-run" active="login" link="/login" />
                         <x-layout.sidebar-item title="Register" icon="nc-icon nc-user-run" active="register"
@@ -83,15 +78,19 @@
                         <ul class="navbar-nav">
                             <li class="nav-item btn-rotate dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="nc-icon nc-bell-55"></i>
+                                    <i class="nc-icon nc-single-02"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block">Some Actions</span>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="{{ route('user', auth()->user()) }}">Account</a>
+                                    <a class="dropdown-item" href="#/settings">Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="dropdown-item" type="submit">Logout</button>
+                                    </form>
                                 </div>
                             </li>
                         </ul>
