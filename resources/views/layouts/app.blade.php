@@ -87,6 +87,7 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    @auth
                                     <a class="dropdown-item" href="{{ route('user', auth()->user()) }}">Account</a>
                                     <a class="dropdown-item" href="#/settings">Settings</a>
                                     <div class="dropdown-divider"></div>
@@ -94,6 +95,10 @@
                                         @csrf
                                         <button class="dropdown-item" type="submit">Logout</button>
                                     </form>
+                                    @else
+                                    <a class="dropdown-item" href="/login">Login</a>
+                                    @endauth
+                                    
                                 </div>
                             </li>
                         </ul>

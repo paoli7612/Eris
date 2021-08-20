@@ -32,6 +32,7 @@ Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course
 Route::get('/lessons', [LessonController::class, 'index'])->name('lessons');
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
 Route::get('/lessons/{lesson}/settings', [LessonController::class, 'settings'])->name('lesson.settings');
+Route::get('/lessons/{lesson}/details', [LessonController::class, 'details'])->name('lesson.details');
 
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
 Route::get('/user/{user}/settings', [UserController::class, 'settings'])->name('user.settings');

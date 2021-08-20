@@ -27,4 +27,11 @@ class LessonController extends Controller
             'lesson' => $lesson
         ]);
     }
+
+    public function details(Lesson $lesson)
+    {
+        return view('lesson.details', [
+            'lesson' => $lesson
+        ]);
+    }
 }
