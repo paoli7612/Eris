@@ -27,5 +27,8 @@
             </a>
         @endforeach
     </div>
+    <div class="row">
+        {{ $lessons->links() }}
+    </div>
 
 @endsection

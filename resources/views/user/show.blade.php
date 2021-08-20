@@ -24,16 +24,5 @@
                 <p>{{ $user->email }}</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-3 m-auto">
-                <a href="{{ route('user.settings', $user) }}" class="btn btn-primary">
-                    Settings
-                    <i class="fa fa-cog"></i>
-                </a>
-            </div>
-        </div>
-        
     </div>
-
-
 @endsection

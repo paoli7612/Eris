@@ -27,7 +27,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/account', [HomeController::class, 'account'])->name('account');
 Route::get('/account/delete', [HomeController::class, 'delete_account'])->name('delete-account');
 Route::get('/account/settings', [HomeController::class, 'settings'])->name('settings');
-Route::put('/account/settings', [HomeController::class, 'settings_store']);
+Route::put('/account/settings', [UserController::class, 'edit']);
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
