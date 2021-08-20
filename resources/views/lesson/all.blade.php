@@ -14,7 +14,6 @@
     </ol>
 
     <div class="row">
-        @dd($lessons)
         @foreach ($lessons as $lesson)
             <a href="{{ route('lesson', $lesson) }}" class="col-xl-4 col-md-6 col-sm-12 mb-3">
                 <div class="card bg-success text-white">
