@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -18,7 +20,10 @@ class HomeController extends Controller
 
     public function search()
     {
-        return view('home');
+        $word = request('u');
+        return view('lesson.all', [
+            'lessons' => DB::table('lessons')->where('title', 'like', "%$word%")->get()
+        ]);
     }
 
     public function account()
