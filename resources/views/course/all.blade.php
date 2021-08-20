@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Courses')
+
 @section('content')
 
     <ol class="breadcrumb">

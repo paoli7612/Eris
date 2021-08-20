@@ -49,7 +49,7 @@
                 </ul>
             </div>
         </div>
-        <div class="main-panel" style="height: 100vh;">
+        <div class="main-panel" style="min-height: 100vh;">
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -68,16 +68,18 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form action="{{ route('search') }}" method="GET">
-                            <div class="input-group no-border">
-                                <input type="text" value="" name="u" class="form-control" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="nc-icon nc-zoom-split"></i>
+                        @auth
+                            <form action="{{ route('search') }}" method="GET">
+                                <div class="input-group no-border">
+                                    <input type="text" value="" name="u" class="form-control" placeholder="Search...">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="nc-icon nc-zoom-split"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        @endauth
                         <ul class="navbar-nav">
                             <li class="nav-item btn-rotate dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,7 +98,8 @@
                                         <button class="dropdown-item" type="submit">Logout</button>
                                     </form>
                                     @else
-                                    <a class="dropdown-item" href="/login">Login</a>
+                                        <a class="dropdown-item" href="{{ route('login') }}">Sing in</a>
+                                        <a class="dropdown-item" href="{{ route('register') }}">Sing up</a>
                                     @endauth
                                     
                                 </div>
