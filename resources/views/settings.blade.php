@@ -1,13 +1,11 @@
 @extends('layouts.app')
+@section('title', 'settings')
 
 @section('content')
 
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="/">Home</a>
-        </li>
-        <li class="breadcrumb-item">
-            Users
         </li>
         <li class="breadcrumb-item">
             <a href="{{ route('account') }}">{{ $user->name }}</a>
@@ -17,8 +15,9 @@
         </li>
     </ol>
 
-    <form action="{{ route('account') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('settings') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="row">
             <div class="col-10">
                 <div class="form-group">
@@ -45,21 +44,17 @@
             @endforeach
             -->
         </div>
-        <div class="text-center">
-            <p>
-                <hr>
-            </p>
-            <a href="" class="btn btn-outline-danger">
-                <i class="fa fa-trash"></i>
-                Delete account
-            </a>
+        <hr>
 
-            <button type="submit" href="" class="btn btn-primary">
-                <i class="fa fa-save"></i>
-                Save
-            </button>
+        <button type="submit" href="" class="btn btn-primary pull-left">
+            <i class="fa fa-save"></i>
+            Save
+        </button>
 
-        </div>
+        <a href="{{ route('delete-account') }}" class="btn btn-outline-danger pull-right">
+            <i class="fa fa-trash"></i>
+            Delete account
+        </a>
     </form>
 
 @endsection

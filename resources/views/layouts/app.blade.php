@@ -16,6 +16,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Cinema') }} - @yield('title')</title>
+    <link href="https://demos.creative-tim.com/bs3/paper-dashboard/assets/css/themify-icons.css" rel="stylesheet">
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -38,6 +39,7 @@
                         <x-layout.sidebar-item title="Home" icon="nc-icon nc-bank" active="/" link="/" />
                         <x-layout.sidebar-item title="Lessons" icon="nc-icon nc-diamond" active="lessons" link="/lessons" />
                         <x-layout.sidebar-item title="Courses" icon="nc-icon nc-user-run" active="courses" link="/courses" />
+                        <x-layout.sidebar-item title="Account" icon="nc-icon nc-single-02" active="account*" link="/account" />                                                    
                         @if (Request::is('search*'))
                             <x-layout.sidebar-item title="Search" icon="nc-icon nc-zoom-split" active="search" link="/search" />                                                    
                         @endif
@@ -90,13 +92,13 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     @auth
-                                    <a class="dropdown-item" href="{{ route('user', auth()->user()) }}">Account</a>
-                                    <a class="dropdown-item" href="{{ route('user.settings', auth()->user()) }}">Settings</a>
-                                    <div class="dropdown-divider"></div>
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <button class="dropdown-item" type="submit">Logout</button>
-                                    </form>
+                                        <a class="dropdown-item" href="{{ route('account') }}">Account</a>
+                                        <a class="dropdown-item" href="{{ route('settings') }}">Settings</a>
+                                        <div class="dropdown-divider"></div>
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button class="dropdown-item" type="submit">Logout</button>
+                                        </form>
                                     @else
                                         <a class="dropdown-item" href="{{ route('login') }}">Sing in</a>
                                         <a class="dropdown-item" href="{{ route('register') }}">Sing up</a>

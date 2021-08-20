@@ -20,4 +20,28 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function account()
+    {
+        return view('account', [
+            'user' => auth()->user()
+        ]);
+    }
+
+    public function settings()
+    {
+        return view('settings', [
+            'user' => auth()->user()
+        ]);
+    }
+
+    public function settings_store()
+    {
+        dd(request()->all());
+    }
+
+    public function delete_account()
+    {
+        return view('delete.account');
+    }
 }

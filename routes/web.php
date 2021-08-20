@@ -21,9 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 })->middleware('guest')->name('welcome');
-
 Auth::routes();
+
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/account', [HomeController::class, 'account'])->name('account');
+Route::get('/account/delete', [HomeController::class, 'delete_account'])->name('delete-account');
+Route::get('/account/settings', [HomeController::class, 'settings'])->name('settings');
+Route::put('/account/settings', [HomeController::class, 'settings_store']);
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
@@ -34,7 +38,5 @@ Route::get('/lessons/{lesson}/settings', [LessonController::class, 'settings'])-
 Route::get('/lessons/{lesson}/details', [LessonController::class, 'details'])->name('lesson.details');
 
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
-Route::get('/user/{user}/settings', [UserController::class, 'settings'])->name('user.settings');
-Route::post('/user/{user}/settings', [UserController::class, 'edit'])->name('user.settings');
 
 Route::get('/search', [HomeController::class, 'search'])->name('search');

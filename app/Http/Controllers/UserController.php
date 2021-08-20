@@ -22,14 +22,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function edit(User $user, Request $request)
+    public function edit(Request $request)
     {
-        foreach ($request->courses as $id=>$state) {
-            $user->courses()->create([
-                'course_id' => $id,
-                'user_id' => $user->id
-            ]);
-        }
+        $user = auth()->user();
         $imageName = time().'.'.$request->avatar->extension();
         $request->avatar->move(public_path('images'), $imageName);
 
