@@ -22,6 +22,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@root',
             'password' => Hash::make('asdasdasd')
         ]);
+
+        User::create([
+            'name' => 'Mario',
+            'email' => 'teacher@root',
+            'password' => Hash::make('asdasdasd')
+        ]);
+
+
         Course::create(['name' => 'Matematica','slug' => 'matematica']);
         Course::create(['name' => 'Storia','slug' => 'storia']);
         Course::create(['name' => 'Italiano','slug' => 'italiano']);

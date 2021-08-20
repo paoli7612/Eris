@@ -42,9 +42,9 @@
                             <x-layout.sidebar-item title="Search" icon="nc-icon nc-zoom-split" active="search" link="/search" />                                                    
                         @endif
                     @else
+                        <x-layout.sidebar-item title="Welcome" icon="nc-icon nc-bank" active="welcome" link="/welcome" />
                         <x-layout.sidebar-item title="Login" icon="nc-icon nc-user-run" active="login" link="/login" />
-                        <x-layout.sidebar-item title="Register" icon="nc-icon nc-user-run" active="register"
-                            link="/register" />
+                        <x-layout.sidebar-item title="Register" icon="nc-icon nc-user-run" active="register" link="/register" />
                     @endauth
                 </ul>
             </div>
@@ -89,7 +89,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     @auth
                                     <a class="dropdown-item" href="{{ route('user', auth()->user()) }}">Account</a>
-                                    <a class="dropdown-item" href="#/settings">Settings</a>
+                                    <a class="dropdown-item" href="{{ route('user.settings', auth()->user()) }}">Settings</a>
                                     <div class="dropdown-divider"></div>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -119,9 +119,9 @@
                     <div class="row">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+                                <li><a href="https://github.com/paoli7612" target="_blank">paoli7612</a></li>
+                                <li><a href="https://tomaoli.altervista.org" target="_blank">tomaoli</a></li>
+                                <li><a href="https://articuno.altervista.org" target="_blank">Articuno</a></li>
                             </ul>
                         </nav>
                         <div class="credits ml-auto">
@@ -139,10 +139,6 @@
     <script src="/assets/js/core/popper.min.js"></script>
     <script src="/assets/js/core/bootstrap.min.js"></script>
     <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Chart JS -->
-    <script src="/assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="/assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->

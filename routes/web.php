@@ -18,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware('guest')->name('welcome');
 
-Route::get('/', [HomeController::class, 'index'])
-    ->middleware('auth')
-    ->name('home');
+Auth::routes();
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
