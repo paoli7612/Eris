@@ -23,7 +23,9 @@
                         </span>
                     </div>
                     <div class="card-body">
-                        {{ $course->users }}
+                        @foreach ($course->users as $user)
+                            <x-user :user="$user" />                            
+                        @endforeach
                     </div>
                 </div>
             </a>
