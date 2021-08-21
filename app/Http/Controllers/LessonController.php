@@ -9,7 +9,7 @@ class LessonController extends Controller
 {
     public function index()
     {
-        return view('lesson.all', [
+        return view('lesson.index', [
             'lessons' => Lesson::paginate(8)
         ]);
     }
@@ -32,6 +32,19 @@ class LessonController extends Controller
     {
         return view('lesson.details', [
             'lesson' => $lesson
+        ]);
+    }
+
+    public function search()
+    {
+        $word = request('u');
+        
+        if (strlen($word) < 2) {
+            return redirect('lessons');
+        }
+
+        return view('lesson.index', [
+            'lessons' => Lesson::where('title', 'like', "%$word%")->paginate(4)
         ]);
     }
 }

@@ -22,18 +22,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function search()
-    {
-        $word = request('u');
-        
-        if (strlen($word) < 2) {
-            return redirect('lessons');
-        }
-
-        return view('lesson.all', [
-            'lessons' => Lesson::where('title', 'like', "%$word%")->paginate(4)
-        ]);
-    }
+ 
 
     public function account()
     {
