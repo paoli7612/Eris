@@ -39,4 +39,4 @@ Route::get('/lessons/{lesson}/details', [LessonController::class, 'details'])->n
 
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
 
-Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/search', [LessonController::class, 'search'])->name('search');

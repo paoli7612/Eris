@@ -32,11 +32,15 @@ class UserController extends Controller
             $request->avatar->move(public_path('images'), $imageName);
         }
         
+        request()->validate([
+            'name' => 'required|string|unique:users,name|alpha_num'
+        ]);
+
         auth()->user()->update([
             'name' => request('name'),
             'avatar' => $imageName ?? null
         ]);
-        dd($imageName ?? null);
-        return redirect(route('account'))->with('sucess', 'updated account');
+
+        return redirect(route('account'))->with('success', 'updated account');
     }
 }

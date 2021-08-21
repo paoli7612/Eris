@@ -18,6 +18,9 @@
     <form action="{{ route('settings') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
+        @error('name')
+            <x-log.danger message="{{ $message }}" />
+        @enderror
         <div class="row">
             <div class="col-10">
                 <div class="form-group">

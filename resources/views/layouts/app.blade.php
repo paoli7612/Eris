@@ -6,7 +6,8 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
@@ -38,15 +39,19 @@
                     @auth
                         <x-layout.sidebar-item title="Home" icon="nc-icon nc-bank" active="/" link="/" />
                         <x-layout.sidebar-item title="Lessons" icon="nc-icon nc-diamond" active="lessons" link="/lessons" />
-                        <x-layout.sidebar-item title="Courses" icon="nc-icon nc-user-run" active="courses" link="/courses" />
-                        <x-layout.sidebar-item title="Account" icon="nc-icon nc-single-02" active="account*" link="/account" />                                                    
+                        <x-layout.sidebar-item title="Courses" icon="nc-icon nc-user-run" active="courses"
+                            link="/courses" />
+                        <x-layout.sidebar-item title="Account" icon="nc-icon nc-single-02" active="account*"
+                            link="/account" />
                         @if (Request::is('search*'))
-                            <x-layout.sidebar-item title="Search" icon="nc-icon nc-zoom-split" active="search" link="/search" />                                                    
+                            <x-layout.sidebar-item title="Search" icon="nc-icon nc-zoom-split" active="search"
+                                link="/search" />
                         @endif
                     @else
                         <x-layout.sidebar-item title="Welcome" icon="nc-icon nc-bank" active="welcome" link="/welcome" />
                         <x-layout.sidebar-item title="Login" icon="nc-icon nc-user-run" active="login" link="/login" />
-                        <x-layout.sidebar-item title="Register" icon="nc-icon nc-user-run" active="register" link="/register" />
+                        <x-layout.sidebar-item title="Register" icon="nc-icon nc-user-run" active="register"
+                            link="/register" />
                     @endauth
                 </ul>
             </div>
@@ -64,7 +69,8 @@
                         </div>
                         <a class="navbar-brand" href="javascript:;">@yield('title')</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -84,7 +90,9 @@
                         @endauth
                         <ul class="navbar-nav">
                             <li class="nav-item btn-rotate dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                    id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                     <i class="nc-icon nc-single-02"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block">Some Actions</span>
@@ -103,7 +111,7 @@
                                         <a class="dropdown-item" href="{{ route('login') }}">Sing in</a>
                                         <a class="dropdown-item" href="{{ route('register') }}">Sing up</a>
                                     @endauth
-                                    
+
                                 </div>
                             </li>
                         </ul>
@@ -119,6 +127,19 @@
                     </div>
                 </div>
             </div>
+            @foreach (['success', 'info', 'danger'] as $level)
+                @if (session($level))
+                    <div class="container">
+                        <div class="alert alert-{{ $level }} alert-dismissible fade show">
+                            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="nc-icon nc-simple-remove"></i>
+                            </button>
+                            <span>{{ session($level) }}</span>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+
             <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
                 <div class="container-fluid">
                     <div class="row">
@@ -136,6 +157,7 @@
                         </div>
                     </div>
                 </div>
+
             </footer>
         </div>
     </div>
