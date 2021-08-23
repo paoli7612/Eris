@@ -3,9 +3,9 @@
 @section('content')
 
     <ol class="breadcrumb">
-        <x-layout.breadcrumb link="/"> Home </x-layout.breadcrum>
-        <x-layout.breadcrumb link="/lessons"> Lessons </x-layout.breadcrum>
-        <x-layout.breadcrumb> {{ $lesson->title }} </x-layout.breadcrum>
+        <x-layout.breadcrumb-item link="/"> Home </x-layout.breadcrum-item>
+        <x-layout.breadcrumb-item link="/lessons"> Lessons </x-layout.breadcrum-item>
+        <x-layout.breadcrumb-item> {{ $lesson->title }} </x-layout.breadcrum-item>
     </ol>
 
     <div class="card shadow">

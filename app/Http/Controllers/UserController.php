@@ -18,16 +18,12 @@ class UserController extends Controller
     public function index()
     {
         return view('user.teachers', [
-            'teachers' => User::filter()->paginate(12)
+            'teachers' => User::filter()->paginate(12)->withQueryString()
         ]);
     }
 
     public function show(User $user)
     {
-        if ($user->id == auth()->id()) {
-            return redirect(route('account'));
-        }
-
         return view('user.show', [
             'user' => $user
         ]);
