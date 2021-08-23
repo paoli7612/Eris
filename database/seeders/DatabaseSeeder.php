@@ -19,17 +19,14 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Tommaso',
+            'surname' => 'Paoli',
             'email' => 'admin@root',
-            'password' => Hash::make('asdasdasd')
+            'password' => Hash::make('asdasdasd'),
+            'type' => 'admin'
         ]);
 
-        User::create([
-            'name' => 'Mario',
-            'email' => 'teacher@root',
-            'password' => Hash::make('asdasdasd')
-        ]);
-
-        User::factory(10)->create();
+        User::factory(20)->create(['type' => 'teacher']);
+        User::factory(20)->create();
         
         Course::create(['name' => 'Matematica','slug' => 'matematica']);
         Course::create(['name' => 'Storia','slug' => 'storia']);
