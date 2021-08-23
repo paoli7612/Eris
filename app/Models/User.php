@@ -57,10 +57,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Course::class);
     }
 
-    public function scopeFilter($query)
+    public function scopeTeachers($query)
     {
         if (request('search')) {
             $query->where('name', 'like', "%". request('search') . "%");
         }
+        $query->where('type', 'teacher');
     }
 }

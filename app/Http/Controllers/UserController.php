@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         return view('user.teachers', [
-            'teachers' => User::filter()->paginate(12)->withQueryString()
+            'teachers' => User::teachers()->paginate(12)->withQueryString()
         ]);
     }
 
@@ -36,9 +36,11 @@ class UserController extends Controller
             $request->avatar->move(public_path('images'), $imageName);
         }
         
-        request()->validate([
-            'name' => 'required|string|unique:users,name|alpha_num'
-        ]);
+        if (auth()->user()->name != request('name')) {
+            request()->validate([
+                'name' => 'required|string|unique:users,name|alpha_num'
+            ]);
+        }
 
         auth()->user()->update([
             'name' => request('name'),
