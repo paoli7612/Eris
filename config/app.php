@@ -231,4 +231,12 @@ return [
 
     ],
 
+    'colors' => [
+        'home' => env('COLORS_HOME', "primary"),
+        'courses' => env('COLORS_COURSES', "secondary"),
+        'teachers' => env('COLORS_TEACHERS', "danger"),
+        'lessons' => env('COLORS_LESSONS', "success"),
+        'account' => env('COLORS_ACCOUNT', "warning")
+    ],
+
 ];
