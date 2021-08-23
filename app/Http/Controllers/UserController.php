@@ -8,19 +8,27 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function settings(User $user)
+    {
+        return view('user.settings', [
+            'user' => $user
+        ]);
+    }
+
+    public function index()
+    {
+        return view('user.teachers', [
+            'teachers' => User::where('type', 'teacher')->paginate(10)
+        ]);
+    }
+
     public function show(User $user)
     {
         if ($user->id == auth()->id()) {
             return redirect(route('account'));
         }
-        return view('user.show', [
-            'user' => $user
-        ]);
-    }
 
-    public function settings(User $user)
-    {
-        return view('user.settings', [
+        return view('user.show', [
             'user' => $user
         ]);
     }

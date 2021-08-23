@@ -3,7 +3,6 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
-use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -42,5 +41,5 @@ Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
 
 Route::get('/search', [LessonController::class, 'search'])->name('search');
 
-Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
-Route::get('/teachers/{teacher}', [TeacherController::class, 'show'])->name('teacher');
+Route::get('/teachers', [UserController::class, 'index'])->name('teachers');
+Route::get('/teachers/{user}', [UserController::class, 'show'])->name('teacher');
