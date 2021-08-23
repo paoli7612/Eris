@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-})->middleware('guest')->name('welcome');
+})->name('welcome')->middleware('guest');
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -40,3 +41,6 @@ Route::get('/lessons/{lesson}/details', [LessonController::class, 'details'])->n
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
 
 Route::get('/search', [LessonController::class, 'search'])->name('search');
+
+Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
+Route::get('/teachers/{teacher}', [TeacherController::class, 'show'])->name('teacher');

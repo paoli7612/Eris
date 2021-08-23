@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('asdasdasd')
         ]);
 
-
+        User::factory(10)->create();
+        
         Course::create(['name' => 'Matematica','slug' => 'matematica']);
         Course::create(['name' => 'Storia','slug' => 'storia']);
         Course::create(['name' => 'Italiano','slug' => 'italiano']);
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
         Course::create(['name' => 'Fisica','slug' => 'fisica']);
         Course::create(['name' => 'Informatica','slug' => 'informatica']);
         Course::create(['name' => 'Educazione civica','slug' => 'education-civica']);
+
         Lesson::factory(10)->create();
     }
 }
