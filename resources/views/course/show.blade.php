@@ -3,31 +3,17 @@
 @section('content')
 
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/">Home</a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="/courses">Courses</a>
-        </li>
-        <li class="breadcrumb-item">
-            {{ $course->name }}
-        </li>
+        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
+        <x-layout.breadcrumb-item link="{{ route('courses') }}"> Courses </x-layout.breadcrumb-item>
+        <x-layout.breadcrumb-item> {{ $course->name }} </x-layout.breadcrumb-item>
     </ol>
+
     <h1>
         {{ $course->name }}
     </h1>
 
     @foreach ($course->lessons as $lesson)
-        <a href="{{ route('lesson', $lesson) }}" class="col-xl-4 col-md-6 col-sm-12 mb-3">
-            <div class="card bg-success text-white">
-                <div class="card-header">
-                    {{ $lesson->title }}
-                </div>
-                <div class="card-body">
-                    {{ $lesson->description }}
-                </div>
-            </div>
-        </a>
+        <x-lesson :lesson="$lesson" />
     @endforeach
 
 

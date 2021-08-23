@@ -13,11 +13,13 @@
     <div class="bg-light p-3 border shadow">
         <div class="row px-3">
             <div class="col-3">
-                <img src="{{ auth()->user()->img }}" class="rounded-circle w-100 shadow" alt="avatar">
+                <img src="{{ $user->img }}" class="rounded-circle w-100 shadow" alt="avatar">
             </div>
             <div class="col-9 text-right">
                 <h3>{{ $user->name }}</h3>
-                <p>{{ $user->email }}</p>
+                <a href="mailto:{{ $user->email }}">
+                    <p>{{ $user->email }}</p>
+                </a>
             </div>
         </div>
     </div>

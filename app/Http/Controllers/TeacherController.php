@@ -10,7 +10,7 @@ class TeacherController extends Controller
     public function index()
     {
         return view('user.teachers', [
-            'teachers' => User::all()
+            'teachers' => User::paginate(10)
         ]);
     }
 

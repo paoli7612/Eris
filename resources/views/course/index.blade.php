@@ -5,12 +5,8 @@
 @section('content')
 
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/">Home</a>
-        </li>
-        <li class="breadcrumb-item">
-            Courses
-        </li>
+        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
+        <x-layout.breadcrumb-item> Courses </x-layout.breadcrumb-item>
     </ol>
 
     <div class="row">
