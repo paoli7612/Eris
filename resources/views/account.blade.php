@@ -5,12 +5,8 @@
 @section('content')
 
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/">Home</a>
-        </li>
-        <li class="breadcrumb-item">
-            {{ $user->name }}
-        </li>
+        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
+        <x-layout.breadcrumb-item> {{ $user->name }} </x-layout.breadcrumb-item>
     </ol>
 
     <div class="bg-light p-3 border shadow">
@@ -29,9 +25,12 @@
                     Settings
                     <i class="fa fa-cog"></i>
                 </a>
+                <a href="{{ route('logout') }}" class="btn btn-primary">
+                    Logoutww
+                    <i class="fa fa-sign-out"></i>
+                </a>
             </div>
         </div>
-        
     </div>
 
 
