@@ -7,11 +7,15 @@
     </head>
     <body>
         <div class="bg-dark p-3 text-center fixed-top">
-            <x-layout.navbar-item active="/" link="{{ route('home') }}" title="Home" icon="fa fa-home fa-lg"/> 
-            <x-layout.navbar-item active="courses*" link="{{ route('courses') }}" title="Courses" icon="fa fa-archive fa-lg"/> 
-            <x-layout.navbar-item active="teachers*" link="{{ route('teachers') }}" title="Teachers" icon="fa fa-users fa-lg"/> 
-            <x-layout.navbar-item active="lessons*" link="{{ route('lessons') }}" title="Lessons" icon="fa fa-book fa-lg"/>
-            <x-layout.navbar-item active="account*" link="{{ route('account') }}" title="Account" icon="fa fa-user fa-lg"/> 
+            <x-layout.navbar-item active="/" link="{{ route('home') }}" title="Home" icon="fa fa-home fa-lg" color="primary"/> 
+            <x-layout.navbar-item active="courses*" link="{{ route('courses') }}" title="Courses" icon="fa fa-archive fa-lg" color="secondary"/> 
+            <x-layout.navbar-item active="teachers*" link="{{ route('teachers') }}" title="Teachers" icon="fa fa-users fa-lg" color="danger"/> 
+            <x-layout.navbar-item active="lessons*" link="{{ route('lessons') }}" title="Lessons" icon="fa fa-book fa-lg" color="success"/>
+            @auth
+                <x-layout.navbar-item active="account*" link="{{ route('account') }}" title="Account" icon="fa fa-user fa-lg" color="warning"/> 
+            @else
+                <x-layout.navbar-item active="account*" link="{{ route('login') }}" title="Sing-in" icon="fa fa-user fa-lg" color="warning"/> 
+            @endauth
         </div>
         <br>
         <br>
@@ -28,5 +32,6 @@
                 </div>
             </div>
         </div>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

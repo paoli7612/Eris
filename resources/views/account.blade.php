@@ -25,8 +25,8 @@
                     Settings
                     <i class="fa fa-cog"></i>
                 </a>
-                <a href="{{ route('logout') }}" class="btn btn-primary">
-                    Logoutww
+                <a href="{{ route('logout') }}" class="btn btn-warning">
+                    {{ __('Logout') }}
                     <i class="fa fa-sign-out"></i>
                 </a>
             </div>
