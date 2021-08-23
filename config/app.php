@@ -239,4 +239,12 @@ return [
         'account' => env('COLORS_ACCOUNT', "warning")
     ],
 
+    'icons' => [
+        'home' => env('ICONS_HOME', "box"),
+        'courses' => env('ICONS_COURSES', "box"),
+        'teachers' => env('ICONS_TEACHERS', "box"),
+        'lessons' => env('ICONS_LESSONS', "box"),
+        'account' => env('ICONS_ACCOUNT', "box")
+    ],
+
 ];

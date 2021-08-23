@@ -7,14 +7,14 @@
     </head>
     <body>
         <div class="bg-dark p-3 text-center fixed-top">
-            <x-layout.navbar-item name="home"  icon="fa fa-home fa-lg" color="{{ config('app.colors.home') }}"/> 
-            <x-layout.navbar-item name="courses" icon="fa fa-archive fa-lg" color="{{ config('app.colors.courses') }}"/> 
-            <x-layout.navbar-item name="teachers" icon="fa fa-users fa-lg" color="{{ config('app.colors.teachers') }}"/> 
-            <x-layout.navbar-item name="lessons" icon="fa fa-book fa-lg" color="{{ config('app.colors.lessons') }}"/>
+            <x-layout.navbar-item name="home"/> 
+            <x-layout.navbar-item name="courses"/> 
+            <x-layout.navbar-item name="teachers"/> 
+            <x-layout.navbar-item name="lessons"/>
             @auth
-                <x-layout.navbar-item name="account" icon="fa fa-user fa-lg" color="{{ config('app.colors.account') }}"/> 
+                <x-layout.navbar-item name="account"/> 
             @else
-                <x-layout.navbar-item name="account" icon="fa fa-user fa-lg" color="{{ config('app.colors.account') }}"/> 
+                <x-layout.navbar-item name="account"/> 
             @endauth
         </div>
         <br>
