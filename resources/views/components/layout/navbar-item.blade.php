@@ -1,6 +1,6 @@
-<a href="{{ $link }}" class="btn {{ Request::is($active) ? "btn-$color" : "btn-outline-$color" }}">
+<a href="{{ route($name) }}" class="btn {{ Request::is($name.'*') ? Colors::btn($name) : Colors::boutline($name) }}">
     @if (isset($icon))
         <i class="{{ $icon }}"></i>
     @endif
-    {{ $title }}
+    {{ $name }}
 </a>

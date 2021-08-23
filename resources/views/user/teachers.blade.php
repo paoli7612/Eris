@@ -1,25 +1,22 @@
 @extends('layouts.app')
 
+@section('title', 'Teachers')
+
 @section('content')
 
     <ol class="breadcrumb">
-        <x-layout.breadcrumb-item link="/"> Home </x-layout.breadcrumb-item>
-        <li class="breadcrumb-item">
-            Teachers
-        </li>
+        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
+        <x-layout.breadcrumb-item> Teachers </x-layout.breadcrumb-item>
     </ol>
 
-    <form method="GET" class="my-3">
+    <form method="GET" class="my-3 col-12 col-sm-6 mx-auto">
         <div class="input-group">
-            <div class="form-outline">
-                <input name="search" type="search" class="form-control" value="{{ request('search') ?? '' }}" />
-            </div>
+            <input placeholder="{{ __('search...') }}" name="search" type="search" class="form-control" value="{{ request('search') ?? '' }}" />
             <button type="button" class="btn btn-primary">
                 <i class="fa fa-search"></i>
             </button>
         </div>
     </form>
-
 
     <div class="row">
         @foreach ($teachers as $teacher)
