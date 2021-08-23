@@ -1,4 +1,4 @@
-<a class="btn btn-light mb-3" href="{{ $link }}">
+<a class="btn btn-light shadow mb-3" href="{{ $link }}">
     <i class="{{ $icon }}"></i>
     {{ $title }}
 </a>

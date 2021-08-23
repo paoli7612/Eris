@@ -43,6 +43,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getCompleteNameAttribute()
+    {
+        return $this->name . " " . $this->surname;
+    }
+
     public function getImgAttribute()
     {
         return $this->avatar ? ('/images/' . $this->avatar) : "https://i.pravatar.cc/200?u=" . $this->email ;

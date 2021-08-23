@@ -15,17 +15,43 @@
                 <img src="{{ auth()->user()->img }}" class="rounded-circle w-100 shadow" alt="avatar">
             </div>
             <div class="col-9 text-right">
-                <h3>{{ $user->name }}</h3>
-                <p>{{ $user->email }}</p>
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ $user->name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Surname</th>
+                        <td>{{ $user->surname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>
+                            <a href="mailto:{{ $user->email }}">
+                                {{ $user->email }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ $user->type }}</td>
+                    </tr>
+                    @if (auth()->user()->type == 'teacher')
+                        <tr>
+                            <th>Lessons created</th>
+                            <td>{{ count($user->lessons) }}</td>
+                        </tr> 
+                    @endif
+                </table>
             </div>
         </div>
         <div class="row">
             <div class="col-3 m-auto">
-                <a href="{{ route('settings') }}" class="btn btn-primary">
+                <a href="{{ route('settings') }}" class="shadow btn btn-{{ config('app.colors.account') }}">
                     Settings
                     <i class="fa fa-cog"></i>
                 </a>
-                <a href="{{ route('logout') }}" class="btn btn-warning">
+                <a href="{{ route('logout') }}" class="shadow btn btn-{{ config('app.colors.account') }}">
                     {{ __('Logout') }}
                     <i class="fa fa-sign-out"></i>
                 </a>

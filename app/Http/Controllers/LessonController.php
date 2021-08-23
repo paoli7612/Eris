@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LessonController extends Controller
 {
@@ -46,5 +47,26 @@ class LessonController extends Controller
         return view('lesson.index', [
             'lessons' => Lesson::where('title', 'like', "%$word%")->paginate(4)
         ]);
+    }
+
+    public function new()
+    {
+        return view('lesson.new');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|unique:lessons'
+        ]);
+
+        $lesson = Lesson::create([
+            'title' => $request['title'],
+            'slug' => Str::slug($request['title'], '-'),
+            'course_id' => $request['course_id'],
+            'user_id' => auth()->id()
+        ]);
+
+        return redirect(route('lesson', $lesson));
     }
 }
