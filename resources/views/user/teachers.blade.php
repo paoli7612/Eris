@@ -9,9 +9,21 @@
         </li>
     </ol>
 
+    <form method="GET" class="my-3">
+        <div class="input-group">
+            <div class="form-outline">
+                <input name="search" type="search" class="form-control" value="{{ request('search') ?? '' }}" />
+            </div>
+            <button type="button" class="btn btn-primary">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </form>
+
+
     <div class="row">
         @foreach ($teachers as $teacher)
-           <x-user :user="$teacher" />
+            <x-user :user="$teacher" />
         @endforeach
     </div>
 

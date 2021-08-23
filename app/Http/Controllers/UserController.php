@@ -17,8 +17,12 @@ class UserController extends Controller
 
     public function index()
     {
+        $users = request('search') ?
+            User::where('name', 'like', "%". request('search') . "%")->where('type', 'teacher')->paginate(10):
+            User::where('type', 'teacher')->paginate(10);
+        
         return view('user.teachers', [
-            'teachers' => User::where('type', 'teacher')->paginate(10)
+            'teachers' => $users
         ]);
     }
 
