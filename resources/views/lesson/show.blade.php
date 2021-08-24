@@ -20,45 +20,55 @@
             </a>
         </div>
 
-        <div class="card-body">
-            <div id="tools">
-                <a class="btn btn-light" href="{{ route('user', $lesson->user) }}">
-                    <i class="fa fa-user"></i>
-                    {{ $lesson->user->name }}
-                </a>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
-                </a>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Button with data-target
-                </button>
+        <div class="card-body row">
+            <div class="col">
+                <x-layout.drop-button id="collapseProf" icon="fa fa-user" title="{{ __('Teachers') }}" />
+                <x-layout.drop-button id="" icon="fa fa-bookmark" title="{{ __('Save') }}" />
+                @if (auth()->id() == $lesson->user_id)
+                    <x-layout.drop-button id="collapseEdit" icon="fa fa-edit" title="{{ __('Edit') }}" />
+                @endif
             </div>
 
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                    anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                </div>
+            <div class="col">
+                <x-layout.drop-div id="collapseProf">
+                    <h1>{{ __('Teachers') }}</h1>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <a href="{{ route('user', $lesson->user) }}">
+                                    {{ $lesson->user->complete_name }}
+                                </a>
+                            </td>
+                            <td><img class="rounded-circle" width="50" src="{{ $lesson->user->img }}" alt="avatar"></td>
+                        </tr>
+                    </table>
+                </x-layout.drop-div>
+                <x-layout.drop-div id="collapseEdit">
+                    <h1>{{ __('Edit') }}</h1>
+                    <form action="{{ route('lesson.new') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" name="title" placeholder="title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="teacher" class="form-control"
+                                value="{{ auth()->user()->complete_name }}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <select name="course_id" class="form-control">
+                                @foreach (App\Models\Course::all() as $course)
+                                    <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group text-right">
+                            <a class="btn btn-danger" href="{{ route('lessons') }}"> {{ __('Back') }} </a>
+                            <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
+                        </div>
+                    </form>
+                </x-layout.drop-div>
             </div>
-        </div>
-        <div class="card-body">
-            <button class="btn btn-light mb-3" disabled>
-                <i class="fa fa-bookmark"></i>
-                Salva
-            </button>
 
-            <a href="{{ route('lesson.details', $lesson) }}" class="btn btn-light  mb-3">
-                <i class="fa fa-info-circle"></i>
-                Dettagli</a>
-            <button class="btn btn-light  mb-3" disabled>
-                <i class="fa fa-edit"></i>
-                Modifica</button>
-            <a href="{{ route('lesson.settings', $lesson) }}" class="btn  mb-3">
-                <i class="fa fa-cog"></i>
-                Settings
-            </a>
         </div>
     </div>
 

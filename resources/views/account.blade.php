@@ -58,6 +58,11 @@
             </div>
         </div>
     </div>
-
+    <h1>{{ __('Lessons') }}</h1>
+    <div class="row mt-3">
+        @foreach ($user->lessons as $lesson)
+            <x-lesson :lesson="$lesson" />
+        @endforeach
+    </div>
 
 @endsection

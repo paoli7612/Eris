@@ -57,12 +57,13 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:lessons'
+            'title' => 'required|unique:lessons',
+            'slug' => 'required|unique:lessons'
         ]);
 
         $lesson = Lesson::create([
             'title' => $request['title'],
-            'slug' => Str::slug($request['title'], '-'),
+            'slug' => $request['slug'],
             'course_id' => $request['course_id'],
             'user_id' => auth()->id()
         ]);

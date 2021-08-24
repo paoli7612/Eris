@@ -16,7 +16,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
         return view('user.teachers', [
             'teachers' => User::teachers()->paginate(12)->withQueryString()

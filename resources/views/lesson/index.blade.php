@@ -9,59 +9,84 @@
         <x-layout.breadcrumb-item> Lessons </x-layout.breadcrumb-item>
     </ol>
 
-    @auth
-        @if (auth()->user()->type == 'teacher')
-            <x-layout.drop-button id="collapseSearch" icon="fa fa-search" title="{{ __('Search...') }}" />
-            <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
-            <x-layout.drop-div id="collapseSearch">
-                <form method="GET" class="my-3">
-                    <div class="input-group col-6 mx-auto">
-                        <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control"
-                            value="{{ request('search') ?? '' }}" />
-                        <button type="button" class="btn btn-primary">
-                            <i class="fa fa-search"></i>
-                        </button>
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control"
+                    value="{{ request('search') ?? '' }}" />
+                <button type="button" class="btn btn-info text-white">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            @auth @if (auth()->user()->type == 'teacher')
+                <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
+                <x-layout.drop-button id="collapsePartecipate" icon="fa fa-user-plus" title="{{ __('Partecipate') }}" />
+            @endif @endauth
+        </div>
+        @auth @if (auth()->user()->type == 'teacher')
+            <div class="col">
+                <x-layout.drop-div id="collapseNew">
+                    <div class="p-3 bg-white shadow">
+                        {{ __('New lesson') }}
+                        <form action="{{ route('lesson.new') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <p class="small pull-right">{{ __('Title') }}</p>
+                                <input type="text" onkeyup="$('#slug')[0].value = string_to_slug(this.value)" name="title"
+                                    placeholder="title" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <p class="small">{{ __('Slug') }}</p>
+                                <input type="text" id="slug" name="slug" placeholder="slug" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="teacher" class="form-control"
+                                    value="{{ auth()->user()->complete_name }}" disabled>
+                            </div>
+                            <script>
+                                function string_to_slug(str) {
+                                    str = str.replace(/^\s+|\s+$/g, ''); // trim
+                                    str = str.toLowerCase();
+
+                                    // remove accents, swap ñ for n, etc
+                                    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+                                    var to = "aaaaeeeeiiiioooouuuunc------";
+                                    for (var i = 0, l = from.length; i < l; i++) {
+                                        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+                                    }
+
+                                    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+                                        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+                                        .replace(/-+/g, '-'); // collapse dashes
+
+                                    return str;
+                                }
+                            </script>
+                            <div class="form-group">
+                                <select name="course_id" class="form-control">
+                                    @foreach (App\Models\Course::all() as $course)
+                                        <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group text-right">
+                                <a class="btn btn-danger" href="{{ route('lessons') }}"> {{ __('Back') }} </a>
+                                <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </x-layout.drop-div>
-            <x-layout.drop-div id="collapseNew">
-                <div class="row">
-                    <div class="col-12 col-sm-6 mx-auto">
-                        <div class="card">
-                            <div class="card-header">
-                                {{ __('New lesson') }}
-                            </div>
-                            <div class="card-body">
-                                <form action="{{ route('lesson.new') }}" method="POST">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="title">{{ __('Title') }}</label>
-                                        <input type="text" name="title" placeholder="title" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="teacher" class="form-control" value="{{ auth()->user()->complete_name }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <select name="course_id" class="form-control">
-                                            @foreach (App\Models\Course::all() as $course)
-                                                <option value="{{ $course->id }}">{{ $course->name }}</option>
-                                            @endforeach  
-                                        </select>
-                                    </div>
-                                    <div class="form-group text-right">
-                                        <a class="btn btn-danger" href="{{ route('lessons') }}"> {{ __('Back')}} </a>
-                                        <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
-                                    </div>
-                                </form>
-                            </div>
+                </x-layout.drop-div>
+                <x-layout.drop-div id="collapsePartecipate">
+                    <div class="p-3 bg-white shadow">
+                        {{ __('Partecipate') }}
+                        <div class="alert alert-danger" role="alert">
+                            Work in pregress!
                         </div>
                     </div>
-                </div>
-            </x-layout.drop-div>
-
-        @endif
-    @endauth
-
+                </x-layout.drop-div>
+            </div>
+        @endif @endauth
+    </div>
 
 
     <div class="row">
