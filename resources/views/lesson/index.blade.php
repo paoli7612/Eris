@@ -10,7 +10,7 @@
     </ol>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-6 mb-3">
             <div class="input-group mb-3">
                 <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control"
                     value="{{ request('search') ?? '' }}" />

@@ -55,12 +55,15 @@ class LessonController extends Controller
 
     public function edit(Lesson $lesson)
     {
-        $lesson->update([
-            'title' => request()->validate([
-                'title' => 'required|unique:lessons'
-            ])['title']
-        ]);
-
+        if (request('s') == 'edit') {
+            $lesson->update([
+                'title' => request()->validate([
+                    'title' => 'required|unique:lessons'
+                ])['title']
+            ]);
+        } else {
+            dd(request('user_id'));
+        }
         return redirect(route('lesson', $lesson));
     }
 }
