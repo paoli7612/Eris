@@ -45,10 +45,11 @@
                 </x-layout.drop-div>
                 <x-layout.drop-div id="collapseEdit">
                     <h1>{{ __('Edit') }}</h1>
-                    <form action="{{ route('lesson.new') }}" method="POST">
+                    <form action="{{ route('lesson', $lesson) }}" method="POST">
                         @csrf
+                        @method('put')
                         <div class="form-group">
-                            <input type="text" name="title" placeholder="title" class="form-control">
+                            <input type="text" name="title" placeholder="title" class="form-control" value="{{ $lesson->title }}">
                         </div>
                         <div class="form-group">
                             <input type="text" name="teacher" class="form-control"

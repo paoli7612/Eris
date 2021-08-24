@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                                 <p class="small">{{ __('Slug') }}</p>
-                                <input type="text" id="slug" name="slug" placeholder="slug" class="form-control" disabled>
+                                <input type="text" id="slug" name="slug" placeholder="slug" class="form-control bg-grey" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" name="teacher" class="form-control"
@@ -94,6 +94,8 @@
             <x-lesson :lesson="$lesson" />
         @endforeach
     </div>
+
+
     {{ $lessons->links() }}
 
 @endsection

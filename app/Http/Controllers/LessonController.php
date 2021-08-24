@@ -11,27 +11,13 @@ class LessonController extends Controller
     public function index()
     {
         return view('lesson.index', [
-            'lessons' => Lesson::paginate(8)
+            'lessons' => Lesson::paginate(12)
         ]);
     }
 
     public function show(Lesson $lesson)
     {
         return view('lesson.show', [
-            'lesson' => $lesson
-        ]);
-    }
-
-    public function settings(Lesson $lesson)
-    {
-        return view('lesson.settings', [
-            'lesson' => $lesson
-        ]);
-    }
-
-    public function details(Lesson $lesson)
-    {
-        return view('lesson.details', [
             'lesson' => $lesson
         ]);
     }
@@ -49,16 +35,12 @@ class LessonController extends Controller
         ]);
     }
 
-    public function new()
-    {
-        return view('lesson.new');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|unique:lessons',
-            'slug' => 'required|unique:lessons'
+            'slug' => 'required|unique:lessons',
+            'course_id' => 'required|exists:courses,id'
         ]);
 
         $lesson = Lesson::create([
@@ -66,6 +48,17 @@ class LessonController extends Controller
             'slug' => $request['slug'],
             'course_id' => $request['course_id'],
             'user_id' => auth()->id()
+        ]);
+
+        return redirect(route('lesson', $lesson));
+    }
+
+    public function edit(Lesson $lesson)
+    {
+        $lesson->update([
+            'title' => request()->validate([
+                'title' => 'required|unique:lessons'
+            ])['title']
         ]);
 
         return redirect(route('lesson', $lesson));

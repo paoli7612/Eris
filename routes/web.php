@@ -37,8 +37,7 @@ Route::get('/lessons', [LessonController::class, 'index'])->name('lessons');
 Route::get('/lessons/new', [LessonController::class, 'new'])->name('lesson.new')->middleware('auth');
 Route::post('/lessons/new', [LessonController::class, 'store'])->middleware('auth');
 Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
-Route::get('/lessons/{lesson}/settings', [LessonController::class, 'settings'])->name('lesson.settings');
-Route::get('/lessons/{lesson}/details', [LessonController::class, 'details'])->name('lesson.details');
+Route::put('/lessons/{lesson}', [LessonController::class, 'edit'])->name('lesson.edit');
 
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
 
