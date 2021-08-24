@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'account')
+@section('title', auth()->user()->name)
 
 @section('content')
 
     <ol class="breadcrumb">
         <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item> {{ $user->name }} </x-layout.breadcrumb-item>
+        <x-layout.breadcrumb-item> {{ $user->complete_name }} </x-layout.breadcrumb-item>
     </ol>
 
     <div class="bg-light p-3 border shadow">

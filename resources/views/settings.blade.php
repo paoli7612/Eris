@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('title', 'settings')
 
 @section('content')
@@ -19,24 +20,29 @@
         @method('put')
 
         <div class="row">
-            <div class="col-10">
-                <div class="form-group">
+                <div class="form-group col-sm-12 col-md-6 col-lg-3">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $user->name }}">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-12 col-md-6 col-lg-3">
+                    <label for="surname">Surname</label>
+                    <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror" id="name" value="{{ $user->surname }}">
+                </div>
+                <div class="form-group col-sm-12 col-md-6 col-lg-3">
                     <label for="email">Email</label>
                     <input type="text" name="email" class="form-control" id="email" value="{{ $user->email }}" disabled>
                 </div>
-            </div>
-            <div class="col-2 text-center">
+            <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
                 <img src="{{ auth()->user()->img }}" class="rounded-circle w-100 shadow" alt="avatar">
-                <input id="avatar" name="avatar" type="file" class="form-control" >
+                    <button type="button" class="btn btn-info mt-3" onclick="$('#avatar').click()">
+                        Change
+                    </button>
+                <input id="avatar" name="avatar" type="file" class="form-control mt-3 d-none" >
             </div>
         </div>
         <hr>
 
-        <button type="submit" href="" class="btn btn-primary pull-left">
+        <button type="submit" href="" class="btn btn-success pull-left">
             <i class="fa fa-save"></i>
             Save
         </button>
