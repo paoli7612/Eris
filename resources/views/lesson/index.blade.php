@@ -11,18 +11,15 @@
 
     @auth
         @if (auth()->user()->type == 'teacher')
-            <x-layout.tools-item link="{{ route('lesson.new') }}" icon="fa fa-plus" title="{{ __('New lesson') }}" />
+            <x-layout.drop-button id="collapseExample" icon="fa fa-search" title="{{ __('Search...') }}" color="info"/>
+            <x-layout.tools-item link="{{ route('lesson.new') }}" icon="fa fa-plus" title="{{ __('New lesson') }}" color="info" />
+
+            <x-layout.drop-div id="collapseExample" />
+
         @endif
     @endauth
 
-    <form method="GET" class="my-3">
-        <div class="input-group col-6 mx-auto">
-            <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control" value="{{ request('search') ?? '' }}" />
-            <button type="button" class="btn btn-primary">
-                <i class="fa fa-search"></i>
-            </button>
-        </div>
-    </form>
+
 
     <div class="row">
         @foreach ($lessons as $lesson)
