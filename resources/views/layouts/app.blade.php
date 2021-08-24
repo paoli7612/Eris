@@ -25,6 +25,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="description">
+        <script src="{{ asset('js/app.js') }}"></script>
+
                                 @yield('content')
                             </h3>
                         </div>
@@ -32,6 +34,6 @@
                 </div>
             </div>
         </div>
-        <script src="{{ asset('js/app.js') }}"></script>
+
     </body>
 </html>

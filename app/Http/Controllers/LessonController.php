@@ -12,7 +12,7 @@ class LessonController extends Controller
     {
         return view('lesson.index', [
             'lessons' => Lesson::paginate(12)
-        ]);
+        ])->with('new', isset(request()['new']));
     }
 
     public function show(Lesson $lesson)

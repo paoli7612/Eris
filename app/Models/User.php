@@ -70,4 +70,9 @@ class User extends Authenticatable
         }
         $query->where('type', 'teacher');
     }
+
+    public function isTeacher()
+    {
+        return $this->type == 'teacher';
+    }
 }

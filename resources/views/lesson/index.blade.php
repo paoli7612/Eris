@@ -19,7 +19,7 @@
                 </button>
             </div>
             @auth @if (auth()->user()->type == 'teacher')
-                <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
+                <x-layout.drop-button iid="bnew" id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
                 <x-layout.drop-button id="collapsePartecipate" icon="fa fa-user-plus" title="{{ __('Partecipate') }}" />
             @endif @endauth
         </div>
@@ -37,7 +37,8 @@
                             </div>
                             <div class="form-group">
                                 <p class="small">{{ __('Slug') }}</p>
-                                <input type="text" id="slug" name="slug" placeholder="slug" class="form-control bg-grey" readonly>
+                                <input type="text" id="slug" name="slug" placeholder="slug" class="form-control bg-grey"
+                                    readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" name="teacher" class="form-control"
@@ -70,7 +71,7 @@
                                 </select>
                             </div>
                             <div class="form-group text-right">
-                                <a class="btn btn-danger" href="{{ route('lessons') }}"> {{ __('Back') }} </a>
+                                <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('Back') }}" color="warning" />
                                 <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
                             </div>
                         </form>
@@ -97,5 +98,13 @@
 
 
     {{ $lessons->links() }}
+
+    @if ($new)
+        <script>
+            $(document).ready(function() {
+                $('#bnew').click()
+            });
+        </script>
+    @endif
 
 @endsection

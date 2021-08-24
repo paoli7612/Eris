@@ -58,11 +58,22 @@
             </div>
         </div>
     </div>
-    <h1>{{ __('Lessons') }}</h1>
-    <div class="row mt-3">
-        @foreach ($user->lessons as $lesson)
-            <x-lesson :lesson="$lesson" />
-        @endforeach
-    </div>
+    @if ($user->isTeacher())
+        @if (count($user->lessons))
+            <h1>{{ __('Lessons') }}</h1>
+            <div class="row mt-3">
+                @foreach ($user->lessons as $lesson)
+                    <x-lesson :lesson="$lesson" />
+                @endforeach
+            </div>
+        @else
+            <div class="jumbotron m-5 shadow">
+                <h1>No lessons created</h1>
+                <p class="lead">You didn't create neither a lesson.</p>
+                <a class="btn btn-lg btn-primary" href="{{ route('lessons') }}?new" role="button">Create now</a>
+            </div>
+        @endif
+    @endif
+
 
 @endsection
