@@ -11,7 +11,7 @@ class LessonController extends Controller
     public function index()
     {
         return view('lesson.index', [
-            'lessons' => Lesson::paginate(12)
+            'lessons' => Lesson::filter()->paginate(12)
         ])->with('new', isset(request()['new']));
     }
 
@@ -19,19 +19,6 @@ class LessonController extends Controller
     {
         return view('lesson.show', [
             'lesson' => $lesson
-        ]);
-    }
-
-    public function search()
-    {
-        $word = request('u');
-        
-        if (strlen($word) < 2) {
-            return redirect()->route('lessons');
-        }
-
-        return view('lesson.index', [
-            'lessons' => Lesson::where('title', 'like', "%$word%")->paginate(4)
         ]);
     }
 
@@ -58,8 +45,8 @@ class LessonController extends Controller
         if (request('s') == 'edit') {
             $lesson->update([
                 'title' => request()->validate([
-                    'title' => 'required|unique:lessons'
-                ])['title']
+                        'title' => 'required|unique:lessons'
+                    ])['title']
             ]);
         } else {
             dd(request('user_id'));

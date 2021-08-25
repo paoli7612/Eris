@@ -12,11 +12,14 @@
     <div class="row">
         <div class="col-6 mb-3">
             <div class="input-group mb-3">
-                <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control"
-                    value="{{ request('search') ?? '' }}" />
-                <button type="button" class="btn btn-info text-white">
-                    <i class="fa fa-search"></i>
-                </button>
+                <form method="GET">
+                    <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control"
+                        value="{{ request('search') ?? '' }}" />
+                    <button type="button" class="btn btn-info text-white">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+
             </div>
             @auth @if (auth()->user()->type == 'teacher')
                 <x-layout.drop-button iid="bnew" id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
@@ -71,7 +74,8 @@
                                 </select>
                             </div>
                             <div class="form-group text-right">
-                                <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('Back') }}" color="warning" />
+                                <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('Back') }}"
+                                    color="warning" />
                                 <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
                             </div>
                         </form>

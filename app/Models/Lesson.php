@@ -30,4 +30,11 @@ class Lesson extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function scopeFilter($query)
+    {
+        if (request('search')) {
+            $query->where('title', 'like', "%". request('search') . "%");
+        }
+    }
 }
