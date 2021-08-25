@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <ol class="breadcrumb">
-        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item> {{ $user->complete_name }} </x-layout.breadcrumb-item>
-    </ol>
+    <x-bc>
+        <x-bc-item link="{{ route('home') }}"> Home </x-bc-item>
+        <x-bc-item> {{ $user->complete_name }} </x-bc-item>
+    </x-bc>
 
     <div class="bg-light p-3 border shadow">
         <div class="row px-3">

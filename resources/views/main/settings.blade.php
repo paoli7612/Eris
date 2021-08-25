@@ -4,11 +4,11 @@
 
 @section('content')
 
-    <ol class="breadcrumb">
-        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item link="{{ route('account') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item> Settings </x-layout.breadcrumb-item>
-    </ol>
+    <x-bc>
+        <x-bc-item link="{{ route('home') }}"> Home </x-bc-item>
+        <x-bc-item link="{{ route('user', $user ) }}"> {{ $user->complete_name }} </x-bc-item>
+        <x-bc-item> Settings </x-bc-item>
+    </x-bc>
     <div class="row">
         @error('name')
             <x-log.danger message="{{ $message }}" />

@@ -4,11 +4,11 @@
 
 @section('content')
 
-    <ol class="breadcrumb">
-        <x-layout.breadcrumb-item link="/"> Home </x-layout.breadcrum-item>
-            <x-layout.breadcrumb-item link="/lessons"> Lessons </x-layout.breadcrum-item>
-                <x-layout.breadcrumb-item> {{ $lesson->title }} </x-layout.breadcrum-item>
-    </ol>
+    <x-bc>
+        <x-bc-item link="{{ route('home') }}">Home</x-bc-item>
+        <x-bc-item link="{{ route('home') }}">Lessons</x-bc-item>
+        <x-bc-item> {{ $lesson->title }} </x-bc-item>
+    </x-bc>
 
     <div class="card shadow">
         <div class="card-header ">
@@ -22,16 +22,16 @@
 
         <div class="card-body row">
             <div class="col">
-                <x-layout.drop-button id="collapseProf" icon="fa fa-user" title="{{ __('Teachers') }}" />
+                <x-dd-button id="collapseProf" icon="fa fa-user" title="{{ __('Teachers') }}" />
                 @if (auth()->id() == $lesson->user_id)
-                    <x-layout.drop-button id="collapseEdit" icon="fa fa-edit" title="{{ __('Edit') }}" />
+                    <x-dd-button id="collapseEdit" icon="fa fa-edit" title="{{ __('Edit') }}" />
                 @else
-                    <x-layout.drop-button id="" icon="fa fa-bookmark" title="{{ __('Save') }}" />
+                    <x-dd-button id="" icon="fa fa-bookmark" title="{{ __('Save') }}" />
                 @endif
             </div>
 
             <div class="col">
-                <x-layout.drop-div id="collapseProf">
+                <x-dd-div id="collapseProf">
                     <h1>{{ __('Teachers') }}</h1>
                     <table class="table">
                         <tr>
@@ -43,8 +43,8 @@
                             <td><img class="rounded-circle" width="50" src="{{ $lesson->user->img }}" alt="avatar"></td>
                         </tr>
                     </table>
-                    <x-layout.drop-button id="collapsePartecipate" icon="fa fa-user-plus" title="Add" />
-                    <x-layout.drop-div id="collapsePartecipate">
+                    <x-dd-button id="collapsePartecipate" icon="fa fa-user-plus" title="Add" />
+                    <x-dd-div id="collapsePartecipate">
                         <form action="" method="POST">
                             @csrf
                             @method('PUT')
@@ -59,9 +59,9 @@
                             </button>
                         </form>
                         
-                    </x-layout.drop-div>
-                </x-layout.drop-div>
-                <x-layout.drop-div id="collapseEdit">
+                    </x-dd-div>
+                </x-dd-div>
+                <x-dd-div id="collapseEdit">
                     <h1>{{ __('Edit') }}</h1>
                     <form action="{{ route('lesson', $lesson) }}" method="POST">
                         @csrf
@@ -82,11 +82,11 @@
                             </select>
                         </div>
                         <div class="form-group text-right">
-                            <x-layout.drop-button id="collapseEdit" title="{{ __('Back') }}" color="warning" />
+                            <x-dd-button id="collapseEdit" title="{{ __('Back') }}" color="warning" />
                             <input type="submit" value="{{ __('Save') }}" class="btn btn-success">
                         </div>
                     </form>
-                </x-layout.drop-div>
+                </x-dd-div>
             </div>
 
         </div>

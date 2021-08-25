@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <ol class="breadcrumb">
-        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item> Teachers </x-layout.breadcrumb-item>
-    </ol>
+    <x-bc>
+        <x-bc-item link="{{ route('home') }}">Home</x-bc-item>
+        <x-bc-item>Teachers</x-bc-item>
+    </x-bc>
 
     <form method="GET" class="my-3 col-12 col-sm-6 mx-auto">
         <div class="input-group">

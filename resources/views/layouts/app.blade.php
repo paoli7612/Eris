@@ -4,13 +4,9 @@
 
 <body>
     @include('layouts.nav')
-    <div class="container mt-5">
-        <div class="main-panel" style="min-height: 100vh;">
-            <div class="content">
-                <script src="{{ asset('js/app.js') }}"></script>
-                @yield('content')
-            </div>
-        </div>
+    <div class="container mt-5 py-3">
+        <script src="{{ asset('js/app.js') }}"></script>
+        @yield('content')
     </div>
 
 </body>

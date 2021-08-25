@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <x-layout.breadcrumb>
-        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item> Lessons </x-layout.breadcrumb-item>
-    </x-layout.breadcrumb>
+    <x-bc>
+        <x-bc-item link="{{ route('home') }}">Home</x-bc-item>
+        <x-bc-item>Lessons</x-bc-item>
+    </x-bc>
 
     <div class="row">
         <div class="col-6 mb-3">
@@ -15,20 +15,19 @@
                 <form method="GET">
                     <input placeholder="{{ __('search..') }}" name="search" type="search" class="form-control"
                         value="{{ request('search') ?? '' }}" />
-                    <button type="button" class="btn btn-info text-white">
+                    <button type="submit" class="btn btn-info text-white">
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
-
             </div>
             @auth @if (auth()->user()->type == 'teacher')
-                <x-layout.drop-button iid="bnew" id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
-                <x-layout.drop-button id="collapsePartecipate" icon="fa fa-user-plus" title="{{ __('Partecipate') }}" />
+                <x-dd-button iid="bnew" id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
+                <x-dd-button id="collapsePartecipate" icon="fa fa-user-plus" title="{{ __('Partecipate') }}" />
             @endif @endauth
         </div>
         @auth @if (auth()->user()->type == 'teacher')
             <div class="col">
-                <x-layout.drop-div id="collapseNew">
+                <x-dd-div id="collapseNew">
                     <div class="p-3 bg-white shadow">
                         {{ __('New lesson') }}
                         <form action="{{ route('lesson.new') }}" method="POST">
@@ -74,21 +73,21 @@
                                 </select>
                             </div>
                             <div class="form-group text-right">
-                                <x-layout.drop-button id="collapseNew" icon="fa fa-plus" title="{{ __('Back') }}"
+                                <x-dd-button id="collapseNew" icon="fa fa-plus" title="{{ __('Back') }}"
                                     color="warning" />
                                 <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
                             </div>
                         </form>
                     </div>
-                </x-layout.drop-div>
-                <x-layout.drop-div id="collapsePartecipate">
+                </x-dd-div>
+                <x-dd-div id="collapsePartecipate">
                     <div class="p-3 bg-white shadow">
                         {{ __('Partecipate') }}
                         <div class="alert alert-danger" role="alert">
                             Work in pregress!
                         </div>
                     </div>
-                </x-layout.drop-div>
+                </x-dd-div>
             </div>
         @endif @endauth
     </div>
