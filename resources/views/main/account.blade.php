@@ -56,22 +56,62 @@
             </a>
         </div>
     </div>
+    <div class="row">
+
     @if ($user->isTeacher())
-        @if (count($user->lessons))
-            <h1>{{ __('Lessons') }}</h1>
-            <div class="row mt-3">
-                @foreach ($user->lessons as $lesson)
-                    <x-lesson :lesson="$lesson" />
-                @endforeach
-            </div>
-        @else
-            <div class="jumbotron m-5 shadow">
-                <h1>No lessons created</h1>
-                <p class="lead">You didn't create neither a lesson.</p>
-                <a class="btn btn-lg btn-primary" href="{{ route('lessons') }}?new" role="button">Create now</a>
-            </div>
-        @endif
+        <div class="mt-3 col-6">
+            @if (count($user->lessons))
+                <div class="bg-light p-3 shadow">
+                    <div class="text-center">
+                        <h1>
+                            {{ __('Lessons') }}    
+                        </h1>
+                        <a href="{{ route('lessons') }}?new" class="pull-right btn {{ Colors::btn('lessons') }}">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>                    
+
+
+                    <div class="row">
+                        @foreach ($user->lessons as $lesson)
+                            <x-lesson :lesson="$lesson" col="12" />
+                        @endforeach
+                    </div>
+
+                </div>
+            @else
+                <div class="jumbotron m-5 shadow">
+                    <h1>No lessons created</h1>
+                    <p class="lead">You didn't create neither a lesson.</p>
+                    <a class="btn btn-lg btn-primary" href="{{ route('lessons') }}?new" role="button">Create now</a>
+                </div>
+            @endif
+        </div>
+
+        <div class="mt-3 col-6">
+            @if (count($user->lessons))
+                <div class="bg-light p-3 shadow">
+                    <div class="text-center">
+                        <h1>
+                            {{ __('Materials') }}    
+                        </h1>
+                        <a href="{{ route('lessons') }}?new" class="pull-right btn {{ Colors::btn('lessons') }}">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div> 
+                    <br><br>                   
+                </div>
+            @else
+                <div class="jumbotron m-5 shadow">
+                    <h1>No lessons created</h1>
+                    <p class="lead">You didn't create neither a lesson.</p>
+                    <a class="btn btn-lg btn-primary" href="{{ route('lessons') }}?new" role="button">Create now</a>
+                </div>
+            @endif
+        </div>
+
     @endif
+</div>
 
 
 @endsection

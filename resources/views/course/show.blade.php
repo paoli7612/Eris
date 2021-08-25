@@ -3,16 +3,17 @@
 @section('title', $course->name)
 
 @section('content')
-
-    <ol class="breadcrumb">
-        <x-layout.breadcrumb-item link="{{ route('home') }}"> Home </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item link="{{ route('courses') }}"> Courses </x-layout.breadcrumb-item>
-        <x-layout.breadcrumb-item> {{ $course->name }} </x-layout.breadcrumb-item>
-    </ol>
-
-    <h1>
+    <x-tt name="courses">
         {{ $course->name }}
-    </h1>
+    </x-tt>
+
+    <x-bc>
+        <x-bc-item link="{{ route('home') }}"> Home </x-bc-item>
+        <x-bc-item link="{{ route('courses') }}"> Courses </x-bc-item>
+        <x-bc-item> {{ $course->name }} </x-bc-item>
+        
+    </x-bc>
+
 
     @foreach ($course->lessons as $lesson)
         <x-lesson :lesson="$lesson" />

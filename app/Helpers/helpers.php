@@ -18,6 +18,11 @@
         {
             return Request::is(active($name)) ? Colors::btn($name) : Colors::boutline($name);
         }
+
+        public static function bg($name)
+        {
+            return 'bg-' . config("app.colors.$name");
+        }
     }
 
     class Icons
