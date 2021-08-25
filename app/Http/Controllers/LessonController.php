@@ -19,7 +19,7 @@ class LessonController extends Controller
     {
         return view('lesson.show', [
             'lesson' => $lesson
-        ]);
+        ])->with('add', isset(request()['add']));
     }
 
     public function store(Request $request)

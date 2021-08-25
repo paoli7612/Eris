@@ -95,7 +95,7 @@
                         <h1>
                             {{ __('Materials') }}    
                         </h1>
-                        <a href="{{ route('lessons') }}?new" class="pull-right btn {{ Colors::btn('lessons') }}">
+                        <a href="{{ route('material.load') }}" class="pull-right btn {{ Colors::btn('materials') }}">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div> 

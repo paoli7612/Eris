@@ -238,7 +238,8 @@ return [
         'teachers' => env('COLORS_TEACHERS', "danger"),
         'lessons' => env('COLORS_LESSONS', "success"),
         'account' => env('COLORS_ACCOUNT', "warning"),
-        'login' => env('COLORS_ACCOUNT', "warning")
+        'login' => env('COLORS_ACCOUNT', "warning"),
+        'materials' => env('COLORS_MATERIAL', "dark")
     ],
 
     'icons' => [
@@ -248,7 +249,8 @@ return [
         'teachers' => env('ICONS_TEACHERS', "archive"),
         'lessons' => env('ICONS_LESSONS', "archive"),
         'account' => env('ICONS_ACCOUNT', "archive"),
-        'login' => env('ICONS_ACCOUNT', "archive")
+        'login' => env('ICONS_ACCOUNT', "archive"),
+        'materials' => env('ICONS_MATERIAL', "archive")
     ],
 
 ];

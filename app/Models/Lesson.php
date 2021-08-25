@@ -37,4 +37,9 @@ class Lesson extends Model
             $query->where('title', 'like', "%". request('search') . "%");
         }
     }
+
+    public function scopeOf($query, $id)
+    {
+        $query->where('user_id', $id);
+    }
 }

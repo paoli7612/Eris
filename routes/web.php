@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::get('/logout', [HomeController::class, 'logout']);
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
+
+Route::get('/material/load', [MaterialController::class, 'load'])->name('material.load')->middleware();
 
 Route::get('/lessons', [LessonController::class, 'index'])->name('lessons');
 Route::get('/lessons/new', [LessonController::class, 'new'])->name('lesson.new')->middleware('auth');

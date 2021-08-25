@@ -25,6 +25,7 @@
                 <x-dd-button id="collapseProf" icon="fa fa-user" title="{{ __('Teachers') }}" />
                 @if (auth()->id() == $lesson->user_id)
                     <x-dd-button id="collapseEdit" icon="fa fa-edit" title="{{ __('Edit') }}" />
+                    <x-dd-button iid="badd" id="collapseAdd" icon="fa fa-plus" title="{{ __('Add material') }}" />
                 @else
                     <x-dd-button id="" icon="fa fa-bookmark" title="{{ __('Save') }}" />
                 @endif
@@ -87,9 +88,20 @@
                         </div>
                     </form>
                 </x-dd-div>
+                <x-dd-div id="collapseAdd">
+                    <h1>{{ __('Add') }}</h1>
+                </x-dd-div>
             </div>
 
         </div>
     </div>
+
+    @if ($add)
+        <script>
+            $(document).ready(function() {
+                $('#badd').click()
+            });
+        </script>
+    @endif
 
 @endsection
