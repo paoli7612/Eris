@@ -40,22 +40,20 @@
                         <tr>
                             <th>Lessons created</th>
                             <td>{{ count($user->lessons) }}</td>
-                        </tr> 
+                        </tr>
                     @endif
                 </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-3 m-auto">
-                <a href="{{ route('settings') }}" class="shadow btn btn-{{ config('app.colors.account') }}">
-                    Settings
-                    <i class="fa fa-cog"></i>
-                </a>
-                <a href="{{ route('logout') }}" class="shadow btn btn-{{ config('app.colors.account') }}">
-                    {{ __('Logout') }}
-                    <i class="fa fa-sign-out"></i>
-                </a>
-            </div>
+        <div class="text-center">
+            <a href="{{ route('settings') }}" class="shadow btn btn-{{ config('app.colors.account') }}">
+                Settings
+                <i class="fa fa-cog"></i>
+            </a>
+            <a href="{{ route('logout') }}" class="shadow btn btn-{{ config('app.colors.account') }}">
+                {{ __('Logout') }}
+                <i class="fa fa-sign-out"></i>
+            </a>
         </div>
     </div>
     @if ($user->isTeacher())
