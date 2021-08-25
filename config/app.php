@@ -236,15 +236,17 @@ return [
         'courses' => env('COLORS_COURSES', "secondary"),
         'teachers' => env('COLORS_TEACHERS', "danger"),
         'lessons' => env('COLORS_LESSONS', "success"),
-        'account' => env('COLORS_ACCOUNT', "warning")
+        'account' => env('COLORS_ACCOUNT', "warning"),
+        'login' => env('COLORS_ACCOUNT', "warning")
     ],
 
     'icons' => [
-        'home' => env('ICONS_HOME', "box"),
-        'courses' => env('ICONS_COURSES', "box"),
-        'teachers' => env('ICONS_TEACHERS', "box"),
-        'lessons' => env('ICONS_LESSONS', "box"),
-        'account' => env('ICONS_ACCOUNT', "box")
+        'home' => env('ICONS_HOME', "archive"),
+        'courses' => env('ICONS_COURSES', "archive"),
+        'teachers' => env('ICONS_TEACHERS', "archive"),
+        'lessons' => env('ICONS_LESSONS', "archive"),
+        'account' => env('ICONS_ACCOUNT', "archive"),
+        'login' => env('ICONS_ACCOUNT', "archive")
     ],
 
 ];

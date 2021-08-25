@@ -6,7 +6,7 @@
     @auth
         <x-layout.navbar-item name="account"/> 
     @else
-        <x-layout.navbar-item name="account"/> 
+        <x-layout.navbar-item name="login"/> 
     @endauth
 </div>
 <br>

@@ -48,7 +48,7 @@ class UserController extends Controller
             'avatar' => $imageName ?? null
         ]);
 
-        return redirect(route('account'))->with('success', 'updated account');
+        return redirect()->route('account')->with('success', 'updated account');
     }
 
     public function logout()

@@ -27,7 +27,7 @@ class LessonController extends Controller
         $word = request('u');
         
         if (strlen($word) < 2) {
-            return redirect('lessons');
+            return redirect()->route('lessons');
         }
 
         return view('lesson.index', [
@@ -50,7 +50,7 @@ class LessonController extends Controller
             'user_id' => auth()->id()
         ]);
 
-        return redirect(route('lesson', $lesson));
+        return redirect()->route('lesson', $lesson);
     }
 
     public function edit(Lesson $lesson)
@@ -64,6 +64,6 @@ class LessonController extends Controller
         } else {
             dd(request('user_id'));
         }
-        return redirect(route('lesson', $lesson));
+        return redirect()->route('lesson', $lesson);
     }
 }
