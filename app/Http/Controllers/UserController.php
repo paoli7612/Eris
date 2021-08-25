@@ -50,9 +50,4 @@ class UserController extends Controller
 
         return redirect()->route('account')->with('success', 'updated account');
     }
-
-    public function logout()
-    {
-        return view('logout');
-    }
 }

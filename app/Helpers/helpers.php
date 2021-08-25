@@ -1,24 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Request;
+    use Illuminate\Support\Facades\Request;
 
-class Colors
-{
-    public static function btn($name)
+    class Colors
     {
-        return 'btn-' . config("app.colors.$name");
-    }
+        public static function btn($name)
+        {
+            return 'btn-' . config("app.colors.$name");
+        }
 
-    public static function boutline($name)
-    {
-        return 'btn-outline-' . config("app.colors.$name");
-    }
+        public static function boutline($name)
+        {
+            return 'btn-outline-' . config("app.colors.$name");
+        }
 
-    public static function bactive($name)
-    {
-        return Request::is(active($name)) ? Colors::btn($name) : Colors::boutline($name);
+        public static function bactive($name)
+        {
+            return Request::is(active($name)) ? Colors::btn($name) : Colors::boutline($name);
+        }
     }
-}
 
     class Icons
     {

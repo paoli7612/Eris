@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lesson;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\ErrorHandler\Collecting;
 
@@ -17,7 +18,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('home', [
+        return view('main.home', [
             'lesson' => Lesson::latest()->first()
         ]);
     }
@@ -26,20 +27,36 @@ class HomeController extends Controller
 
     public function account()
     {
-        return view('account', [
+        return view('main.account', [
             'user' => auth()->user()
         ]);
     }
 
     public function settings()
     {
-        return view('settings', [
+        return view('main.settings', [
             'user' => auth()->user()
         ]);
     }
 
-    public function delete_account()
+    public function delete()
     {
-        return view('delete.account');
+        return view('main.delete');
+    }
+
+    public function remove()
+    {
+        $user = auth()->user();
+        Auth::logout();
+        if ($user->delete()) {
+            return redirect()->route('welcome');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function logout()
+    {
+        return view('main.logout');
     }
 }

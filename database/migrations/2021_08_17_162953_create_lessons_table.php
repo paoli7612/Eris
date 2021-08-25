@@ -21,7 +21,7 @@ class CreateLessonsTable extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->foreignIdFor(Course::class);
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->onDeleteCascade();
             $table->timestamps();
         });
     }

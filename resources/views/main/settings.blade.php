@@ -47,7 +47,7 @@
             Save
         </button>
 
-        <a href="{{ route('delete-account') }}" class="btn btn-outline-danger pull-right">
+        <a href="{{ route('account.delete') }}" class="btn btn-outline-danger pull-right">
             <i class="fa fa-trash"></i>
             Delete account
         </a>

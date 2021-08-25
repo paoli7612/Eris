@@ -233,6 +233,7 @@ return [
 
     'colors' => [
         'home' => env('COLORS_HOME', "primary"),
+        'welcome' => env('COLORS_HOME', "primary"),
         'courses' => env('COLORS_COURSES', "secondary"),
         'teachers' => env('COLORS_TEACHERS', "danger"),
         'lessons' => env('COLORS_LESSONS', "success"),
@@ -242,6 +243,7 @@ return [
 
     'icons' => [
         'home' => env('ICONS_HOME', "archive"),
+        'welcome' => env('ICONS_HOME', "archive"),
         'courses' => env('ICONS_COURSES', "archive"),
         'teachers' => env('ICONS_TEACHERS', "archive"),
         'lessons' => env('ICONS_LESSONS', "archive"),
