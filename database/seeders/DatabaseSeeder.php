@@ -33,6 +33,14 @@ class DatabaseSeeder extends Seeder
             'type' => 'teacher'
         ]);
 
+        User::create([
+            'name' => 'Filippo',
+            'surname' => 'Turato',
+            'email' => 'student@root',
+            'password' => Hash::make('asdasdasd'),
+            'type' => 'student'
+        ]);
+
         User::factory(20)->create(['type' => 'teacher']);
         User::factory(20)->create();
         

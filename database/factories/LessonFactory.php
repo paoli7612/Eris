@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -27,7 +28,7 @@ class LessonFactory extends Factory
         return [
             'title' => $title,
             'course_id' => Course::all()->random()->id,
-            'user_id' => 1,
+            'user_id' => User::teachers()->get()->random()->id,
             'slug' => Str::slug($title, '-')
        ];
     }
