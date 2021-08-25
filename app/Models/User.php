@@ -66,7 +66,8 @@ class User extends Authenticatable
     public function scopeTeachers($query)
     {
         if (request('search')) {
-            $query->where('name', 'like', "%". request('search') . "%");
+            $query->where('name', 'like', "%". request('search') . "%")
+                ->orWhere('surname', 'like', "%" . request('search') . "%");
         }
         $query->where('type', 'teacher');
     }
