@@ -51,6 +51,8 @@ class DatabaseSeeder extends Seeder
         Course::create(['name' => 'Fisica','slug' => 'fisica']);
         Course::create(['name' => 'Informatica','slug' => 'informatica']);
         Course::create(['name' => 'Educazione civica','slug' => 'education-civica']);
+        Course::create(['name' => 'Alchimia','slug' => 'alchimia']);
+        Course::create(['name' => 'Architettura','slug' => 'architettura']);
 
         Lesson::factory(10)->create();
     }
