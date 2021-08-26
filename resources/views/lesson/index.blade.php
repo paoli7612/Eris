@@ -20,12 +20,12 @@
             </div>
         </form>
     </div>
+    <h1>{{ $errors }}</h1>
 
     <div class="row">
         <div class="col-6 mb-3">
             @auth @if (auth()->user()->type == 'teacher')
                 <x-dd-button iid="bnew" id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
-                <x-dd-button id="collapsePartecipate" icon="fa fa-user-plus" title="{{ __('Partecipate') }}" />
             @endif @endauth
             <x-dd-button iid="basearch" id="collapseASearch" icon="fa fa-search"  title="{{ __('Advanced Search') }}" />
         </div>
@@ -34,7 +34,7 @@
                 <x-dd-div id="collapseNew">
                     <div class="p-3 bg-white shadow">
                         {{ __('New lesson') }}
-                        <form action="{{ route('lesson.new') }}" method="POST">
+                        <form action="{{ route('lesson.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <p class="small pull-right">{{ __('Title') }}</p>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <p class="small">{{ __('Slug') }}</p>
-                                <input type="text" id="slug" name="slug" placeholder="slug" class="form-control bg-grey"
+                                <input type="text" id="slug" name="slug" placeholder="" class="form-control bg-grey"
                                     readonly>
                             </div>
                             <div class="form-group">
@@ -78,18 +78,10 @@
                             </div>
                             <div class="form-group text-right">
                                 <x-dd-button id="collapseNew" icon="fa fa-plus" title="{{ __('Back') }}"
-                                    color="warning" />
+                                    color="info" />
                                 <input type="submit" value="{{ __('New lesson') }}" class="btn btn-success">
                             </div>
                         </form>
-                    </div>
-                </x-dd-div>
-                <x-dd-div id="collapsePartecipate">
-                    <div class="p-3 bg-white shadow">
-                        {{ __('Partecipate') }}
-                        <div class="alert alert-danger" role="alert">
-                            Work in pregress!
-                        </div>
                     </div>
                 </x-dd-div>
             @endif @endauth

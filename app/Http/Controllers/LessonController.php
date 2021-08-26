@@ -55,4 +55,11 @@ class LessonController extends Controller
         }
         return redirect()->route('lesson', $lesson);
     }
+    
+    public function delete(Lesson $lesson)
+    {
+        $lesson->delete();
+
+        return redirect()->route('lessons');
+    }
 }

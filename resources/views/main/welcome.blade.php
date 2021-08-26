@@ -4,7 +4,7 @@
 
 @section('content')
     <main role="main">
-        <section class="jumbotron text-center">
+        <section class="jumbotron text-center my-3">
             <div class="container">
                 <h1 class="jumbotron-heading">Eris</h1>
                 <p class="lead text-muted">
@@ -17,7 +17,7 @@
             </div>
         </section>
 
-        <div class="container">
+        <div class="container bg-dark text-white p-3 mb-3">
             <!-- Example row of columns -->
             <div class="row">
                 <div class="col-md-4">

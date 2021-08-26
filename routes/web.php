@@ -22,30 +22,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('main.welcome');
 })->name('welcome')->middleware('guest');
+
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/account', [HomeController::class, 'account'])->name('account');
-Route::get('/account/delete', [HomeController::class, 'delete'])->name('account.delete');
-Route::post('/account/delete', [HomeController::class, 'remove']);
-Route::get('/account/settings', [HomeController::class, 'settings'])->name('settings');
-Route::put('/account/settings', [HomeController::class, 'edit']);
-Route::get('/logout', [HomeController::class, 'logout']);
+/* Home */ Route::get('/', [HomeController::class, 'home'])->name('home');
+/* Courses */ Route::get('/courses', [CourseController::class, 'index'])->name('courses');
+    /* show */Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
 
-Route::get('/courses', [CourseController::class, 'index'])->name('courses');
-Route::get('/courses/{course}', [CourseController::class, 'show'])->name('course');
+/* Teachers */ Route::get('/teachers', [UserController::class, 'index'])->name('teachers');
+    /* show */ Route::get('/teachers/{user}', [UserController::class, 'show'])->name('teacher');
 
-Route::get('/material/load', [MaterialController::class, 'load'])->name('material.load')->middleware();
+/* Lessons */ Route::get('/lessons', [LessonController::class, 'index'])->name('lessons');
+    /* new? */ Route::get('/lessons?new', [LessonController::class, 'index'])->name('lessons?new');
+    /* show */ Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
+    /* store */ Route::post('/lessons', [LessonController::class, 'store'])->name('lesson.store');
+    /* edit */ Route::put('/lessons/{lesson}', [LessonController::class, 'edit'])->name('lesson.edit');
+    /* delete */ Route::delete('/lessons/{lesson}', [LessonController::class, 'delete'])->name('lesson.delete');
 
-Route::get('/lessons', [LessonController::class, 'index'])->name('lessons');
-Route::get('/lessons/new', [LessonController::class, 'new'])->name('lesson.new')->middleware('auth');
-Route::post('/lessons/new', [LessonController::class, 'store'])->middleware('auth');
-Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lesson');
-Route::put('/lessons/{lesson}', [LessonController::class, 'edit'])->name('lesson.edit');
+/* Account */ Route::get('/account', [UserController::class, 'show'])->name('account');
+    /* delete? */ Route::get('/account/delete', [HomeController::class, 'delete'])->name('account.delete');
+    /* delete! */ Route::post('/account/delete', [HomeController::class, 'remove'])->name('account.delete');
 
-Route::get('/user/{user}', [UserController::class, 'show'])->name('user');
+    /* settings? */ Route::get('/account/settings', [HomeController::class, 'settings'])->name('settings');
+    /* settings! */ Route::put('/account/settings', [HomeController::class, 'edit']);
 
-Route::get('/search', [LessonController::class, 'search'])->name('search');
-
-Route::get('/teachers', [UserController::class, 'index'])->name('teachers');
-Route::get('/teachers/{user}', [UserController::class, 'show'])->name('teacher');
+    /* logout? */ Route::get('/logout', [HomeController::class, 'logout']);
+    /* logout! */

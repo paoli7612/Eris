@@ -6,7 +6,7 @@
 
     <x-bc>
         <x-bc-item link="{{ route('home') }}">Home</x-bc-item>
-        <x-bc-item link="{{ route('home') }}">Lessons</x-bc-item>
+        <x-bc-item link="{{ route('lessons') }}">Lessons</x-bc-item>
         <x-bc-item> {{ $lesson->title }} </x-bc-item>
     </x-bc>
 
@@ -26,6 +26,7 @@
                 @if (auth()->id() == $lesson->user_id)
                     <x-dd-button id="collapseEdit" icon="fa fa-edit" title="{{ __('Edit') }}" />
                     <x-dd-button iid="badd" id="collapseAdd" icon="fa fa-plus" title="{{ __('Add material') }}" />
+                    <x-dd-button iid="brem" id="collapseRem" icon="fa fa-trash" title="{{ __('Delete lesson') }}" />
                 @else
                     <x-dd-button id="" icon="fa fa-bookmark" title="{{ __('Save') }}" />
                 @endif
@@ -37,7 +38,7 @@
                     <table class="table">
                         <tr>
                             <td>
-                                <a href="{{ route('user', $lesson->user) }}">
+                                <a href="{{ route('teacher', $lesson->user) }}">
                                     {{ $lesson->user->complete_name }}
                                 </a>
                             </td>
@@ -83,13 +84,22 @@
                             </select>
                         </div>
                         <div class="form-group text-right">
-                            <x-dd-button id="collapseEdit" title="{{ __('Back') }}" color="warning" />
+                            <x-dd-button id="collapseEdit" title="{{ __('Back') }}" />
                             <input type="submit" value="{{ __('Save') }}" class="btn btn-success">
                         </div>
                     </form>
                 </x-dd-div>
                 <x-dd-div id="collapseAdd">
                     <h1>{{ __('Add') }}</h1>
+                </x-dd-div>
+                <x-dd-div id="collapseRem">
+                    <h1>{{ __('Delete lesson') }}</h1>
+                    <form action="{{ route('lesson.delete', $lesson) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <x-dd-button id="collapseRem" title="{{ __('Back') }}" />
+                        <input type="submit" value="Confirm" class="btn btn-danger">
+                    </form>
                 </x-dd-div>
             </div>
 

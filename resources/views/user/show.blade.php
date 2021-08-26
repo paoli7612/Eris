@@ -2,7 +2,6 @@
 
 @section('title', $user->surname)
 
-
 @section('content')
 
     <x-bc>
@@ -17,37 +16,53 @@
                 <img src="{{ $user->img }}" class="rounded-circle w-100 shadow" alt="avatar">
             </div>
             <div class="col-9 text-right">
-                <h3>{{ $user->complete_name }}</h3>
-                <a href="mailto:{{ $user->email }}" data-toggle="tooltip" data-placement="top" title="Send a mail">
-                    <p>{{ $user->email }}</p>
-                </a>
+                <table class="table">
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ $user->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Surname</td>
+                        <td>{{ $user->surname }}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>Surname</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="mt-3 col">
-            @if (count($user->lessons))
-                <div class="bg-light p-3 shadow">
-                    <div class="text-center">
-                        <h1>
-                            {{ __('Lessons') }}    
-                        </h1>
-                    </div>                    
-    
-                    <div class="row">
-                        @foreach ($user->lessons as $lesson)
-                            <x-lesson :lesson="$lesson" col="12" />
-                        @endforeach
-                    </div>
-    
+    <div class="mt-3">
+        @if (count($user->lessons))
+            <div class="bg-light p-3 shadow">
+                <div class="text-center">
+                    <h1>
+                        {{ __('Lessons') }}
+                    </h1>
                 </div>
-            @else
-                <div class="jumbotron m-5 shadow">
-                    <h1>No lessons created</h1>
-                    <p class="lead">You didn't create neither a lesson.</p>
-                    <a class="btn btn-lg btn-primary" href="{{ route('lessons') }}?new" role="button">Create now</a>
+
+                <div class="row">
+                    @foreach ($user->lessons as $lesson)
+                        <x-lesson :lesson="$lesson" col="12" />
+                    @endforeach
                 </div>
-            @endif
-        </div>    
+
+            </div>
+        @else
+            <div class="jumbotron m-5 shadow">
+                <h1>No lessons created</h1>
+
+                @if ($user->isMe())
+                    <p class="lead">You didn't created any lessons</p>
+                    <a href="{{ route('lessons?new') }}">
+                        Let's create one
+                    </a>
+                @else
+                    <p class="lead">This account didn't created any lessons</p>
+                @endif
+            </div>
+
+        @endif
     </div>
 @endsection

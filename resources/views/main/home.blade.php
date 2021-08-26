@@ -17,7 +17,7 @@
                         <a class="pull-left" href="{{ route('course', $lesson->course) }}">
                             {{ $lesson->course->name }}
                         </a>
-                        <a href="{{ route('user', $lesson->user) }}" class="pull-right">
+                        <a href="{{ route('teacher', $lesson->user) }}" class="pull-right">
                             {{ $lesson->user->name }}
                         </a>
                     </div>

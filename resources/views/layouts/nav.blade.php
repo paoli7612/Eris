@@ -1,4 +1,4 @@
-<div class="bg-dark p-3 text-center fixed-top">
+<x-nb>
     @guest
         <x-nb-item name="welcome"/> 
     @else
@@ -12,6 +12,4 @@
     @else
         <x-nb-item name="login"/> 
     @endauth
-</div>
-<br>
-<br>
+</x-nb>

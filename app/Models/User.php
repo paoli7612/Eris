@@ -86,4 +86,9 @@ class User extends Authenticatable
     {
         return $this->type == 'admin';
     }
+
+    public function isMe()
+    {
+        return auth()->id() == $this->id;
+    }
 }
