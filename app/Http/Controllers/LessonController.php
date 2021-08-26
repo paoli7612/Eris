@@ -12,7 +12,9 @@ class LessonController extends Controller
     {
         return view('lesson.index', [
             'lessons' => Lesson::filter()->paginate(12)
-        ])->with('new', isset(request()['new']));
+        ])
+            ->with('new', isset(request()['new']))
+            ->with('asearch', isset(request()['title']));
     }
 
     public function show(Lesson $lesson)

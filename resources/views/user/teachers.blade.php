@@ -9,14 +9,16 @@
         <x-bc-item>Teachers</x-bc-item>
     </x-bc>
 
-    <form method="GET" class="my-3 col-12 col-sm-6 mx-auto">
-        <div class="input-group">
-            <input placeholder="{{ __('search...') }}" name="search" type="search" class="form-control" value="{{ request('search') ?? '' }}" />
-            <button type="button" class="btn btn-primary">
-                <i class="fa fa-search"></i>
-            </button>
-        </div>
-    </form>
+    <div class="row">
+        <form method="GET" class="mb-3 col-12 col-sm-6 mx-auto">
+            <div class="input-group">
+                <input placeholder="{{ __('search...') }}" name="search" type="search" class="form-control" value="{{ request('search') ?? '' }}" />
+                <button type="button" class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
 
     <div class="row">
         @foreach ($teachers as $teacher)
