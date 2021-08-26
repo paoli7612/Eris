@@ -22,7 +22,7 @@
 
         <div class="card-body row">
             <div class="col">
-                <x-dd-button id="collapseProf" icon="fa fa-user" title="{{ __('Teachers') }}" />
+                <x-dd-button id="collapseProf" icon="fa fa-user" title="{{ __('Teacher') }}" />
                 @if (auth()->id() == $lesson->user_id)
                     <x-dd-button id="collapseEdit" icon="fa fa-edit" title="{{ __('Edit') }}" />
                     <x-dd-button iid="badd" id="collapseAdd" icon="fa fa-plus" title="{{ __('Add material') }}" />
@@ -34,7 +34,7 @@
 
             <div class="col">
                 <x-dd-div id="collapseProf">
-                    <h1>{{ __('Teachers') }}</h1>
+                    <h1>{{ __('Teacher') }}</h1>
                     <table class="table">
                         <tr>
                             <td>
@@ -45,7 +45,6 @@
                             <td><img class="rounded-circle" width="50" src="{{ $lesson->user->img }}" alt="avatar"></td>
                         </tr>
                     </table>
-                    <x-dd-button id="collapsePartecipate" icon="fa fa-user-plus" title="Add" />
                     <x-dd-div id="collapsePartecipate">
                         <form action="" method="POST">
                             @csrf

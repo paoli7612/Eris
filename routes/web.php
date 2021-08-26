@@ -43,7 +43,7 @@ Auth::routes();
     /* delete? */ Route::get('/account/delete', [HomeController::class, 'delete'])->name('account.delete');
     /* delete! */ Route::post('/account/delete', [HomeController::class, 'remove'])->name('account.delete');
 
-    /* settings? */ Route::get('/account/settings', [HomeController::class, 'settings'])->name('settings');
+    /* settings? */ Route::get('/account/settings', [HomeController::class, 'settings'])->name('account.settings');
     /* settings! */ Route::put('/account/settings', [HomeController::class, 'edit']);
 
     /* logout? */ Route::get('/logout', [HomeController::class, 'logout']);

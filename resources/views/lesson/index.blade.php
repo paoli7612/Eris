@@ -20,7 +20,6 @@
             </div>
         </form>
     </div>
-    <h1>{{ $errors }}</h1>
 
     <div class="row">
         <div class="col-6 mb-3">
