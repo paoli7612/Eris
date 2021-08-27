@@ -13,7 +13,7 @@
         <x-bc-item>{{ $user->complete_name }}</x-bc-item>
     </x-bc>
 
-    @if (auth()->user()->isMe())
+    @if ($user->isMe())
         <div id="accordion">
             <x-dd-button id="collapseSettings" title="{{ __('Settings') }}" />
             <x-dd-button id="collapseLogout" title="{{ __('Logout') }}" />
@@ -54,10 +54,9 @@
                         <div class="row">
                             <div class="col">
                                 @if ($user->type == 'student')
-                                    <a href="{{ route('account.delete') }}" class="btn btn-outline-danger ">
-                                        <i class="fa fa-trash"></i>
-                                        Delete account
-                                    </a>
+                                    <x-dd-button id="collapseRem" title="{{ __('Delete account') }}"
+                                        color="outline-danger" text="normal" />
+
                                 @endif
 
                                 <a href="{{ route('teacher', $user) }}" class="btn btn-info text-white">
@@ -75,29 +74,12 @@
                 </form>
             </x-dd-div>
             <x-dd-div id="collapseLogout">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 mx-auto">
-                            <div class="card">
-                                <div class="card-header">
-                                    Logout
-                                </div>
-                                <div class="card-body">
-                                    Are you sure to logout?
-                                </div>
-                                <div class="card-footer small">
-                                    <form action="{{ route('account.logout') }}" method="POST">
-                                        @csrf
-                                        <input type="submit" class="btn btn-danger" value="{{ __('Logout') }}">
-                                        <x-dd-button id="collapseLogout" title="{{ __('Back') }}" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-q title="logout" ask="Are you sure to logout?" action="{{ route('account.logout') }}" />
+                
             </x-dd-div>
-
+            <x-dd-div id="collapseRem">
+                <x-q title="remove" ask="Are you sure to delete this account?" action="{{ route('account.delete') }}" />
+            </x-dd-div>
         </div>
     @endif
 
