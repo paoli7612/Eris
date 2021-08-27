@@ -62,44 +62,47 @@
                         
                     </x-dd-div>
                 </x-dd-div>
-                <x-dd-div id="collapseEdit">
-                    <h1>{{ __('Edit') }}</h1>
-                    <form action="{{ route('lesson', $lesson) }}" method="POST">
-                        @csrf
-                        @method('put')
-                        <input type="hidden" name="s" value="edit">
-                        <div class="form-group">
-                            <input type="text" name="title" placeholder="title" class="form-control" value="{{ $lesson->title }}">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="teacher" class="form-control"
-                                value="{{ auth()->user()->complete_name }}" disabled>
-                        </div>
-                        <div class="form-group">
-                            <select name="course_id" class="form-control">
-                                @foreach (App\Models\Course::all() as $course)
-                                    <option value="{{ $course->id }}">{{ $course->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group text-right">
-                            <x-dd-button id="collapseEdit" title="{{ __('Back') }}" />
-                            <input type="submit" value="{{ __('Save') }}" class="btn btn-success">
-                        </div>
-                    </form>
-                </x-dd-div>
                 <x-dd-div id="collapseAdd">
                     <h1>{{ __('Add') }}</h1>
                 </x-dd-div>
-                <x-dd-div id="collapseRem">
-                    <h1>{{ __('Delete lesson') }}</h1>
-                    <form action="{{ route('lesson.delete', $lesson) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <x-dd-button id="collapseRem" title="{{ __('Back') }}" />
-                        <input type="submit" value="Confirm" class="btn btn-danger">
-                    </form>
-                </x-dd-div>
+                @if ($lesson->user_id == auth()->id())
+                    <x-dd-div id="collapseEdit">
+                        <h1>{{ __('Edit') }}</h1>
+                        <form action="{{ route('lesson', $lesson) }}" method="POST">
+                            @csrf
+                            @method('put')
+                            <input type="hidden" name="s" value="edit">
+                            <div class="form-group">
+                                <input type="text" name="title" placeholder="title" class="form-control" value="{{ $lesson->title }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="teacher" class="form-control"
+                                    value="{{ auth()->user()->complete_name }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <select name="course_id" class="form-control">
+                                    @foreach (App\Models\Course::all() as $course)
+                                        <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group text-right">
+                                <x-dd-button id="collapseEdit" title="{{ __('Back') }}" />
+                                <input type="submit" value="{{ __('Save') }}" class="btn btn-success">
+                            </div>
+                        </form>
+                    </x-dd-div>
+                    <x-dd-div id="collapseRem">
+                        <h1>{{ __('Delete lesson') }}</h1>
+                        <form action="{{ route('lesson.delete', $lesson) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-dd-button id="collapseRem" title="{{ __('Back') }}" />
+                            <input type="submit" value="Confirm" class="btn btn-danger">
+                        </form>
+                    </x-dd-div>
+                @endif
+
             </div>
 
         </div>

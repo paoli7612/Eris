@@ -249,7 +249,7 @@ return [
         'teachers' => env('ICONS_TEACHERS', "archive"),
         'lessons' => env('ICONS_LESSONS', "archive"),
         'account' => env('ICONS_ACCOUNT', "archive"),
-        'login' => env('ICONS_ACCOUNT', "archive"),
+        'login' => env('ICONS_LOGIN', "archive"),
         'materials' => env('ICONS_MATERIAL', "archive")
     ],
 
