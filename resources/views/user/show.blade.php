@@ -45,7 +45,7 @@
                     @endforeach
                 </div>
             </div>
-        @else
+        @elseif($user->isTeacher())
             <div class="jumbotron m-5 shadow">
                 <h1>No lessons created</h1>
                 @if ($user->isMe())
