@@ -11,7 +11,7 @@
                         {{ $lesson->title }}
                     </div>
                     <div class="card-body description">
-                        {{ $lesson->description ?? 'No description'}}
+                        {{ $lesson->description ?? 'No description' }}
                     </div>
                     <div class="card-footer small ">
                         <a class="pull-left" href="{{ route('course', $lesson->course) }}">
@@ -24,5 +24,5 @@
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+
+    @endsection

@@ -4,19 +4,104 @@
 
 @section('content')
 
+    <x-tt name="account" text="normal">
+        {{ $user->type_ucf }}
+    </x-tt>
     <x-bc>
         <x-bc-item link="{{ route('home') }}">Home</x-bc-item>
         <x-bc-item link="{{ route('teachers') }}">Teachers</x-bc-item>
         <x-bc-item>{{ $user->complete_name }}</x-bc-item>
     </x-bc>
-    
+
     @if (auth()->user()->isMe())
-        <a href="{{ route('account.settings') }}" class="btn btn-info text-white mb-3 shadow">
-            Settings
-        </a>
+        <div id="accordion">
+            <x-dd-button id="collapseSettings" title="{{ __('Settings') }}" />
+            <x-dd-button id="collapseLogout" title="{{ __('Logout') }}" />
+            <x-dd-div id="collapseSettings">
+                <form action="{{ route('account.settings') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('put')
+
+                    <div class="mx-auto col-6 bg-light p-3 shadow">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                        id="name" value="{{ $user->name }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Surname</label>
+                                    <input type="text" name="surname"
+                                        class="form-control @error('surname') is-invalid @enderror" id="name"
+                                        value="{{ $user->surname }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" class="form-control" id="email"
+                                        value="{{ $user->email }}" disabled>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <img src="{{ $user->img }}" class="rounded-circle w-100 shadow" alt="avatar">
+                                <button type="button" class="btn btn-info mt-3" onclick="$('#avatar').click()">
+                                    {{ __('Change') }}
+                                </button>
+                                <input id="avatar" name="avatar" type="file" class="form-control mt-3 d-none" onchange="">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                @if ($user->type == 'student')
+                                    <a href="{{ route('account.delete') }}" class="btn btn-outline-danger ">
+                                        <i class="fa fa-trash"></i>
+                                        Delete account
+                                    </a>
+                                @endif
+
+                                <a href="{{ route('teacher', $user) }}" class="btn btn-info text-white">
+                                    <i class="fa fa-return"></i>
+                                    Back
+                                </a>
+
+                                <button type="submit" class="btn btn-success ">
+                                    <i class="fa fa-save"></i>
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </x-dd-div>
+            <x-dd-div id="collapseLogout">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mx-auto">
+                            <div class="card">
+                                <div class="card-header">
+                                    Logout
+                                </div>
+                                <div class="card-body">
+                                    Are you sure to logout?
+                                </div>
+                                <div class="card-footer small">
+                                    <form action="{{ route('account.logout') }}" method="POST">
+                                        @csrf
+                                        <input type="submit" class="btn btn-danger" value="{{ __('Logout') }}">
+                                        <x-dd-button id="collapseLogout" title="{{ __('Back') }}" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </x-dd-div>
+
+        </div>
     @endif
 
-    <div class="bg-light p-3 border shadow">
+    <div class="bg-light p-3 border shadow mt-3">
         <div class="row px-3">
             <div class="col-3">
                 <img src="{{ $user->img }}" class="rounded-circle w-100 shadow" alt="avatar">
@@ -24,7 +109,7 @@
             <div class="col-9 text-right">
                 <b>Name</b>: {{ $user->complete_name }} <br>
                 <b>Email</b>: <a href="mailto:{{ $user->email }}">{{ $user->email }}</a> <br>
-                            
+
                 @if (auth()->user()->isStudent())
                     <h1>student</h1>
                 @endif

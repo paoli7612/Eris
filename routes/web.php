@@ -46,5 +46,5 @@ Auth::routes();
     /* settings? */ Route::get('/account/settings', [HomeController::class, 'settings'])->name('account.settings');
     /* settings! */ Route::put('/account/settings', [HomeController::class, 'edit']);
 
-    /* logout? */ Route::get('/logout', [HomeController::class, 'logout']);
+    /* logout? */ Route::get('/logout', [HomeController::class, 'logout'])->name('account.logout');
     /* logout! */

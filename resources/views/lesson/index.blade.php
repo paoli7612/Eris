@@ -21,7 +21,7 @@
         </form>
     </div>
 
-    <div class="row">
+    <div class="row" id="accordion">
         <div class="col-6 mb-3">
             @auth @if (auth()->user()->type == 'teacher')
                 <x-dd-button iid="bnew" id="collapseNew" icon="fa fa-plus" title="{{ __('New lesson') }}" />
