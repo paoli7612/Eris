@@ -40,11 +40,6 @@ Auth::routes();
     /* delete */ Route::delete('/lessons/{lesson}', [LessonController::class, 'delete'])->name('lesson.delete');
 
 /* Account */ Route::get('/account', [UserController::class, 'show'])->name('account');
-    /* delete? */ Route::get('/account/delete', [HomeController::class, 'delete'])->name('account.delete');
     /* delete! */ Route::post('/account/delete', [HomeController::class, 'remove'])->name('account.delete');
+    /* settings! */ Route::put('/account/settings', [UserController::class, 'edit'])->name('account.settings');
 
-    /* settings? */ Route::get('/account/settings', [HomeController::class, 'settings'])->name('account.settings');
-    /* settings! */ Route::put('/account/settings', [HomeController::class, 'edit']);
-
-    /* logout? */ Route::get('/logout', [HomeController::class, 'logout'])->name('account.logout');
-    /* logout! */
