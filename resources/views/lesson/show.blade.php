@@ -11,7 +11,7 @@
     </x-bc>
 
     <div class="card shadow">
-        <div class="card-header ">
+        <div class="card-header">
             <h2 class="pull-left">
                 {{ $lesson->title }}
             </h2>
@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        <div class="card-body row">
+        <div class="card-body row" id="accordion">
             <div class="col">
                 <x-dd-button id="collapseProf" icon="fa fa-user" title="{{ __('Teacher') }}" />
                 @if (auth()->id() == $lesson->user_id)
@@ -93,13 +93,11 @@
                         </form>
                     </x-dd-div>
                     <x-dd-div id="collapseRem">
-                        <h1>{{ __('Delete lesson') }}</h1>
-                        <form action="{{ route('lesson.delete', $lesson) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <x-dd-button id="collapseRem" title="{{ __('Back') }}" />
-                            <input type="submit" value="Confirm" class="btn btn-danger">
-                        </form>
+                        <x-q title="{{ __('Remove lesson') }}"
+                            ask="Are your sure to delete this lesson?"
+                            action="{{ route('lesson.delete', $lesson) }}"
+                            method="DELETE"
+                            col="12"/>
                     </x-dd-div>
                 @endif
 
