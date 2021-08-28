@@ -100,9 +100,7 @@
                             col="12"/>
                     </x-dd-div>
                 @endif
-
             </div>
-
         </div>
     </div>
 
