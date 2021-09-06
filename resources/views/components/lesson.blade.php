@@ -5,7 +5,7 @@
             {{ $lesson->title }}
         </div>
         <div class="card-body">
-            {{ $lesson->description }}
+            {{ $lesson->description ?? 'no description' }}
         </div>
     </div>
 </a>

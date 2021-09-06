@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class HomeController extends Controller
     public function home()
     {
         return view('main.home', [
-            'lesson' => Lesson::latest()->first()
+            'lessons' => Lesson::latest()->take(3)->get(),
+            'courses' => Course::all()->random(3)
         ]);
     }
 
@@ -57,6 +59,4 @@ class HomeController extends Controller
     {
         return view('main.logout');
     }
-
-    
 }
