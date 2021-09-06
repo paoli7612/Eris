@@ -22,10 +22,10 @@
                 @include('forms.user-setting')
             </x-dd-div>
             <x-dd-div id="collapseLogout">
-                <x-q title="logout" ask="Are you sure to logout?" action="{{ route('logout') }}" />
+                <x-q title="logout" ask="Are you sure to logout?" action="{{ route('logout') }}"  method="POST" />
             </x-dd-div>
             <x-dd-div id="collapseRem">
-                <x-q title="remove" ask="Are you sure to delete this account?" action="{{ route('account.delete') }}" />
+                <x-q title="remove" ask="Are you sure to delete this account?" action="{{ route('account.delete') }}" method="POST"/>
             </x-dd-div>
         </div>
     @endif
