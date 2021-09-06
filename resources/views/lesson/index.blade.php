@@ -30,6 +30,8 @@
         </div>
         <div class="col">
             @auth @if (auth()->user()->type == 'teacher')
+                <script src="{{ asset('js/helper.js') }}" />
+
                 <x-dd-div id="collapseNew">
                     <div class="p-3 bg-white shadow">
                         {{ __('New lesson') }}
@@ -49,25 +51,6 @@
                                 <input type="text" name="teacher" class="form-control"
                                     value="{{ auth()->user()->complete_name }}" disabled>
                             </div>
-                            <script>
-                                function string_to_slug(str) {
-                                    str = str.replace(/^\s+|\s+$/g, ''); // trim
-                                    str = str.toLowerCase();
-
-                                    // remove accents, swap ñ for n, etc
-                                    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-                                    var to = "aaaaeeeeiiiioooouuuunc------";
-                                    for (var i = 0, l = from.length; i < l; i++) {
-                                        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-                                    }
-
-                                    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-                                        .replace(/\s+/g, '-') // collapse whitespace and replace by -
-                                        .replace(/-+/g, '-'); // collapse dashes
-
-                                    return str;
-                                }
-                            </script>
                             <div class="form-group">
                                 <select name="course_id" class="form-control">
                                     @foreach (App\Models\Course::all() as $course)

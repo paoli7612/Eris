@@ -44,11 +44,14 @@ class LessonController extends Controller
 
     public function edit(Lesson $lesson)
     {
+        $validate = request()->validate([
+            'title' => 'required|unique:lessons',
+            'slug' => 'required|unique:lessons'
+        ]);
         if (request('s') == 'edit') {
             $lesson->update([
-                'title' => request()->validate([
-                        'title' => 'required|unique:lessons'
-                    ])['title']
+                'title' => $validate['title'],
+                'slug' => $validate['slug']
             ]);
         } else {
             dd(request('user_id'));

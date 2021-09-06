@@ -59,7 +59,7 @@
                                 <i class="fa fa-plus"></i>
                             </button>
                         </form>
-                        
+
                     </x-dd-div>
                 </x-dd-div>
                 @if (auth()->id() == $lesson->user_id)
@@ -76,7 +76,12 @@
                             @method('put')
                             <input type="hidden" name="s" value="edit">
                             <div class="form-group">
-                                <input type="text" name="title" placeholder="title" class="form-control" value="{{ $lesson->title }}">
+                                <input type="text" onkeyup="$('#slug')[0].value = string_to_slug(this.value)" name="title"
+                                    placeholder="title" class="form-control" value="{{ $lesson->title }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="slug" name="slug" class="form-control bg-grey" value="{{ $lesson->slug }}"
+                                    readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" name="teacher" class="form-control"
