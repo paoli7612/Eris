@@ -30,7 +30,7 @@
         </div>
         <div class="col">
             @auth @if (auth()->user()->type == 'teacher')
-                <script src="{{ asset('js/helper.js') }}" />
+                <script src="{{ asset('js/helper.js') }}"></script>
 
                 <x-dd-div id="collapseNew">
                     <div class="p-3 bg-white shadow">
