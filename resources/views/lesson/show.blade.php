@@ -3,7 +3,7 @@
 @section('title', $lesson->title)
 
 @section('content')
-
+    <script src="{{ asset('js/helper.js') }}" />
     <x-bc>
         <x-bc-item link="{{ route('home') }}">Home</x-bc-item>
         <x-bc-item link="{{ route('lessons') }}">Lessons</x-bc-item>

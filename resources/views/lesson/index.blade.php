@@ -98,7 +98,6 @@
 
     </div>
 
-
     <div class="row">
         @foreach ($lessons as $lesson)
             <x-lesson :lesson="$lesson" />
