@@ -107,6 +107,10 @@
 
     {{ $lessons->links() }}
 
+@endsection
+
+@section('next')
+    
     @if ($new)<script> $(document).ready(function() { $('#bnew').click() }); </script> @endif
     @if ($asearch) <script> $(document).ready(function() { $('#basearch').click() }); </script> @endif
 
