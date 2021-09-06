@@ -32,7 +32,7 @@
                 @endif
             </div>
 
-            <div class="col">
+            <div class="col" id="accordion">
                 <x-dd-div id="collapseProf">
                     <h1>{{ __('Teacher') }}</h1>
                     <table class="table">
@@ -62,10 +62,13 @@
                         
                     </x-dd-div>
                 </x-dd-div>
-                <x-dd-div id="collapseAdd">
-                    <h1>{{ __('Add') }}</h1>
-                </x-dd-div>
-                @if ($lesson->user_id == auth()->id())
+                @if (auth()->id() == $lesson->user_id)
+                    <x-dd-div id="collapseAdd">
+                        <h1>{{ __('Add') }}</h1>
+                        <div class="p-3 rounded bg-danger">
+                            Work in progress
+                        </div>
+                    </x-dd-div>
                     <x-dd-div id="collapseEdit">
                         <h1>{{ __('Edit') }}</h1>
                         <form action="{{ route('lesson', $lesson) }}" method="POST">
