@@ -9,14 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function settings(User $user)
-    {
-        return view('user.settings', [
-            'user' => $user
-        ]);
-    }
-
-    public function index(Request $request)
+    public function index()
     {
         return view('user.teachers', [
             'teachers' => User::teachers()->paginate(12)->withQueryString()
@@ -32,5 +25,28 @@ class UserController extends Controller
         return view('user.show', [
             'user' => $user->name ? $user : auth()->user()
         ]);
+    }
+
+    public function edit(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+            $imageName = time().'.'.$request->avatar->extension();
+            $request->avatar->move(public_path('images'), $imageName);
+        }
+        
+        if (auth()->user()->name != request('name')) {
+            request()->validate([
+                'name' => 'required|string|unique:users,name|alpha',
+                'surname' => 'required|string|unique:users,name|alpha'
+            ]);
+        }
+
+        auth()->user()->update([
+            'name' => request('name'),
+            'wsurname' => request('surname'),
+            'avatar' => $imageName ?? null
+        ]);
+
+        return redirect()->route('account')->with('success', 'updated account');
     }
 }

@@ -58,24 +58,5 @@ class HomeController extends Controller
         return view('main.logout');
     }
 
-    public function edit(Request $request)
-    {
-        if ($request->hasFile('avatar')) {
-            $imageName = time().'.'.$request->avatar->extension();
-            $request->avatar->move(public_path('images'), $imageName);
-        }
-        
-        if (auth()->user()->name != request('name')) {
-            request()->validate([
-                'name' => 'required|string|unique:users,name|alpha_num'
-            ]);
-        }
-
-        auth()->user()->update([
-            'name' => request('name'),
-            'avatar' => $imageName ?? null
-        ]);
-
-        return redirect()->route('account')->with('success', 'updated account');
-    }
+    
 }
