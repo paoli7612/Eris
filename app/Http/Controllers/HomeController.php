@@ -21,7 +21,8 @@ class HomeController extends Controller
     {
         return view('main.home', [
             'lessons' => Lesson::latest()->take(3)->get(),
-            'courses' => Course::all()->random(3)
+            'courses' => Course::all()->random(3),
+            'teachers' => User::teachers()->get()->random(3),
         ]);
     }
 
