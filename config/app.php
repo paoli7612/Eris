@@ -239,7 +239,7 @@ return [
         'lessons' => env('COLORS_LESSONS', "success"),
         'account' => env('COLORS_ACCOUNT', "warning"),
         'login' => env('COLORS_ACCOUNT', "warning"),
-        'materials' => env('COLORS_MATERIAL', "dark")
+        'materials' => env('COLORS_MATERIAL', "dark"),
     ],
 
     'icons' => [
@@ -247,6 +247,7 @@ return [
         'welcome' => env('ICONS_HOME', "archive"),
         'courses' => env('ICONS_COURSES', "archive"),
         'teachers' => env('ICONS_TEACHERS', "archive"),
+        'teacher' => env('ICONS_TEACHER', "archive"),
         'lessons' => env('ICONS_LESSONS', "archive"),
         'account' => env('ICONS_ACCOUNT', "archive"),
         'login' => env('ICONS_LOGIN', "archive"),

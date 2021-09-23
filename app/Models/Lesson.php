@@ -36,6 +36,11 @@ class Lesson extends Model
         if (request('search')) {
             $query->where('title', 'like', "%". request('search') . "%");
         }
+        foreach (['title', 'description'] as $s) {
+            if (request($s)) {
+                $query->where($s, 'like', "%". request($s) . "%");
+            }
+        }
     }
 
     public function scopeOf($query, $id)

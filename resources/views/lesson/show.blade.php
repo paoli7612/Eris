@@ -94,6 +94,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <textarea name="description" class="form-control">{{ $lesson->description }}</textarea>
+                            </div>
                             <div class="form-group text-right">
                                 <x-dd-button id="collapseEdit" title="{{ __('Back') }}" />
                                 <input type="submit" value="{{ __('Save') }}" class="btn btn-success">
@@ -111,13 +114,4 @@
             </div>
         </div>
     </div>
-
-    @if ($add)
-        <script>
-            $(document).ready(function() {
-                $('#badd').click()
-            });
-        </script>
-    @endif
-
 @endsection
