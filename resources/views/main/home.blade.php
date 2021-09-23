@@ -41,6 +41,25 @@
             
 
         </div>
+        <div class="row">
+            <div class="col-11">
+                <div class="row">
+                    @foreach ($teachers as $teacher)
+                        <x-user :user="$teacher" />
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="col-1">
+                <a href="{{ route('teachers') }}" class="col-xl-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card {{ Colors::bg('teachers') }} text-white">
+                        <div class="card-header">
+                            <i class="fa fa-arrow-right"></i> ...
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 
 @endsection
