@@ -6,8 +6,8 @@
             <img src="{{ $user->img }}" alt="avatar" width="32" class="rounded-circle pull-right">
             {{ $user->complete_name }}
         </div>
-        <div class="card-body">
-            {{ count($user->lessons) }}
+        <div class="card-body text-center">
+            Lezioni create: <b>{{ count($user->lessons) }}</b>
         </div>
     </div>
 </a>
